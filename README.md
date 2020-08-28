@@ -4,7 +4,7 @@ This document is to describe the "2nd" version of Dark. The intent is to documen
 
 This document is being written simultaneously with "writing" a few Dark applications. I say writing because they are being written not against a real implementation, but on paper, to try and articulate the design of the language without getting bogged down on the implementation \(v1 of Dark has an implementation which I already have a lot of experience with\).
 
-_**Note:** this document is organized round Dark features, for example, the Strings page discusses v1 problems, solutions, detailed implementation, etc, all in one doc._
+_\*\*\*\*_
 
 ## Dark v2
 
@@ -33,6 +33,8 @@ Dark v1 is very much a "product" - each feature was built and supported directly
 
 For example, instead of having a dozen built-in refactoring commands, we'll expose the Dark language within the editor, allowing people to write transformations in the editor, in Dark itself.
 
+Many of the things that are built into Dark could be put in the package manager, such as refactoring commands, templates, etc.
+
 Similarly, writing as much as possible in Dark itself.
 
 ### Continuous Delivery
@@ -57,7 +59,7 @@ Right now, there are no access types and Dark can only be accessed by signed-in 
 
 * users trying dark without logging in
 * using the editor \(including live values\) embedded in other docs
-* public canvases that can be edited by anybody
+* public canvases that can be edited by anybody \(safely, that is, so solving things like access to traces, passwords, etc\)
 * granular ACLs
 
 ### Better infrastructure
@@ -66,7 +68,7 @@ Dark v1 was built quickly and hackily. We'd like to use:
 
 * an async framework
 * we plan to abandon OCaml for the backend for Rust, as the libraries, community, run-time, etc, are far far more mature in Rust.
-* GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that Loothe client should use graphQL to reduce the overhead of 
+* GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that.
 
 ## High level goals of Dark
 

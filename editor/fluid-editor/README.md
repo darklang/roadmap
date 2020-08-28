@@ -1,0 +1,18 @@
+# Fluid editor
+
+### AstRefs first
+
+TODO
+
+### All definitions are use fluid
+
+### Super-impose abilities
+
+* dragging expressions or parameters to a different order can be done 
+
+### Keyboard shortcuts for refactoring
+
+### Formatting
+
+Dark automatically formats your code. Unlike prettier, black, rustfmt, gofmt, etc, it does not parse and reemit text. Rather it converts to AST into tokens, and lays them out nicely in the editor.
+
