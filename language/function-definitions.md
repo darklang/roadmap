@@ -26,8 +26,9 @@ TODO:
 package manager from the start
 can we implement built-in Dark functions via the package manager
 what is the story with namespacing
-how do users suggest
-How should tests work? Should they be for a specific  
+How should tests work? Should they be for a specific
+TODO: partial application/currying
+TODO: optional parameters
 ```
 
 ### Versioning:
@@ -40,9 +41,7 @@ How should tests work? Should they be for a specific
 
 ### Package manager
 
-We want a package manager, so stdlibs need to fit into this. The namespace of stdlib is `dark/stdlib/`. Because functions 
-
-How 
+We want a package manager, so stdlibs need to fit into this. The namespace of stdlib is `dark/stdlib/`. Because functions  
 
 
 

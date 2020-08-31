@@ -1,9 +1,8 @@
 # Refactoring commands
 
-* Editing commands should 
 * Editing commands should be part of the main autocomplete, not special
-* 
-### 
+
+
 
 ### What commands should be available?
 
