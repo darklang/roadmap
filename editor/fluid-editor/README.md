@@ -20,7 +20,11 @@ Operational transforms
 
 Size of edits
 
-Undo was broken
+### Undo was broken for function/DB renames
+
+* Can be solved by using IDs to refer to DBs and functions from a handler. Then renames aren't needed, and won't be part of the undo stack
+
+
 
 ### History
 
