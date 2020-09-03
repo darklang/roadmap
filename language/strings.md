@@ -1,10 +1,10 @@
 # Strings
 
-## Problems in v1
+## Dark v1 problems
 
 ### Concatenation
 
-Users currently have to do concatenation like so:
+**Problem:** Users currently have to do concatenation like so:
 
 ```text
 "I am "
@@ -14,7 +14,7 @@ Users currently have to do concatenation like so:
 |> ++ " years old"
 ```
 
-Instead, we'd like to support string interpolation
+**Solution:** Instead, we'd like to support string interpolation
 
 ```text
 "I am ${user.name} and I am ${user.age} years old"
@@ -22,19 +22,36 @@ Instead, we'd like to support string interpolation
 
 ### Special characters
 
-To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
+**Problem:** To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
+
+**Solution:** support using escape characters \(`\`\) to support them \(`\n, \r, \t, \\, \", etc`\). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below. 
 
 ### Emoji
 
-I think the editor does not support proper unicode - I'm not sure.
+**Problem:** I think the editor does not support proper unicode - I'm not sure.
+
+**Solution:** the editor should support entering all LTR Unicode text \(RTL can wait until Dark v3\) - if you can type it into the browser, we should support it in the editor.
 
 ### String length
 
-String length is determined in `O(n)` time. Using a better string implementation would help solve this.
+**Problem:** String length is determined in `O(n)` time.
+
+**Solution:** String length should be cached as part of the string. Using a better string implementation would help solve this.
 
 ### Shortened display
 
-We wrap strings at 40 characters. We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
+**Problem:** We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:
+
+* sometimes the string is only 41 character and it looks bad
+* sometimes the line has more room than 40 characters and it looks dumb
+* sometimes the line has builtin line breaks, but it breaks off length instead
+* *  We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
+
+### Cursor affinity
+
+**Problem:** the cursor can be in two different places which logically mean the same thing \(the end of a line, and the start of the subsequent line\). This leads to "cursor affinity" problems.
+
+**Solution:** TODO: this was written down somewhere.
 
 ## v2 Language definition
 

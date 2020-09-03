@@ -14,3 +14,7 @@ An example:
 
 This is a simple app that probably does something like project tracking, and it has 3 services: users, templates, and projects. Each of the HTTP routes is clustered around the database that they affect. Some of the DBs and routes have stats showing. The lines between the different routes represent traffic. 
 
+TODO:
+
+* loading partial canvas
+
