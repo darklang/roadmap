@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Goals](README.md)
-* [Dark v1 problems](dark-v1-problems.md)
+* [Dark v2](README.md)
 * [Language](language/README.md)
   * [Ints](language/ints.md)
   * [Strings](language/strings.md)

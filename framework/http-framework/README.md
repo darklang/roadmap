@@ -19,7 +19,7 @@ Users could not change how we processed a HTTP request
 * Couldn't match against multiple segments
 * No way to match arbitrary HTTP methods
 
-
+TODO: JSON serialization/deserialization
 
 ## **Solution 1: middleware**
 

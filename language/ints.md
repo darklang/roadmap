@@ -1,15 +1,40 @@
 # Ints
 
-## v1 Problems
+## Dark v1 Problems
 
-* [x] Dark integers should be infinite precision \(they are currently 63 bit\)
-* [x] Arithmetic that leads to errors should be handled with Results
-* [ ] How should ints that are larger than 53 bits \(or whatever the JSON size is\) interact with JSON.
-* [ ] The fluid editor does not handle negative integers
+### Infinite precision
 
- 
+**Problem:** Dark integers are 63-bit integers, they should be infinite precision.
 
-## v2 language Definition
+**Solution:** make them infinite precision instead using a BigNum library
+
+### JSON and integer size
+
+**Problem:** when we automatically coerce integers to/from JSON, integers above 53 bits do not fit into regular JSON \(and when parsing might be represented as strings\)
+
+**Solution**:
+
+* Integer conversion into JSON should use a string if appropriate.
+* Integer conversion from JSON should always be typed, and so if there's an int it can be parsed from a stringified integer literal if appropriate
+
+### Negative numbers
+
+**Problem:** The fluid editor does not allow negative numbers.
+
+**Solution:** a UX for negative numbers is described below, it was quite straightforward.
+
+### Arithmetic errors
+
+**Problem:** some arithmetic operations can lead to errors:
+
+* division by 0
+* modulus by 0
+
+**Solution:** these should return `Result (Int, IntError)`. One problem here is how we can make the  error rail less cumbersome so that this isn't really irritating to handle.
+
+## v2 Spec
+
+### v2 Language definition
 
 ```text
 type Expr = 
@@ -29,7 +54,7 @@ type DType =
   | ...
 ```
 
-## v2 Standard library: dark/stdlib/Int
+### v2 Standard library: dark/stdlib/Int
 
 ```text
 type Error =
@@ -61,7 +86,7 @@ Int::sum(List Int: a) -> Int
 
 ```
 
-## v2 Editor changes
+### v2 Editor changes
 
 * support negative integers
   * allow entering `-` at the start of an integer to convert it to a negative number
@@ -69,5 +94,7 @@ Int::sum(List Int: a) -> Int
   * if typing `-` in a position that is not a binop, start a partial \(already happens\). Once a partial of `-`gets a number added, turn it into an integer
 * remove the conversion when a number gets too big - no longer needed for infinite precision ints
 
+### Json serialization changes
 
+**TODO:** wait til we figure out how JSON serialization works in Dark v2
 
