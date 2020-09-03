@@ -6,7 +6,7 @@
 
 **Problem:** function definitions were in the "function space", which confused people.
 
-**Solution:** the function space is not important, but keeping functions off of the main canvas is a key part of the [Infrastructure view](../editor/canvas.md) metaphor. I think we need to make it clearer whats happening here, possibly by making better animations as we transition from handler to caller.
+**Solution:** the function space is not important, but keeping functions off of the main canvas is a key part of the [Infrastructure view](../../editor/canvas.md) metaphor. I think we need to make it clearer whats happening here, possibly by making better animations as we transition from handler to caller.
 
 I welcome other suggestions for how to improve this.
 

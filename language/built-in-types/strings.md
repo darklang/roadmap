@@ -56,7 +56,7 @@
 ## v2 Language definition
 
 ```text
-type string = // unicode supporting type
+type string = # unicode supporting type, should include length
 
 type stringSegment = 
   | Text of string 
@@ -81,11 +81,13 @@ type DType =
 
 Escaped characters can be stored as their actual values in the string, and displayed/entered differently in the editor.
 
-Strings should store their lengths.
-
 ## v2 Standard library
 
 ```text
+type StringError = 
+  | FloatConversionError
+  | IntegerConversionError
+
 // same as v1
 String::append_v1(String: s1, String: s2) -> String
 String::base64Decode(String: s) -> String
@@ -110,13 +112,12 @@ String::reverse(String: string) -> String
 String::slice(String: string, Int: from, Int: to) -> String
 String::slugify_v2(String string) -> String
 String::split(String s, String separator) -> List
-String::startsWith(String subject, String prefix) -> Bool
-String::toBytes(String str) -> Bytes
-String::toFloat_v1(String s) -> Result
-String::toInt_v1(String s) -> Result
-String::toList_v1(String s) -> List
-String::toLowercase_v1(String s) -> String
-String::toUUID_v1(String uuid) -> Result
+String::startsWith(String: subject, String: prefix) -> Bool
+String::toBytes(String: str) -> Bytes
+String::toFloat_v1(String: s) -> Result (Float, StringError)
+String::toInt_v1(String: s) -> Result (Float, StringError)
+String::toList_v1(String: s) -> List Character
+String::toLowercase_v1(String: s) -> String
 String::toUppercase_v1(String s) -> String
 String::trim(String str) -> String
 String::trimEnd(String str) -> String
@@ -126,6 +127,8 @@ String::trimStart(String str) -> String
 String::htmlEscape(String html) -> String
 String::newline() -> String
 
+// Move to UUID module
+String::toUUID_v1(String: uuid) -> Result (UUID, StringError)
 
 
 // Different in v2
