@@ -1,4 +1,4 @@
-# Dark v2 modules
+# Built-in modules
 
 {% page-ref page="../../language/built-in-types/ints.md" %}
 

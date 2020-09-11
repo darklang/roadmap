@@ -1,2 +1,2 @@
-# Dictionaries
+# Dictionary
 

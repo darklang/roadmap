@@ -1,4 +1,4 @@
-# Tuples
+# Tuple
 
 Dark v1 does not have tuples. Dark v1 allowed different types in the same list, though, which was not a great experience as the rest of the language mostly expected the language to be typed.
 

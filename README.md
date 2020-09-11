@@ -1,35 +1,33 @@
-# Dark v2
+# Goals of Dark v2
 
-This document is to describe the "2nd" version of Dark. The intent is to document the vision for Dark in the future, which can then be used to design a path from v1 to v2.
+## Overall goals of Dark
 
-This document is being written simultaneously with "writing" a few Dark applications. I say writing because they are being written not against a real implementation, but on paper, to try and articulate the design of the language without getting bogged down on the implementation \(v1 of Dark has an implementation which I already have a lot of experience with\).
-
-After this chapter, the rest of this document is organized by feature - we discuss what we learned from Dark v1 and what problems users experienced, then explain what we believe the solution is. Finally, each section will have a spec for v2 of the feature. This will expand to \(or possibly link to\) an implementation plan to migrate from v1 to v2.
-
-## Goals of Dark v2
-
-### Overall goals of Dark
-
-Obviously, the goals of Dark v2 are to support the goals of Dark. Those goals are to remove accidental complexity from writing backends, via:
+Dark's goals are to remove accidental complexity from writing backends, via:
 
 * Instant infrastructure: create and scale infrastructure without thinking about it
 * Deployless: Changes are safely deployed to production instantly
-* Trace-drive development: Live values / introspection / traces
-* Integrated tooling: by integrating the editor, programming language and infrastructure, reducing a huge amount of surface area
 * making APIs as easy to call as functions
+* Trace-drive development: use live requests to speed/improve development
+* Integrated tooling: by integrating the editor, programming language and infrastructure, reducing a huge amount of surface area that can cause mistakes or poor coding experience
+
+
+
+## Specific Goals of Dark v2
 
 ### Get to Product market fit
 
-Currently, we get 10 user signups a day, and on average, 0 of them stick. We do have developers who love Dark, but not enough. To get developers loving Dark, we need two major things:
+Currently, we get 10 user signups a day, and on average, 0 of them stick. We do have developers who love Dark, but not enough.
 
-* developers need access to a large library of functions/modules/packages to access 3rd party services, such as Stripe, Twilio, Slack, etc.
-* developers need to be able to trivially set up a user account system for their users
+The specific problem is that developers trying Dark today must trade one set of accidental complexity for another. While they get the advantages of Dark and they typically resonate with them, they also lose the advantages they have in most alternatives:
 
-These are believed to be the major missing features. However, these missing features -- in order to be implemented with a great UX -- need the language and platform to expand to 
+* developers need access to a large library of functions/modules/packages to access 3rd party services, such as Stripe, Twilio, Slack, etc -- this sort of thing is trivial in almost all other languages
+* developers need to be able to trivially set up a user account system for their users \(such as what they can accomplish using Firebase, Rails, Django, etc\)
+
+These are believed to be the major missing features. However, these missing features -- in order to be implemented with a great UX -- need the language and platform to expand to support having them be a great experience.
 
 ### Fix issues from Dark v1
 
-"v1" of Dark refers to the current state of Dark in August 2020. While this isn't really a v1, it serves as a reference point to discuss the shortcomings and challenges that we discovered by people using, creating, and maintaining it. Most parts of this document start by listing the problems in v1, and [Dark v1 problems]() attempts to discuss overarching problems that users experienced.
+"v1" of Dark refers to the current state of Dark in August 2020. While this isn't really a v1, it serves as a reference point to discuss the shortcomings and challenges that we discovered by people using, creating, and maintaining it. Most parts of this document start by listing the problems in v1, and this document attempts to discuss overarching problems that users experienced.
 
 ### Platformization
 
@@ -64,19 +62,11 @@ Right now, there are no access types and Dark can only be accessed by signed-in 
 * users trying dark without logging in
 * using the editor \(including live values\) embedded in other docs
 * public canvases that can be edited by anybody \(safely, that is, so solving things like access to traces, passwords, etc\)
-* granular ACLs
-
-### Better infrastructure
-
-Dark v1 was built quickly and hackily. We'd like to use:
-
-* an async language/framework so that things like calling HTTP functions do not use all the resources, and so that functions like `sleep` can be supported
-* we plan to abandon OCaml for the backend for Rust, as the libraries, community, run-time, etc, are far far more mature in Rust.
-* GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that.
+* granular ACLs for organizations
 
 ### Make Dark more robust
 
-Dark was brittle in a number of senses. We cut every corner we could in an effort to get Dark far enough along to get feedback about how it works. Though we went back and reworked several components \(in some cases several times\) and iterated quite broadly, many problems surfaced because components of Dark were MVP quality.
+Dark v1 was built quickly and hackily, and was brittle in a number of senses. We cut every corner we could in an effort to get Dark far enough along to get feedback about how it works. Though we went back and reworked several components \(in some cases several times\) and iterated quite broadly, many problems surfaced because components of Dark were MVP quality.
 
 This is true of product and language features \(eg the error rail and feature flags\), as well as simple usability \(eg traces can be created, but not edited, searched, graphed, named, saved, etc\). In a sense, we often only implement the "C" and "R" of CRUD.
 
@@ -85,9 +75,9 @@ I want to fully think through the problem spaces and their solutions, to deliver
 A number of examples:
 
 * use a real type system to avoid all the hacks in v1
-* have an async implementation of the runtime to scale better
-
-
+* use an async language/framework so that things like calling HTTP functions do not use all the resources, and so that functions like `sleep` can be supported
+* we plan to abandon OCaml for the backend for Rust, as the libraries, community, run-time, etc, are far far more mature in Rust.
+* GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that.
 
 ### Improve the feeling of safety while coding
 

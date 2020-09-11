@@ -1,4 +1,4 @@
-# Characters
+# Character
 
 Characters should be an Extended Grapheme Cluster, corresponding to a single display character.
 

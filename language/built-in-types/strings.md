@@ -1,4 +1,4 @@
-# Strings
+# String
 
 ## Dark v1 problems
 
@@ -20,11 +20,15 @@
 "I am ${user.name} and I am ${user.age} years old"
 ```
 
+**Status: language definition spec'ed. Interaction model not spec'ed**
+
 ### Special characters
 
 **Problem:** To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
 
-**Solution:** support using escape characters \(`\`\) to support them \(`\n, \r, \t, \\, \", etc`\). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below. 
+**Solution:** support using escape characters \(`\`\) to support them \(`\n, \r, \t, \\, \", etc`\). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
+
+**Status: language definition spec'ed, interaction model not spec'ed**
 
 ### Emoji
 
@@ -32,11 +36,15 @@
 
 **Solution:** the editor should support entering all LTR Unicode text \(RTL can wait until Dark v3\) - if you can type it into the browser, we should support it in the editor.
 
+**Status: problem not understood, not spec'ed**
+
 ### String length
 
 **Problem:** String length is determined in `O(n)` time.
 
 **Solution:** String length should be cached as part of the string. Using a better string implementation would help solve this.
+
+**Status: spec'ed**
 
 ### Shortened display
 
@@ -45,7 +53,11 @@
 * sometimes the string is only 41 character and it looks bad
 * sometimes the line has more room than 40 characters and it looks dumb
 * sometimes the line has builtin line breaks, but it breaks off length instead
-* *  We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
+*  We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
+
+**Solution:**  TODO
+
+**Status: not spec'ed**
 
 ### Cursor affinity
 
@@ -53,7 +65,15 @@
 
 **Solution:** TODO: this was written down somewhere.
 
-## v2 Language definition
+**Status:** Not spec'ed
+
+## v2 spec
+
+Strings are unicode, and character are unicode “characters” \(if it appears as one character on the screen, that’s a “character” in Dark\).
+
+Specifically, string are immutable UTF-8 encoded sequences of Unicode code points. Chars are “Extended Grapheme Clusters”. \(A codepoint is some bytes that implement unicode characters, a grapheme is some codepoints forming a unicode entity, such as an emoji; an EGC is some graphemes, used to handle things like emojis which combine to form a single emoji\).
+
+### v2 Language definition
 
 ```text
 type string = # unicode supporting type, should include length
@@ -81,7 +101,7 @@ type DType =
 
 Escaped characters can be stored as their actual values in the string, and displayed/entered differently in the editor.
 
-## v2 Standard library
+### v2 Standard library
 
 ```text
 type StringError = 
@@ -118,10 +138,10 @@ String::toFloat_v1(String: s) -> Result (Float, StringError)
 String::toInt_v1(String: s) -> Result (Float, StringError)
 String::toList_v1(String: s) -> List Character
 String::toLowercase_v1(String: s) -> String
-String::toUppercase_v1(String s) -> String
-String::trim(String str) -> String
-String::trimEnd(String str) -> String
-String::trimStart(String str) -> String
+String::toUppercase_v1(String: s) -> String
+String::trim(String: str) -> String
+String::trimEnd(String: str) -> String
+String::trimStart(String: str) -> String
 
 // Maybe could be better
 String::htmlEscape(String html) -> String
@@ -138,13 +158,15 @@ String::fromList_v1(List l) -> String
 
 ```
 
-## v2 Editor fixes
+### v2 Interaction model
 
-* test whether we can enter emoji, if not fix it
+#### String escaping
 
-### Support for string escaping
+TODO
 
-* TODO: write out how string escapes get displayed, entered, edited, and stored
+#### Interpolation
+
+TODO
 
 
 

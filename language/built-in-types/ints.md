@@ -1,12 +1,16 @@
-# Ints
+# Int
+
+Ints are infinite precision integer values.
 
 ## Dark v1 Problems
 
 ### Infinite precision
 
-**Problem:** Dark integers are 63-bit integers, they should be infinite precision.
+**Problem:** Dark v1 integers are 63-bit integers, they should be infinite precision.
 
 **Solution:** make them infinite precision instead using a BigNum library
+
+**Status: Spec'ed**
 
 ### JSON and integer size
 
@@ -17,11 +21,15 @@
 * Integer conversion into JSON should use a string if appropriate.
 * Integer conversion from JSON should always be typed, and so if there's an int it can be parsed from a stringified integer literal if appropriate
 
+**Status: Not spec'ed**
+
 ### Negative numbers
 
 **Problem:** The fluid editor does not allow negative numbers.
 
 **Solution:** a UX for negative numbers is described below, it was quite straightforward.
+
+**Status: Spec'ed**
 
 ### Arithmetic errors
 
@@ -31,6 +39,8 @@
 * modulus by 0
 
 **Solution:** these should return `Result (Int, IntError)`. One problem here is how we can make the  error rail less cumbersome so that this isn't really irritating to handle.
+
+**Status: spec'ed**
 
 ## v2 Spec
 
