@@ -58,7 +58,6 @@
   * [Traces / analysis / tests](framework/analysis-and-traces.md)
   * [Domain registration](framework/domain-registration.md)
   * [Static assets](framework/static-assets.md)
-  * [Groups](framework/groups.md)
 * [Libraries](stdlib/README.md)
   * [Style guide](stdlib/style-guide.md)
   * [Dark v1 stdlib](stdlib/dark-v1-stdlib-1.md)
