@@ -8,6 +8,8 @@
 * users dont have a good way to get warnings if their queues are failing
 * no way to introspect queues using code, barely any way to introspect them without code
 * sometimes queues take too long or fail, and items build up. should they be rerun? Should there be an expiry time?
+* Queues don't autoscale
+  * perhaps we shouldn't be using built-in queues and should istead of cloud-y queues
 
 
 
