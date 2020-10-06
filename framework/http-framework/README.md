@@ -10,6 +10,7 @@ Users could not change how we processed a HTTP request
 
 * can't have union types in JSON
 * other encodings aren't supported and can't be added
+  * you can't upload video or other "bytes" and things that aren't strings
 * validation is manual and really annoying
 * empty request body was impossible to use
 * Headers in HTTP should be allowed to be specified twice
