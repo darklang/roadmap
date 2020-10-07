@@ -1,5 +1,7 @@
 # String
 
+Strings are unicode encode text.
+
 ## Dark v1 problems
 
 ### Concatenation

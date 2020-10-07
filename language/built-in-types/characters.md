@@ -2,7 +2,7 @@
 
 Characters should be an Extended Grapheme Cluster, corresponding to a single display character.
 
-### Dark v1 problems
+## Dark v1 problems
 
 **Problem:** Characters were implemented, but you couldn't create one. 
 
