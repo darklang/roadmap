@@ -1,7 +1,7 @@
 # Table of contents
 
-* [Goals of Dark v2](README.md)
-* [Introduction](introduction.md)
+* [Introduction](README.md)
+* [Goals of Dark v2](goals-of-dark-v2.md)
 * [Language](language/README.md)
   * [Built in types](language/built-in-types/README.md)
     * [Int](language/built-in-types/ints.md)
