@@ -8,7 +8,7 @@ Dark's goals are to remove accidental complexity from writing backends, via:
 * Deployless: Changes are safely deployed to production instantly
 * making APIs as easy to call as functions
 * Trace-drive development: use live requests to speed/improve development
-* Integrated tooling: by integrating the editor, programming language and infrastructure, reducing a huge amount of surface area that can cause mistakes or poor coding experience
+* Integrated tooling: by integrating the editor, programming language and infrastructure, reducing a huge amount of surface area that can cause mistakes or take significant coding time.
 
 
 

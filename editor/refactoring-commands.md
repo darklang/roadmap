@@ -1,8 +1,8 @@
 # Refactoring commands
 
 * Editing commands should be part of the main autocomplete, not special
-
-
+* should be able to add them to packages
+* Should support being able to set keyboard shortcuts for refactoring commands
 
 ### What commands should be available?
 

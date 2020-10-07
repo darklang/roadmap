@@ -14,6 +14,10 @@ TODO: nested modules
 
 
 
+How do traces work? we want traces to be available to users of functions, and we want to allow users to be able to submit traces to package managers \(probably with info redacted\)
+
+
+
 ### Definition of a package, v2
 
 A dark toplevel is a namespace, defined as `<owner>/<package>/<module>::<item>_<version>`. The owner is the user or organization who owns it, similar to github. similar to github. Within this namespace, 

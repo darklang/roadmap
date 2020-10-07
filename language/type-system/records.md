@@ -1,5 +1,10 @@
 # Records
 
+## \#\# Dark v1 problems
+
+* updating records
+* confusion between records and dicts
+
 You access records fields by:
 
 ```text
