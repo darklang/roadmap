@@ -24,5 +24,5 @@ Each section in the doc represents part of the Dark language, editor, platform, 
 
 ### Roadmap collaboration
 
-There will at some point be a connection between this and issues in GitHub, or some project management software. For now, Dark users are welcome to add GitHub issues in the Dark repo to discuss the contents of this roadmap, and in general to discuss or propose changes to Dark.
+There will at some point be a connection between this and issues in GitHub, or some project management software. For now, Dark users are welcome to add [GitHub issues in the Dark repo](https://github.com/darklang/dark) to discuss the contents of this roadmap, and in general to discuss or propose changes to Dark.
 
