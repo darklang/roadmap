@@ -64,11 +64,11 @@
 * [Infrastructure](infrastructure/README.md)
   * [Program storage](infrastructure/program-storage.md)
 * [Libraries](stdlib/README.md)
+  * [Package manager](stdlib/packages-and-stdlib.md)
   * [HTTPClient calls](stdlib/httpclient-calls.md)
   * [Style guide](stdlib/style-guide.md)
   * [Dark v1 stdlib](stdlib/dark-v1-stdlib-1.md)
   * [Built-in modules](stdlib/dark-v2-modules/README.md)
     * [dark/stdlib/Bool](stdlib/dark-v2-modules/dark-stdlib-bool.md)
-  * [Package manager](stdlib/packages-and-stdlib.md)
   * [User module](stdlib/user-module.md)
 

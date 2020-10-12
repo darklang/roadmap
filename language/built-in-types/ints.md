@@ -14,7 +14,7 @@ Ints are infinite precision integer values.
 
 ### JSON and integer size
 
-**Problem:** when we automatically coerce integers to/from JSON, many JSON implementations do not support integers larger than 53 bits \(for example, the Twitter API has "id" and "id\_str" fields because sometimes the "id" is bigger than 53 bits\)
+**Problem:** when we automatically coerce integers to/from JSON, integers above 53 bits do not fit into regular JSON \(and when parsing might be represented as strings\)
 
 **Solution**:
 
