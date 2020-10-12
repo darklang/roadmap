@@ -50,7 +50,7 @@
   * [Ops](editor/ops.md)
   * [Refactoring commands](editor/refactoring-commands.md)
   * [Feature flags](editor/feature-flags.md)
-  * [Canvas](editor/canvas.md)
+  * [Canvas / code organization](editor/canvas.md)
   * [Profiler](editor/profiler.md)
 * [Framework](framework/README.md)
   * [HTTP handlers](framework/http-framework/README.md)
