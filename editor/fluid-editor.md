@@ -1,6 +1,6 @@
 # Fluid editor
 
-### Dark v1 problems
+## Dark v1 problems
 
 ### Different editing schemes
 
