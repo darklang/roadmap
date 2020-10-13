@@ -52,6 +52,7 @@
 * [Framework](framework/README.md)
   * [HTTP handlers](framework/http-framework/README.md)
     * [GraphQL](framework/http-framework/graphql.md)
+  * [GraphQL](framework/graphql.md)
   * [Datastores](framework/datastores.md)
   * [Workers](framework/workers.md)
   * [Cron / scheduled jobs](framework/cron-scheduled-jobs.md)
