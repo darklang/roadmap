@@ -76,7 +76,7 @@ A number of examples:
 
 * use a real type system to avoid all the hacks in v1
 * use an async language/framework so that things like calling HTTP functions do not use all the resources, and so that functions like `sleep` can be supported
-* we plan to abandon OCaml for the backend for Rust, as the libraries, community, run-time, etc, are far far more mature in Rust.
+* abandon OCaml for a place with more mature libraries & community \(probably rust or F\#\)
 * GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that.
 
 ### Improve the feeling of safety while coding
