@@ -40,6 +40,7 @@
   * [Modules and Namespacing](language/modules-and-namespacing.md)
   * [JSON handling](language/json-handling.md)
 * [Editor](editor/README.md)
+  * [Help understanding](editor/help-understanding.md)
   * [Error messages](editor/error-messages.md)
   * [Fluid editor](editor/fluid-editor.md)
   * [Permissions model](editor/permissions-model.md)

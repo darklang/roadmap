@@ -22,6 +22,12 @@ A dark toplevel is a namespace, defined as `<owner>/<package>/<module>::<item>_<
 
 
 
+#### Security
+
+* dont allow access to global variables \(DBs\)
+* only allow httpclient calls to know domains
+* packages must typecheck
+
 #### Standard packages
 
 The dark standard library is within `dark/stdlib`.
