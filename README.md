@@ -22,6 +22,10 @@ Each section in the doc represents part of the Dark language, editor, platform, 
   * v2 standard library changes
   * etc
 
+### Implementation plan
+
+The intent is to gradually migrate v1 into v2 -- that is, the current version will migrate into v2. Where this is not possible \(for example, needing to remove a core type\), we will use Dark's language versioning to migrate people to the new version. We hope to enable this with handler-by-handler granularity, allowing users to slowly move their code over in small pieces as they gain certainty that they won't be affected by the change.
+
 ### Roadmap collaboration
 
 There will at some point be a connection between this doc and the work being implemented, perhaps in some project management software. For now, Dark users are welcome to add [GitHub issues in the Dark repo](https://github.com/darklang/dark) to discuss the contents of this roadmap, and in general to discuss or propose changes to Dark.
