@@ -16,6 +16,14 @@ Packages will have a naming scheme similar to github \(username/package, eg "dar
 
 
 
+### Other
+
+In all languages, there is a question of allowing the user to add functions to libraries they don't control. Given a function `module.x`, they want to add `module.x1` which is sort of different, without having to write `MyModule.x1` instead. JS and Ruby use monkey patching, in C++ and F\# you can open the module and add to it. In Java you use inheritance, sorta.
+
+In Dark, you add a function which is in a different namespace, but the editor makes it feel like you didn't. So if you've added `mymodule/stdlib/String::trimDifferent`, the editor will show you `String::trimDifferent` instead. Unless there is another `String::trimDifferent` in scope, in which case it will disambiguate.
+
+
+
 ### Definition of a package, v2
 
 A dark toplevel is a namespace, defined as `<owner>/<package>/<module>::<item>_<version>`. The owner is the user or organization who owns it, similar to github. similar to github. Within this namespace, 

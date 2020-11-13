@@ -6,40 +6,32 @@ Dark v1 had an implicit HTTP framework that was limited, opaque, and inflexible.
 
 ### **Problems with the Dark v1**
 
-Users could not change how we processed a HTTP request
-
-* can't have union types in JSON
-* other encodings aren't supported and can't be added
+* Users could not change how we processed a HTTP request
+  * other encodings aren't supported and can't be added
   * you can't upload video or other "bytes" and things that aren't strings
-* validation is manual and really annoying
-* empty request body was impossible to use
-* Headers in HTTP should be allowed to be specified twice
+  * Headers in HTTP should be allowed to be specified twice
+* No input validation for any fields
+  * you can validate manually which is really annoying
+  * a JSON field is not type checked and could be any type
+* empty request body \(with just incompletes\) was impossible to use
 * magic sending did not match the magic receiving
 * No way to specify a 404 or a 500 handler
-* No input validation for any fields
-* Couldn't match against multiple segments
 * No way to match arbitrary HTTP methods
-
-
-
-TODO: JSON serialization/deserialization
 
 ## **Solution 1: middleware**
 
-We want to support the creation of "middleware-stacks", collections of functions which transform HTTP requests and responses in a common way. These would allow:
+We want to support the creation of middleware stacks, collections of functions which transform HTTP requests and responses in a common way. These would allow:
 
 * users to customize how input to HTTP handlers is created
 * separate handling for authenticated and unauthenticated routes
 * gradually adding support for partially implemented features \(for example, v1 Dark can read latin1 and utf8, but not other encodings\)
 * potentially graphql support could be a different middleware
 
-Middleware stacks are pretty common in other languages, Python and Clojure being the two I'm most familiar with.
+Middleware stacks are pretty common in other languages, Python \(WSGI\) and Clojure \(Ring\) being the two I'm most familiar with.
 
 A middleware stack is simply a function wrapping another function.
 
-If we have a function `handle(req : Request) -> Response`, then a middleware handler is a function
-
-`middleware(innerFn : Request -> Response) -> (Request -> Response)` \(that is, it takes as an argument a function and returns a function, and both the parameter and returned functions take a request and return a result\).
+If we have a function `handle(req : Request) -> Response`, then a middleware handler is a function`middleware(innerFn : Request -> Response) -> (Request -> Response)` \(that is, it takes as an argument a function and returns a function, and both the parameter and returned functions take a request and return a result\).
 
 ### **What's in the Dark v1 "middleware"?**
 
@@ -68,7 +60,7 @@ If we have a function `handle(req : Request) -> Response`, then a middleware han
 
 ### **Where would users specify a middleware for their handler?**
 
-* the editor would allow the choice. HTTP uses the default stack \(defined at creation time\), and you can change the middleware stack directly, including changing to use the "feature flag middleware" stack
+* the editor would allow the choice. HTTP uses the default stack \(defined at handler creation time\), and you can change the middleware stack directly, including changing to use the "feature flag middleware" stack
 
 ### **How would users change the middleware of some handler or set of handlers \(eg feature flags\)?**
 
@@ -78,21 +70,45 @@ If we have a function `handle(req : Request) -> Response`, then a middleware han
 
 **Middlewares**
 
-* add content-length to response
-* cookies?
-* is logged in - add request.user
-* create form-body
-* create json-body from JSON and type
-* create body from either form, json, or something else
-* create headers
-* tls redirect
-* www redirect / apex domain
+Middlewares are typed functions that contribute a small, composable part of decoding a web request for the handler to use. Middlewares receive a request, and then based on the request, may choose to call the next middleware or simply return a response instead. As such, middlewares receive as parameters both the request so far, as well as the next middleware to call. They are responsible for calling the next middleware, possibly changing the request first and possible altering the response as well. This leads to middlewares having the following shape:
 
-TODO: how would we allow validation where, for the admin page:
+```text
+let myMiddleware (arg : myMiddlewareArgType) next =
+  fun (req : 'req) ->
+    let doSomethingToRequest req = { req with someExtraField = someFunction req }
+    let doSomethingToResponse res = { res with someExtraField = someFunction res }
+    let shortCircuitResponse = { status = 404, body = "", headers = [] }
+    if someCondition req
+    then shortCircuitResponse
+    else req 
+         |> doSomethingToRequest
+         |> nextMiddleware
+         |> doSomethingToResponse
+```
 
-* an admin gets access
-* a regular user gets told they're not an admin
-* a non-logged-in person gets redirected to the homepage
+A middleware returns a function which takes a request. A middleware takes whatever arguments it needs, as well as the next middleware to call. As such, a middleware stack looks like this:
+
+```text
+let middleware =
+  (\ctx -> handler ctx) // shown like this for clarity
+  |> addQueryParams url
+  |> addHeaders headers
+  |> readVarsFromURL
+  |> addJsonBody headers body
+  |> addFormBody headers body
+  |> addCookies headers
+  |> processErrorRail
+  |> optionsHanderMiddleware
+  |> headHandlerMiddleware
+  |> textPingMiddleware
+  |> sitemapFaviconMiddleware middleware emptyRequest
+```
+
+Each middleware wraps the previous one, so the outermost middleware is last, and the handler comes first.
+
+EmptyRequest is an empty record, and each middleware adds fields to it until the request has the shape required by the handler. It then returns a response, which can also have fields added to it by middleware wishing to send those fields to other middlewares.
+
+As such, the types of the entire middleware have to add up to the type of the handler.
 
 
 
