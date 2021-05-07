@@ -2,7 +2,7 @@
 
 The error rail isn't great, people get confused and it doesn't really do what we want.
 
-
+Result.map and Option.map, etc, shouldn't go to the error rail
 
 What if we replaced it by something from another language \(eg Rust/coffeescript's `?` or F\#'s `let!` \(which is bind\).
 

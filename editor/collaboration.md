@@ -8,3 +8,5 @@
 
 **Solution:** store the user and the timestamp on ops
 
+TODO: notifications for changes. Look at what notion/slack does, work in github too.
+

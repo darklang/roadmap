@@ -17,6 +17,9 @@ Dark v1 had an implicit HTTP framework that was limited, opaque, and inflexible.
 * magic sending did not match the magic receiving
 * No way to specify a 404 or a 500 handler
 * No way to match arbitrary HTTP methods
+* Can't have a HEAD handler \(the framework converts the request to a GET\)
+* Should the standard 404 have a content-type header
+* if you return a string, it shouldn't have quotes, right? I mean it already is ct: text/plain
 
 ## **Solution 1: middleware**
 
@@ -35,18 +38,27 @@ If we have a function `handle(req : Request) -> Response`, then a middleware han
 
 ### **What's in the Dark v1 "middleware"?**
 
-* converting to JSON
-* converting from a byte string to utf-8
-  * we supported converting for charsets us-ascii, iso-8859-1, latin1
+* The Dark middleware is complicated and works poorly.
+
+Responses
+
+* Anytime we infer a content-type, the content type is `text/plain; charset=utf-8` unless the value is an Object or List, in which case it is `application/json; charset=utf-8`
+* If the response is a HttpResponse value, then we infer a content-type if none exists, then convert it to json or plain text using built-in functions
+* If the response in a HttpRedirect response, the value is ignored.
+* If the response is on the ErrorRail, a response of 404 is returned \(**Note:** even if the ErrorRail is an Error\)
+* If the response is a DError, a 500 is returned with an error message.
+* If the response is none of these, then we convert it to JSON and infer the header, using a code of 200. **Note: this often gives a JSON string response with a text/plain header. this is unexpected and bad, and also the most common outcode. Instead it should content-negotiate**
+* Cors headers are then added, based on the CORS settings in the canvas
+* The value is then converted to Bytes, and returned to the caller
+* At no point does Dark do any content-negotiation
+
+Requests
+
 * parsing path segments and inserting into the symtable
 * returning 418 for text/ping
-* adding request.formBody
-* adding request.jsonBody
-* adding request.cookies
-* adding request.url
-* adding request.body
-* automatically respond to HEAD for GET requests
-* automatically handling OPTIONS
+* creating a request object with formBody, jsonBody, cookies, url, body
+* automatically respond to HEAD for GET requests. Currently HEAD handlers can be created but will not be hit
+* automatically handling OPTIONS/CORS
 * using the dark favicon if none is provided
 * returning a blank sitemap or favicon
 * converting response to JSON string
