@@ -20,6 +20,7 @@ Dark v1 had an implicit HTTP framework that was limited, opaque, and inflexible.
 * Can't have a HEAD handler \(the framework converts the request to a GET\)
 * Should the standard 404 have a content-type header
 * if you return a string, it shouldn't have quotes, right? I mean it already is ct: text/plain
+* locking
 
 ## **Solution 1: middleware**
 

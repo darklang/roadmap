@@ -294,6 +294,5 @@ String::trimStart(Str str) -> Str
 Twilio::sendText_v1(Str accountSID, Str authToken, Str fromNumber, Str toNumber, Str body) -> Dict
 Uuid::generate() -> UUID
 X509::pemCertificatePublicKey(Str pemCert) -> Result
-
 ```
 

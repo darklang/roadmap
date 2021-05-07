@@ -57,7 +57,42 @@ myString =>
   let (myString, myInt) = ("str", 5)|
 ```
 
-### Open questions:
+### Standard library
 
-* is the empty value `()` an empty tuple or it's own thing?
+```text
+// Access
+Tuple2::first ('a,'b) -> 'a
+Tuple2::second ('a,'b) -> 'b
+
+// Creation
+Tuple2::pair ('a, 'b) -> ('a,'b)
+
+// Manipulation
+Tuple2::mapFirst (('a,'b), ('a -> 'c)) -> ('c, 'b) 
+Tuple2::mapSecond (('a,'b), ('b -> 'c)) -> ('b, 'c) 
+Tuple2::mapBoth (('a,'b), ('a -> 'c), ('b -> 'd)) -> ('c, 'd) 
+
+Tuple2::swap (('a,'b)) -> ('b, 'a) 
+
+
+// And all the equivalents for Tuple3
+// Also possibly bonus functions from https://package.elm-lang.org/packages/TSFoster/elm-tuple-extra/latest/Tuple3
+
+```
+
+Changes in existing libraries:
+
+```text
+List.zip_v1(List 'a, List 'b) -> Option (List ('a, 'b))
+List.zipShortest_v1(List 'a, List 'b) -> List ('a, 'b)
+List.unzip_v1(List ('a, 'b) -> (List 'a, List 'b)
+
+Dict.fromList_v1(List ('a, 'b)) -> Option (Dict 'a 'b)
+Dict.fromListOverwritingDuplicates_v1(List ('a, 'b)) -> Dict 'a 'b
+Dict.toList_v1(Dict 'a 'b) -> List ('a, 'b)
+```
+
+There should be some version of a HttpClient function that takes tuples, as it is legal to have multiple headers of the same type and so tuples rather than dicts represent the **correct** type. Since we expect users to use built-ins for headers \(such as `Http::jsonContentType`\), this seems doable soon.
+
+
 

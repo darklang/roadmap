@@ -46,17 +46,17 @@ TODO
 
 ### **Floats don't support negatives**
 
-\*\*\*\*
+**Problem:** same as ints
 
-\*\*\*\*
+**Solution:** copy the proposed interaction model from ints
+
+**Status:** not spec'ed
 
 ## v2 spec
 
 ### v2 language definition
 
-V1 only We represent a float 
-
-**TODO: what's the appropriate size for the whole and fraction**
+Same as V1, except we represent a float better.
 
 ```text
 type Sign = 
@@ -101,7 +101,6 @@ type DType =
 ```text
 type Error =
   | FloatOverflowError
-  | 
   
 // same as v1
 Float::absoluteValue(Float: a) -> Float
@@ -122,13 +121,11 @@ Float::roundUp(Float: a) -> Int
 Float::sqrt(Float: a) -> Float
 Float::subtract(Float: a, Float: b) -> Float
 Float::truncate(Float: a) -> Int
-
-// remove in v2
-# Replace with List::sum(List (Addable 'a)) -> 'a
 Float::sum(List Float: a) -> Float
 
 // different from v1
 Float::add(Float: a, Float: b) -> Result (Float, Error)
+Float::subtract(Float: a, Float: b) -> Result (Float, Error)
 Float::divide(Float a, Float b) -> Result (Float, Error)
 Float::power(Float base, Float exponent) -> Result (Float, Error)
 Float::multiply(Float: a, Float: b) -> Result (Float, Error)

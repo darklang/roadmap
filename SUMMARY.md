@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Template](template.md)
 * [Goals of Dark v2](goals-of-dark-v2.md)
 * [Language](language/README.md)
   * [Built in types](language/built-in-types/README.md)
@@ -14,9 +15,12 @@
     * [Dictionary](language/built-in-types/dictionaries.md)
     * [Option](language/built-in-types/options.md)
     * [Result](language/built-in-types/results.md)
+    * [Set](language/built-in-types/set.md)
     * [Ref](language/built-in-types/refs.md)
     * [Regex](language/built-in-types/regex.md)
     * [UUID](language/built-in-types/uuids.md)
+    * [Bytes](language/built-in-types/bytes.md)
+    * [Null](language/built-in-types/null.md)
   * [Control-flow](language/control-flow/README.md)
     * [Concurrency / parallelism](language/control-flow/concurrency-parallelism.md)
     * [Functions](language/control-flow/functions/README.md)
@@ -50,6 +54,7 @@
   * [Feature flags](editor/feature-flags.md)
   * [Canvas / code organization](editor/canvas.md)
   * [Profiler](editor/profiler.md)
+  * [Accounts](editor/accounts.md)
 * [Framework](framework/README.md)
   * [Error Tracking](framework/error-tracking.md)
   * [HTTP handlers](framework/http-framework.md)
@@ -67,7 +72,5 @@
   * [HTTPClient calls](stdlib/httpclient-calls.md)
   * [Style guide](stdlib/style-guide.md)
   * [Dark v1 stdlib](stdlib/dark-v1-stdlib-1.md)
-  * [Built-in modules](stdlib/dark-v2-modules/README.md)
-    * [dark/stdlib/Bool](stdlib/dark-v2-modules/dark-stdlib-bool.md)
   * [User module](stdlib/user-module.md)
 

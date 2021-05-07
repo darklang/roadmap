@@ -1,6 +1,6 @@
 # String
 
-Strings are unicode encode text.
+Strings are unicode encode text. Specifically, string are immutable UTF-8 encoded sequences of Unicode code points.
 
 ## Dark v1 problems
 
