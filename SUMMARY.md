@@ -43,6 +43,7 @@
     * [Traits](language/type-system/traits.md)
   * [Modules and Namespacing](language/modules-and-namespacing.md)
   * [JSON handling](language/json-handling.md)
+  * [Language versioning](language/language-versioning.md)
 * [Editor](editor/README.md)
   * [Help understanding](editor/help-understanding.md)
   * [Error messages](editor/error-messages.md)
