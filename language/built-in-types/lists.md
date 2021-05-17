@@ -22,6 +22,14 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 **Status:** Unspeced
 
+### It's possible to have heterogenous lists
+
+**Problem:** If you have a list of ints, you can add a string to it
+
+**Solution:** This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a list and raise an error if the wrong type is inserted
+
+**Status**: still unclear on solution 
+
 ## v2 Spec
 
 ### v2 Language definition
