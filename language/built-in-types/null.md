@@ -26,7 +26,7 @@ Null is mostly useful for comparing against incoming JSON and results of HttpCli
 
 **Problem:** When we've identified how to not require null anymore, we still have to do something with existing code that uses Null
 
-**Solution:** Probably make a new version of the dark language without null and deprecate the old one
+**Solution:** Probably make a new version of the dark language without null and deprecate the old one. Another alternative is to convert null into `()` \(unit, or empty tuple\).
 
 **Alternative solution:** convert all uses of null into Json::Null\_v0, which would be deprecated
 

@@ -20,6 +20,12 @@ Description: TODO
 
 **Status: TODO**
 
+### Cannot pipe to constructors
+
+**Problem:** you can't pipe to a constructor
+
+* account for constructors with multiple 
+
 ## v2 Spec
 
 ### v2 Language definition
