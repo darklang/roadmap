@@ -20,3 +20,19 @@ So
 * new handler and function executions get new traces
 * store traces so that they can be accessed by
 
+
+
+### Traces don't work well in functions
+
+**Problem:** when you create code in a function for the first time, the function does not have a trace, and the arguments are `Incomplete`. This means everything is red and when you try to call functions, nothing works.
+
+**Why?** The system is built around trace-driven development, but if you don't have a trace, nothing works.
+
+**Solution:** Add a warning that you're using the default trace and it doesn't have values for the arguments. Fade the Play button and show a warning about this. Or at least give an error when you try to run something with an incomplete in it. 
+
+**Solution:** Perhaps default traces should use default values for known types. However, that will result in real values being put in the DB, which the user will then have to dig out.
+
+**Solution:** perhaps a dry-run of some sort might be an idea in this situation?
+
+
+
