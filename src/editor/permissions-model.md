@@ -6,7 +6,7 @@ Dark should support fine-grained permissioning
 
 ### Only owners exist
 
-**Problem: **Users who are added to orgs become owners
+**Problem:** Users who are added to orgs become owners
 
 **Solution: **Allow different permissions, and create common roles to reflect them
 
@@ -14,7 +14,7 @@ Dark should support fine-grained permissioning
 
 ### Public canvases are not yet supported
 
-**Problem: **We'd like users to show off their canvases (and may even make this the default)
+**Problem:** We'd like users to show off their canvases (and may even make this the default)
 
 **Solution: **We need enough permissions that this is safe to do
 

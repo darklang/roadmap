@@ -8,7 +8,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 ### No pattern matching on lists
 
-**Problem: **patterns don't support lists yet
+**Problem:** patterns don't support lists yet
 
 **Solution: **implement
 
@@ -16,7 +16,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 ### Fake values are sometimes in lists
 
-**Problem: **errors, errorrails and incompletes can be put in lists, if we're not careful
+**Problem:** errors, errorrails and incompletes can be put in lists, if we're not careful
 
 **Solution: **Though we have mostly been careful, it would be useful to try and fuzz functions, or add logging, or something to ensure that this doesnt happen
 
@@ -24,30 +24,30 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 ### It's possible to have heterogenous lists
 
-**Problem: **If you have a list of ints, you can add a string to it
+**Problem:** If you have a list of ints, you can add a string to it
 
 **Solution: **This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a list and raise an error if the wrong type is inserted
 
-**Status**: still unclear on solution 
+**Status**: still unclear on solution
 
 ## v2 Spec
 
 ### v2 Language definition
 
 ```
-type Expr = 
+type Expr =
   | EList { list : List Expr }
   | ...
 
 type Pattern =
   | PList { val : List Pattern }
   | ...
-  
-type Dval = 
+
+type Dval =
   | DList { val = List Dval }
   | ...
 
-type DType = 
+type DType =
   | TList of DType
   | ...
 ```

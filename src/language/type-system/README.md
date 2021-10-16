@@ -10,7 +10,7 @@ Dark v1 didn't have great types. Though technically there existed some types und
 
 ### DB schemas
 
-**Problem: **Datastores used a custom schema. This meant that we couldn't use the same types to validate input
+**Problem:** Datastores used a custom schema. This meant that we couldn't use the same types to validate input
 
 However, the lack of types caused problems:
 

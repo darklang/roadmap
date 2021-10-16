@@ -4,7 +4,7 @@
 
 ### Different editing schemes
 
-**Problem: **Dark has two different ways of editing text. The "blankOr" method where something is blank or has a value, and the fluid method of editing code. The fact that there are two is confusing, as they have different interaction models (they also intersect badly).
+**Problem:** Dark has two different ways of editing text. The "blankOr" method where something is blank or has a value, and the fluid method of editing code. The fact that there are two is confusing, as they have different interaction models (they also intersect badly).
 
 **Solution: **The Fluid method is far superior, so make it so we can edit databases, handlers, functions, using Fluid editing
 
@@ -12,7 +12,7 @@
 
 ### Unclear how to change text
 
-**Problem: **while it's relatively nice to create text, changing existing code is a bit of an ordeal.
+**Problem:** while it's relatively nice to create text, changing existing code is a bit of an ordeal.
 
 **Solution:** We need to identify a (large) list of specific areas where changing code is annoying, and find ways to make them nice, whether using refactoring tools, overlays, keyboard shortcuts, copy/paste, or just typing
 
@@ -48,7 +48,7 @@ The major issue that made this challenging is that when you add an expression wh
 **Solution:** make it faster. Dark opcodes are often huge and pulling them all from the DB, then writing them back, does indeed take time.
 
 * We can shrink the opcodes significantly (most opcode in the DB are SetHandlers, which contain the entire handler. Switching to much smaller opcodes such as `SetExpr` and `InsertIntoStringAt` would result in much much smaller ops.
-* We can also send fewer opcodes when a user is typing (eg a long string) by debouncing.  
+* We can also send fewer opcodes when a user is typing (eg a long string) by debouncing.
 * We can cache previous states in the client or server
 * We can make the opcodes so that we can go both ways
 

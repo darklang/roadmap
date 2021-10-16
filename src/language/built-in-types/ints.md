@@ -6,7 +6,7 @@ Ints are infinite precision integer values.
 
 ### Infinite precision
 
-**Problem: **Dark v1 integers are 63-bit integers, they should be infinite precision.
+**Problem:** Dark v1 integers are 63-bit integers, they should be infinite precision.
 
 **Solution: **make them infinite precision instead using a BigNum library
 
@@ -14,7 +14,7 @@ Ints are infinite precision integer values.
 
 ### JSON and integer size
 
-**Problem: **when we automatically coerce integers to/from JSON, many JSON implementations do not support integers larger than 53 bits (for example, the Twitter API has "id" and "id_str" fields because sometimes the "id" is bigger than 53 bits)
+**Problem:** when we automatically coerce integers to/from JSON, many JSON implementations do not support integers larger than 53 bits (for example, the Twitter API has "id" and "id_str" fields because sometimes the "id" is bigger than 53 bits)
 
 **Solution**:
 
@@ -25,7 +25,7 @@ Ints are infinite precision integer values.
 
 ### Negative numbers
 
-**Problem: **The fluid editor does not allow negative numbers.
+**Problem:** The fluid editor does not allow negative numbers.
 
 **Solution: **a UX for negative numbers is described below, it was quite straightforward.
 
@@ -33,7 +33,7 @@ Ints are infinite precision integer values.
 
 ### Arithmetic errors
 
-**Problem: **some arithmetic operations can lead to errors:
+**Problem:** some arithmetic operations can lead to errors:
 
 * division by 0
 * modulus by 0
@@ -44,7 +44,7 @@ Ints are infinite precision integer values.
 
 ### Integers of other sizes
 
-**Problem: **it can be useful to have integers of specific sizes, in order to better model specific values or enforce overflow
+**Problem:** it can be useful to have integers of specific sizes, in order to better model specific values or enforce overflow
 
 **Solution: **we should add `int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`, `uint64`
 
@@ -55,19 +55,19 @@ Ints are infinite precision integer values.
 ### v2 Language definition
 
 ```
-type Expr = 
+type Expr =
   | EInt { val = BigInt }
   | ...
 
 type Pattern =
   | PInt { val : BigInt }
   | ...
-  
-type Dval = 
+
+type Dval =
   | DInt { val = BigInt }
   | ...
 
-type DType = 
+type DType =
   | TInt
   | ...
 ```

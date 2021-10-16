@@ -26,7 +26,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### Special characters
 
-**Problem: **To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
+**Problem:** To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
 
 **Solution: **support using escape characters (`\`) to support them (`\n, \r, \t, \\, \", etc`). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
 
@@ -34,7 +34,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### Emoji
 
-**Problem: **I think the editor does not support proper unicode - I'm not sure.
+**Problem:** I think the editor does not support proper unicode - I'm not sure.
 
 **Solution: **the editor should support entering all LTR Unicode text (RTL can wait until Dark v3) - if you can type it into the browser, we should support it in the editor.
 
@@ -42,7 +42,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### String length
 
-**Problem: **String length is determined in `O(n)` time.
+**Problem:** String length is determined in `O(n)` time.
 
 **Solution: **String length should be cached as part of the string. Using a better string implementation would help solve this.
 
@@ -50,7 +50,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### Shortened display
 
-**Problem: **We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:
+**Problem:** We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:
 
 * sometimes the string is only 41 character and it looks bad
 * sometimes the line has more room than 40 characters and it looks dumb
@@ -63,7 +63,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### Cursor affinity
 
-**Problem: **the cursor can be in two different places which logically mean the same thing (the end of a line, and the start of the subsequent line). This leads to "cursor affinity" problems.
+**Problem:** the cursor can be in two different places which logically mean the same thing (the end of a line, and the start of the subsequent line). This leads to "cursor affinity" problems.
 
 **Solution: **TODO: this was written down somewhere.
 
@@ -80,23 +80,23 @@ Specifically, string are immutable UTF-8 encoded sequences of Unicode code point
 ```
 type string = # unicode supporting type, should include length
 
-type stringSegment = 
-  | Text of string 
+type stringSegment =
+  | Text of string
   | InterpolatedExpr of expr
 
-type Expr = 
+type Expr =
   | EString of stringSegment list
   | ...
 
-type Pattern = 
+type Pattern =
   | PString of string list
   | ...
 
 type Dval =
   | DString of string
   | ...
-  
-type DType = 
+
+type DType =
   | TString
   | ...
 ```
@@ -106,7 +106,7 @@ Escaped characters can be stored as their actual values in the string, and displ
 ### v2 Standard library
 
 ```
-type StringError = 
+type StringError =
   | FloatConversionError
   | IntegerConversionError
 

@@ -6,7 +6,7 @@ Description
 
 ### Results are not polymorphic
 
-**Problem: **The result type is `TResult`, and doesn't have parameters for its contents
+**Problem:** The result type is `TResult`, and doesn't have parameters for its contents
 
 **Solution: **Replace `TResult` with `TResult(successType, errorType)`
 
@@ -14,7 +14,7 @@ Description
 
 ### Results are **a special type**
 
-**Problem: **Results should be a regular type in the standard library, not one built into the implementation
+**Problem:** Results should be a regular type in the standard library, not one built into the implementation
 
 **Solution:**
 

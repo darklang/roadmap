@@ -22,9 +22,9 @@ Description: TODO
 
 ### Cannot pipe to constructors
 
-**Problem: **you can't pipe to a constructor
+**Problem:** you can't pipe to a constructor
 
-* account for constructors with multiple 
+* account for constructors with multiple
 
 ## v2 Spec
 

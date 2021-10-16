@@ -8,7 +8,7 @@ Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that impl
 
 ### Can't create characters
 
-**Problem: **Characters were implemented, but you couldn't create one. 
+**Problem:** Characters were implemented, but you couldn't create one.
 
 **Solution:** implement characters creation
 
@@ -27,19 +27,19 @@ Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that impl
 ```
 type egcChar = // type suitable to hold an EGC
 
-type Expr = 
+type Expr =
   | EChar { val = egcChar }
   | ...
 
 type Pattern =
   | PChar { val : egcChar }
   | ...
-  
-type Dval = 
+
+type Dval =
   | DChar { val = egcChar }
   | ...
 
-type DType = 
+type DType =
   | TChar
   | ...
 ```

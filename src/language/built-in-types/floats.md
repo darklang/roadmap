@@ -6,9 +6,9 @@ Floats are 64-bit IEEE-754 arithmetic, with what I hope are improvements. Dark's
 
 ### Operators
 
-**Problem: **Dark's operators (`+`, `-`, `*`, etc) work on integers. In Dark v1, we use `Float::+` instead, which doesn't suck but isn't great
+**Problem:** Dark's operators (`+`, `-`, `*`, etc) work on integers. In Dark v1, we use `Float::+` instead, which doesn't suck but isn't great
 
-**Non-solution: **We speculated that we could use the editor to simply hide the `Float::` part. However, that doesn't allow polymorphism, you can't have a library that takes numbers of any kind and (for example) sums them. 
+**Non-solution: **We speculated that we could use the editor to simply hide the `Float::` part. However, that doesn't allow polymorphism, you can't have a library that takes numbers of any kind and (for example) sums them.
 
 **Solution: **use traits to support reuse of common operators for different types
 
@@ -22,7 +22,7 @@ TODO
 
 ### Inf and NaN
 
-**Problem: **In Dark v1, it's possible to accidentally create `Inf` and `NaN`, but it was not really possible to use them. 
+**Problem:** In Dark v1, it's possible to accidentally create `Inf` and `NaN`, but it was not really possible to use them.
 
 **Solution: **prevent creating Inf or NaN. Any functions which (internally) create invalid floats will return Results instead.
 
@@ -30,7 +30,7 @@ TODO
 
 ### Negative 0.0
 
-**Problem: **it's possible to have negative 0.0. This is a confusing part of floats.
+**Problem:** it's possible to have negative 0.0. This is a confusing part of floats.
 
 **Solution: **TODO
 
@@ -38,7 +38,7 @@ TODO
 
 ### Support other representations
 
-**Problem: **v1 only supports decimalized floats, like `5.6`. It should also support exponent style like `6.02e23`
+**Problem:** v1 only supports decimalized floats, like `5.6`. It should also support exponent style like `6.02e23`
 
 **Solution: **Also support exponent format
 
@@ -46,7 +46,7 @@ TODO
 
 ### **Floats don't support negatives**
 
-**Problem: **same as ints
+**Problem:** same as ints
 
 **Solution: **copy the proposed interaction model from ints
 
@@ -59,31 +59,31 @@ TODO
 Same as V1, except we represent a float better.
 
 ```
-type Sign = 
+type Sign =
   | Plus
   | Minus
 
-type floatRep = { 
+type floatRep = {
       wholeNumberPart : Int64,
       fractionalPart : Int64
       exponentExists : Bool
       exponentSign : Sign
       exponentPower : Int64
-    }  
-  
-type Expr = 
+    }
+
+type Expr =
   | EFloat of floatRep
   | ...
 
 type Pattern =
   | PFloat of floatRep
   | ...
-  
-type Dval = 
-  | DFloat of double 
+
+type Dval =
+  | DFloat of double
   | ...
 
-type DType = 
+type DType =
   | TFloat
   | ...
 ```
@@ -101,7 +101,7 @@ type DType =
 ```
 type Error =
   | FloatOverflowError
-  
+
 // same as v1
 Float::absoluteValue(Float: a) -> Float
 Float::ceiling(Float: a) -> Int

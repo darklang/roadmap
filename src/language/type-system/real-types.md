@@ -14,7 +14,7 @@ Description
 
 ### Datastores use a "schema"
 
-**Problem: **Datastores use this totally custom thing called a "schema". It should obviously be a type instead.
+**Problem:** Datastores use this totally custom thing called a "schema". It should obviously be a type instead.
 
 **Solution: **Figure out how to migrate from schemas to types
 
@@ -22,7 +22,7 @@ Description
 
 ### HTTP handlers create types dynamically
 
-**Problem: **HTTP's `request` variable are magically converted into JSON. The HTTP middleware does not have real types.
+**Problem:** HTTP's `request` variable are magically converted into JSON. The HTTP middleware does not have real types.
 
 **Solution:**
 

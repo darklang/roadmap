@@ -14,15 +14,15 @@ Modules and namespaces are used to separate functions and types so that they can
 
 ### **Built-in types have no module**
 
-**Problem: **Ok, Error, Just and Nothing are not in any namespace
+**Problem:** Ok, Error, Just and Nothing are not in any namespace
 
-**Solution: **Ok should be 
+**Solution: **Ok should be
 
 **Status: Design needed**
 
 ### **Built-in types have no module**
 
-**Problem: **Ok, Error, Just and Nothing are not in any namespace
+**Problem:** Ok, Error, Just and Nothing are not in any namespace
 
 **Solution: **
 
@@ -37,15 +37,15 @@ Modules and namespaces are used to separate functions and types so that they can
 ### v2 Language definition
 
 ```
-type FQFnName = 
+type FQFnName =
   | Stdlib { module = string, name = string, version = int }
-  | PackageManager 
+  | PackageManager
       { owner = UserID,
         package = string,
         module = string,
         name = string,
         version = int
-      } 
+      }
 ```
 
 ### v2 Standard library

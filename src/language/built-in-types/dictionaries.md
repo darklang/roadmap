@@ -8,7 +8,7 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 ### Dictionaries are the same as records
 
-**Problem: **Right now, both dictionaries and records are represented by a `DObj` and a `TObj`. We need to separate them.
+**Problem:** Right now, both dictionaries and records are represented by a `DObj` and a `TObj`. We need to separate them.
 
 **Subproblem**: the only way to update a "record" is with `Dict::set`.
 
@@ -60,12 +60,12 @@ This would have a number of other benefits
 * Add a type checker which distinguishes between Dicts and Record
 * DObj would become just a record
   * old `Dict::` functions would be for records, and would be deprecated. They could even be renamed to `Record::` for now, until we add syntax for the new stuff. We could automatically transition them to the new stuff
-  * dot access could instead be 
+  * dot access could instead be
 * **Status: TODO**
 
 ### Dictionaries are **string only**
 
-**Problem: **Right now, you can't have a dictionary of other things
+**Problem:** Right now, you can't have a dictionary of other things
 
 **Solutions:**
 
@@ -79,7 +79,7 @@ This would have a number of other benefits
 
 ### It's possible to have heterogenous dictionaries
 
-**Problem: **If you have a dict of ints, you can add a string to it
+**Problem:** If you have a dict of ints, you can add a string to it
 
 **Solution: **This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a dict and raise an error if the wrong type is inserted
 

@@ -6,7 +6,7 @@ Dark supports UUIDs directly.
 
 ### UUID is a special type in the runtime, not a type defined using the type system
 
-**Problem: **There should be very few "special" types, and there's no reason that UUIDs should be one of them
+**Problem:** There should be very few "special" types, and there's no reason that UUIDs should be one of them
 
 **Solution:** Add a built-in UUID type, presumably an alias of binary or perhaps a record with a bunch of u8s
 
