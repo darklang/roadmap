@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dark v1 stdlib - Darklang roadmap</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../goals-of-dark-v2.html"><strong aria-hidden="true">2.</strong> Goals of Dark v2</a></li><li class="chapter-item expanded "><a href="../language/index.html"><strong aria-hidden="true">3.</strong> Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/built-in-types/index.html"><strong aria-hidden="true">3.1.</strong> Built in types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/built-in-types/ints.html"><strong aria-hidden="true">3.1.1.</strong> Int</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/strings.html"><strong aria-hidden="true">3.1.2.</strong> String</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/characters.html"><strong aria-hidden="true">3.1.3.</strong> Character</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/floats.html"><strong aria-hidden="true">3.1.4.</strong> Float</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/tuples.html"><strong aria-hidden="true">3.1.5.</strong> Tuple</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/bools.html"><strong aria-hidden="true">3.1.6.</strong> Bool</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/lists.html"><strong aria-hidden="true">3.1.7.</strong> List</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/dictionaries.html"><strong aria-hidden="true">3.1.8.</strong> Dictionary</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/options.html"><strong aria-hidden="true">3.1.9.</strong> Option</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/results.html"><strong aria-hidden="true">3.1.10.</strong> Result</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/set.html"><strong aria-hidden="true">3.1.11.</strong> Set</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/refs.html"><strong aria-hidden="true">3.1.12.</strong> Ref</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/regex.html"><strong aria-hidden="true">3.1.13.</strong> Regex</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/uuids.html"><strong aria-hidden="true">3.1.14.</strong> UUID</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/bytes.html"><strong aria-hidden="true">3.1.15.</strong> Bytes</a></li><li class="chapter-item expanded "><a href="../language/built-in-types/null.html"><strong aria-hidden="true">3.1.16.</strong> Null</a></li></ol></li><li class="chapter-item expanded "><a href="../language/control-flow/index.html"><strong aria-hidden="true">3.2.</strong> Control-flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/control-flow/concurrency-parallelism.html"><strong aria-hidden="true">3.2.1.</strong> Concurrency / parallelism</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/index.html"><strong aria-hidden="true">3.2.2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/control-flow/functions/higher-order-functions.html"><strong aria-hidden="true">3.2.2.1.</strong> Higher-order functions</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/binops.html"><strong aria-hidden="true">3.2.2.2.</strong> BinOps</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/function-definitions.html"><strong aria-hidden="true">3.2.2.3.</strong> Function definitions</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/function-calls.html"><strong aria-hidden="true">3.2.2.4.</strong> Function calls</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/lambda.html"><strong aria-hidden="true">3.2.2.5.</strong> Lambda</a></li><li class="chapter-item expanded "><a href="../language/control-flow/functions/pipe.html"><strong aria-hidden="true">3.2.2.6.</strong> Pipe</a></li></ol></li><li class="chapter-item expanded "><a href="../language/control-flow/match.html"><strong aria-hidden="true">3.2.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="../language/control-flow/let-statements.html"><strong aria-hidden="true">3.2.4.</strong> Let</a></li><li class="chapter-item expanded "><a href="../language/control-flow/if-statements.html"><strong aria-hidden="true">3.2.5.</strong> If</a></li></ol></li><li class="chapter-item expanded "><a href="../language/type-system/index.html"><strong aria-hidden="true">3.3.</strong> Type System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../language/type-system/real-types.html"><strong aria-hidden="true">3.3.1.</strong> Real types</a></li><li class="chapter-item expanded "><a href="../language/type-system/type-checking.html"><strong aria-hidden="true">3.3.2.</strong> Type checking</a></li><li class="chapter-item expanded "><a href="../language/type-system/error-rail.html"><strong aria-hidden="true">3.3.3.</strong> Error Rail</a></li><li class="chapter-item expanded "><a href="../language/type-system/records.html"><strong aria-hidden="true">3.3.4.</strong> Records</a></li><li class="chapter-item expanded "><a href="../language/type-system/enums.html"><strong aria-hidden="true">3.3.5.</strong> Enums</a></li><li class="chapter-item expanded "><a href="../language/type-system/type-aliases.html"><strong aria-hidden="true">3.3.6.</strong> Type aliases</a></li><li class="chapter-item expanded "><a href="../language/type-system/traits.html"><strong aria-hidden="true">3.3.7.</strong> Traits</a></li></ol></li><li class="chapter-item expanded "><a href="../language/modules-and-namespacing.html"><strong aria-hidden="true">3.4.</strong> Modules and Namespacing</a></li><li class="chapter-item expanded "><a href="../language/json-handling.html"><strong aria-hidden="true">3.5.</strong> JSON handling</a></li><li class="chapter-item expanded "><a href="../language/language-versioning.html"><strong aria-hidden="true">3.6.</strong> Language versioning</a></li></ol></li><li class="chapter-item expanded "><a href="../editor/index.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../editor/help-understanding.html"><strong aria-hidden="true">4.1.</strong> Help understanding</a></li><li class="chapter-item expanded "><a href="../editor/error-messages.html"><strong aria-hidden="true">4.2.</strong> Error messages</a></li><li class="chapter-item expanded "><a href="../editor/fluid-editor.html"><strong aria-hidden="true">4.3.</strong> Fluid editor</a></li><li class="chapter-item expanded "><a href="../editor/permissions-model.html"><strong aria-hidden="true">4.4.</strong> Permissions model</a></li><li class="chapter-item expanded "><a href="../editor/collaboration.html"><strong aria-hidden="true">4.5.</strong> Collaboration</a></li><li class="chapter-item expanded "><a href="../editor/ops.html"><strong aria-hidden="true">4.6.</strong> Ops</a></li><li class="chapter-item expanded "><a href="../editor/refactoring-commands.html"><strong aria-hidden="true">4.7.</strong> Refactoring commands</a></li><li class="chapter-item expanded "><a href="../editor/feature-flags.html"><strong aria-hidden="true">4.8.</strong> Feature flags</a></li><li class="chapter-item expanded "><a href="../editor/canvas.html"><strong aria-hidden="true">4.9.</strong> Canvas / code organization</a></li><li class="chapter-item expanded "><a href="../editor/profiler.html"><strong aria-hidden="true">4.10.</strong> Profiler</a></li><li class="chapter-item expanded "><a href="../editor/accounts.html"><strong aria-hidden="true">4.11.</strong> Accounts</a></li></ol></li><li class="chapter-item expanded "><a href="../framework/index.html"><strong aria-hidden="true">5.</strong> Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../framework/error-tracking.html"><strong aria-hidden="true">5.1.</strong> Error Tracking</a></li><li class="chapter-item expanded "><a href="../framework/http-framework.html"><strong aria-hidden="true">5.2.</strong> HTTP handlers</a></li><li class="chapter-item expanded "><a href="../framework/graphql.html"><strong aria-hidden="true">5.3.</strong> GraphQL</a></li><li class="chapter-item expanded "><a href="../framework/datastores.html"><strong aria-hidden="true">5.4.</strong> Datastores</a></li><li class="chapter-item expanded "><a href="../framework/workers.html"><strong aria-hidden="true">5.5.</strong> Workers</a></li><li class="chapter-item expanded "><a href="../framework/cron-scheduled-jobs.html"><strong aria-hidden="true">5.6.</strong> Cron / scheduled jobs</a></li><li class="chapter-item expanded "><a href="../framework/analysis-and-traces.html"><strong aria-hidden="true">5.7.</strong> Traces / analysis / tests</a></li><li class="chapter-item expanded "><a href="../framework/domain-registration.html"><strong aria-hidden="true">5.8.</strong> Domain registration</a></li><li class="chapter-item expanded "><a href="../framework/static-assets.html"><strong aria-hidden="true">5.9.</strong> Static assets</a></li></ol></li><li class="chapter-item expanded "><a href="../infrastructure/index.html"><strong aria-hidden="true">6.</strong> Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../infrastructure/program-storage.html"><strong aria-hidden="true">6.1.</strong> Program storage</a></li></ol></li><li class="chapter-item expanded "><a href="../stdlib/index.html"><strong aria-hidden="true">7.</strong> Libraries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../stdlib/packages-and-stdlib.html"><strong aria-hidden="true">7.1.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="../stdlib/httpclient-calls.html"><strong aria-hidden="true">7.2.</strong> HTTPClient calls</a></li><li class="chapter-item expanded "><a href="../stdlib/style-guide.html"><strong aria-hidden="true">7.3.</strong> Style guide</a></li><li class="chapter-item expanded "><a href="../stdlib/dark-v1-stdlib-1.html" class="active"><strong aria-hidden="true">7.4.</strong> Dark v1 stdlib</a></li><li class="chapter-item expanded "><a href="../stdlib/user-module.html"><strong aria-hidden="true">7.5.</strong> User module</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Darklang roadmap</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="dark-v1-stdlib"><a class="header" href="#dark-v1-stdlib">Dark v1 stdlib</a></h1>
+<h3 id="dark-v1-stdlib-1"><a class="header" href="#dark-v1-stdlib-1">Dark v1 stdlib</a></h3>
+<pre><code class="language-fsharp">!=(Any a, Any b) -&gt; Bool
+%(Int a, Int b) -&gt; Int
+&amp;&amp;(Bool a, Bool b) -&gt; Bool
+*(Int a, Int b) -&gt; Int
++(Int a, Int b) -&gt; Int
+++(Str s1, Str s2) -&gt; Str
+-(Int a, Int b) -&gt; Int
+/(Float a, Float b) -&gt; Float
+&lt;(Int a, Int b) -&gt; Bool
+&lt;=(Int a, Int b) -&gt; Bool
+==(Any a, Any b) -&gt; Bool
+&gt;(Int a, Int b) -&gt; Bool
+&gt;=(Int a, Int b) -&gt; Bool
+^(Int base, Int exponent) -&gt; Int
+||(Bool a, Bool b) -&gt; Bool
+
+emit_v1(Any event, Str Name) -&gt; Any
+equals(Any a, Any b) -&gt; Bool
+notEquals(Any a, Any b) -&gt; Bool
+toString(Any v) -&gt; Str
+
+AWS::urlencode(Str str) -&gt; Str
+Bool::and(Bool a, Bool b) -&gt; Bool
+Bool::isNull(Any check) -&gt; Bool
+Bool::not(Bool b) -&gt; Bool
+Bool::or(Bool a, Bool b) -&gt; Bool
+Bool::xor(Bool a, Bool b) -&gt; Bool
+Bytes::base64Encode(Bytes bytes) -&gt; Str
+Bytes::hexEncode(Bytes bytes) -&gt; Str
+Bytes::length(Bytes bytes) -&gt; Int
+Crypto::md5(Bytes data) -&gt; Bytes
+Crypto::sha1hmac(Bytes key, Bytes data) -&gt; Bytes
+Crypto::sha256(Bytes data) -&gt; Bytes
+Crypto::sha256hmac(Bytes key, Bytes data) -&gt; Bytes
+Crypto::sha384(Bytes data) -&gt; Bytes
+DB::count(Datastore table) -&gt; Int
+DB::deleteAll_v1(Datastore table) -&gt; Nothing
+DB::delete_v1(Str key, Datastore table) -&gt; Nothing
+DB::generateKey() -&gt; Str
+DB::getAllWithKeys_v2(Datastore table) -&gt; Dict
+DB::getAll_v3(Datastore table) -&gt; List
+DB::getExisting(List keys, Datastore table) -&gt; List
+DB::getManyWithKeys_v1(List keys, Datastore table) -&gt; Dict
+DB::getMany_v3(List keys, Datastore table) -&gt; Option
+DB::get_v2(Str key, Datastore table) -&gt; Option
+DB::keys_v1(Datastore table) -&gt; List
+DB::queryCount(Datastore table, Block filter) -&gt; Int
+DB::queryExactFields(Dict spec, Datastore table) -&gt; List
+DB::queryExactFieldsWithKey(Dict spec, Datastore table) -&gt; Dict
+DB::queryOneWithExactFields(Dict spec, Datastore table) -&gt; Option
+DB::queryOneWithExactFieldsWithKey(Dict spec, Datastore table) -&gt; Option
+DB::queryOneWithKey_v3(Datastore table, Block filter) -&gt; Option
+DB::queryOne_v4(Datastore table, Block filter) -&gt; Option
+DB::queryWithKey_v3(Datastore table, Block filter) -&gt; Dict
+DB::query_v4(Datastore table, Block filter) -&gt; List
+DB::schemaFields_v1(Datastore table) -&gt; List
+DB::schema_v1(Datastore table) -&gt; Dict
+DB::set_v1(Dict val, Str key, Datastore table) -&gt; Dict
+Date::&lt;(Date d1, Date d2) -&gt; Bool
+Date::&lt;=(Date d1, Date d2) -&gt; Bool
+Date::&gt;(Date d1, Date d2) -&gt; Bool
+Date::&gt;=(Date d1, Date d2) -&gt; Bool
+Date::add(Date d, Int seconds) -&gt; Date
+Date::atStartOfDay(Date date) -&gt; Date
+Date::day(Date date) -&gt; Int
+Date::fromSeconds(Int seconds) -&gt; Date
+Date::greaterThan(Date d1, Date d2) -&gt; Bool
+Date::greaterThanOrEqualTo(Date d1, Date d2) -&gt; Bool
+Date::hour_v1(Date date) -&gt; Int
+Date::lessThan(Date d1, Date d2) -&gt; Bool
+Date::lessThanOrEqualTo(Date d1, Date d2) -&gt; Bool
+Date::minute(Date date) -&gt; Int
+Date::month(Date date) -&gt; Int
+Date::now() -&gt; Date
+Date::parse_v2(Str s) -&gt; Result
+Date::second(Date date) -&gt; Int
+Date::subtract(Date d, Int seconds) -&gt; Date
+Date::toSeconds(Date date) -&gt; Int
+Date::toString(Date date) -&gt; Str
+Date::toStringISO8601BasicDate(Date date) -&gt; Str
+Date::toStringISO8601BasicDateTime(Date date) -&gt; Str
+Date::today() -&gt; Date
+Date::weekday(Date date) -&gt; Int
+Date::year(Date date) -&gt; Int
+Dict::empty() -&gt; Dict
+Dict::filterMap(Dict dict, Block f) -&gt; Dict
+Dict::filter_v1(Dict dict, Block f) -&gt; Dict
+Dict::fromList(List entries) -&gt; Option
+Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
+Dict::get_v2(Dict dict, Str key) -&gt; Option
+Dict::isEmpty(Dict dict) -&gt; Bool
+Dict::keys(Dict dict) -&gt; List
+Dict::map(Dict dict, Block f) -&gt; Dict
+Dict::member(Dict dict, Str key) -&gt; Bool
+Dict::merge(Dict left, Dict right) -&gt; Dict
+Dict::remove(Dict dict, Str key) -&gt; Dict
+Dict::set(Dict dict, Str key, Any val) -&gt; Dict
+Dict::singleton(Str key, Any value) -&gt; Dict
+Dict::size(Dict dict) -&gt; Int
+Dict::toJSON(Dict dict) -&gt; Str
+Dict::toList(Dict dict) -&gt; List
+Dict::values(Dict dict) -&gt; List
+Float::absoluteValue(Float a) -&gt; Float
+Float::add(Float a, Float b) -&gt; Float
+Float::ceiling(Float a) -&gt; Int
+Float::clamp(Float value, Float limitA, Float limitB) -&gt; Float
+Float::divide(Float a, Float b) -&gt; Float
+Float::floor(Float a) -&gt; Int
+Float::greaterThan(Float a, Float b) -&gt; Bool
+Float::greaterThanOrEqualTo(Float a, Float b) -&gt; Bool
+Float::lessThan(Float a, Float b) -&gt; Bool
+Float::lessThanOrEqualTo(Float a, Float b) -&gt; Bool
+Float::max(Float a, Float b) -&gt; Float
+Float::min(Float a, Float b) -&gt; Float
+Float::multiply(Float a, Float b) -&gt; Float
+Float::negate(Float a) -&gt; Float
+Float::power(Float base, Float exponent) -&gt; Float
+Float::round(Float a) -&gt; Int
+Float::roundDown(Float a) -&gt; Int
+Float::roundTowardsZero(Float a) -&gt; Int
+Float::roundUp(Float a) -&gt; Int
+Float::sqrt(Float a) -&gt; Float
+Float::subtract(Float a, Float b) -&gt; Float
+Float::sum(List a) -&gt; Float
+Float::truncate(Float a) -&gt; Int
+Http::badRequest(Str error) -&gt; Response
+Http::forbidden() -&gt; Response
+Http::notFound() -&gt; Response
+Http::redirectTo(Str url) -&gt; Response
+Http::response(Any response, Int code) -&gt; Response
+Http::responseWithHeaders(Any response, Dict headers, Int code) -&gt; Response
+Http::responseWithHtml(Any response, Int code) -&gt; Response
+Http::responseWithJson(Any response, Int code) -&gt; Response
+Http::responseWithText(Any response, Int code) -&gt; Response
+Http::setCookie_v2(Str name, Str value, Dict params) -&gt; Dict
+Http::success(Any response) -&gt; Response
+Http::unauthorized() -&gt; Response
+HttpClient::basicAuth_v1(Str username, Str password) -&gt; Dict
+HttpClient::bearerToken_v1(Str token) -&gt; Dict
+HttpClient::delete_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::formContentType() -&gt; Dict
+HttpClient::get_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::head_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::htmlContentType() -&gt; Dict
+HttpClient::jsonContentType() -&gt; Dict
+HttpClient::options_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::patch_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+HttpClient::plainTextContentType() -&gt; Dict
+HttpClient::post_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+HttpClient::put_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+Int::absoluteValue(Int a) -&gt; Int
+Int::add(Int a, Int b) -&gt; Int
+Int::clamp(Int value, Int limitA, Int limitB) -&gt; Int
+Int::divide(Int a, Int b) -&gt; Int
+Int::greaterThan(Int a, Int b) -&gt; Bool
+Int::greaterThanOrEqualTo(Int a, Int b) -&gt; Bool
+Int::lessThan(Int a, Int b) -&gt; Bool
+Int::lessThanOrEqualTo(Int a, Int b) -&gt; Bool
+Int::max(Int a, Int b) -&gt; Int
+Int::min(Int a, Int b) -&gt; Int
+Int::mod(Int a, Int b) -&gt; Int
+Int::multiply(Int a, Int b) -&gt; Int
+Int::negate(Int a) -&gt; Int
+Int::power(Int base, Int exponent) -&gt; Int
+Int::random_v1(Int start, Int end) -&gt; Int
+Int::remainder(Int value, Int divisor) -&gt; Result
+Int::sqrt(Int a) -&gt; Float
+Int::subtract(Int a, Int b) -&gt; Int
+Int::sum(List a) -&gt; Int
+Int::toFloat(Int a) -&gt; Float
+JSON::parse_v1(Str json) -&gt; Result
+JWT::signAndEncodeWithHeaders_v1(Str pemPrivKey, Dict headers, Any payload) -&gt; Result
+JWT::signAndEncode_v1(Str pemPrivKey, Any payload) -&gt; Result
+JWT::verifyAndExtract_v1(Str pemPubKey, Str token) -&gt; Result
+List::append(List as, List bs) -&gt; List
+List::drop(List list, Int count) -&gt; List
+List::dropWhile(List list, Block f) -&gt; List
+List::empty() -&gt; List
+List::filterMap(List list, Block f) -&gt; List
+List::filter_v2(List list, Block f) -&gt; List
+List::findFirst_v2(List list, Block f) -&gt; Option
+List::flatten(List list) -&gt; List
+List::fold(List list, Any init, Block f) -&gt; Any
+List::getAt_v1(List list, Int index) -&gt; Option
+List::head_v2(List list) -&gt; Option
+List::indexedMap(List list, Block f) -&gt; List
+List::interleave(List as, List bs) -&gt; List
+List::interpose(List list, Any sep) -&gt; List
+List::isEmpty(List list) -&gt; Bool
+List::last_v2(List list) -&gt; Option
+List::length(List list) -&gt; Int
+List::map(List list, Block f) -&gt; List
+List::map2(List as, List bs, Block f) -&gt; Option
+List::map2shortest(List as, List bs, Block f) -&gt; List
+List::member(List list, Any val) -&gt; Bool
+List::push(List list, Any val) -&gt; List
+List::pushBack(List list, Any val) -&gt; List
+List::randomElement(List list) -&gt; Option
+List::range(Int lowest, Int highest) -&gt; List
+List::repeat(Int times, Any val) -&gt; List
+List::reverse(List list) -&gt; List
+List::singleton(Any val) -&gt; List
+List::sort(List list) -&gt; List
+List::sortBy(List list, Block f) -&gt; List
+List::sortByComparator(List list, Block f) -&gt; Result
+List::tail(List list) -&gt; Option
+List::take(List list, Int count) -&gt; List
+List::takeWhile(List list, Block f) -&gt; List
+List::uniqueBy(List list, Block f) -&gt; List
+List::unzip(List pairs) -&gt; List
+List::zip(List as, List bs) -&gt; Option
+List::zipShortest(List as, List bs) -&gt; List
+Math::acos(Float ratio) -&gt; Option
+Math::asin(Float ratio) -&gt; Option
+Math::atan(Float ratio) -&gt; Float
+Math::atan2(Float y, Float x) -&gt; Float
+Math::cos(Float angleInRadians) -&gt; Float
+Math::cosh(Float angleInRadians) -&gt; Float
+Math::degrees(Float angleInDegrees) -&gt; Float
+Math::pi() -&gt; Float
+Math::radians(Float angleInRadians) -&gt; Float
+Math::sin(Float angleInRadians) -&gt; Float
+Math::sinh(Float angleInRadians) -&gt; Float
+Math::tan(Float angleInRadians) -&gt; Float
+Math::tanh(Float angleInRadians) -&gt; Float
+Math::tau() -&gt; Float
+Math::turns(Float angleInTurns) -&gt; Float
+Option::andThen(Option option, Block f) -&gt; Option
+Option::map2(Option option1, Option option2, Block f) -&gt; Option
+Option::map_v1(Option option, Block f) -&gt; Option
+Option::withDefault(Option option, Any default) -&gt; Any
+Password::check(Password existingpwr, Str rawpw) -&gt; Bool
+Password::hash(Str pw) -&gt; Password
+Result::andThen_v1(Result result, Block f) -&gt; Result
+Result::fromOption_v1(Option option, Str error) -&gt; Result
+Result::map2(Result result1, Result result2, Block f) -&gt; Result
+Result::mapError_v1(Result result, Block f) -&gt; Result
+Result::map_v1(Result result, Block f) -&gt; Result
+Result::toOption_v1(Result result) -&gt; Option
+Result::withDefault(Result result, Any default) -&gt; Any
+StaticAssets::baseUrlFor(Str deploy_hash) -&gt; Str
+StaticAssets::baseUrlForLatest() -&gt; Str
+StaticAssets::fetchBytes(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::fetchLatestBytes(Str file) -&gt; Result
+StaticAssets::fetchLatest_v1(Str file) -&gt; Result
+StaticAssets::fetch_v1(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::serveLatest_v1(Str file) -&gt; Result
+StaticAssets::serve_v1(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::urlFor(Str deploy_hash, Str file) -&gt; Str
+StaticAssets::urlForLatest(Str file) -&gt; Str
+String::append_v1(Str s1, Str s2) -&gt; Str
+String::base64Decode(Str s) -&gt; Str
+String::base64Encode(Str s) -&gt; Str
+String::contains(Str lookingIn, Str searchingFor) -&gt; Bool
+String::digest(Str s) -&gt; Str
+String::dropFirst(Str string, Int characterCount) -&gt; Str
+String::dropLast(Str string, Int characterCount) -&gt; Str
+String::endsWith(Str subject, Str suffix) -&gt; Bool
+String::first(Str string, Int characterCount) -&gt; Str
+String::foreach_v1(Str s, Block f) -&gt; Str
+String::fromChar_v1(Character c) -&gt; Str
+String::fromList_v1(List l) -&gt; Str
+String::htmlEscape(Str html) -&gt; Str
+String::isEmpty(Str s) -&gt; Bool
+String::join(List l, Str separator) -&gt; Str
+String::last(Str string, Int characterCount) -&gt; Str
+String::length_v1(Str s) -&gt; Int
+String::newline() -&gt; Str
+String::padEnd(Str string, Str padWith, Int goalLength) -&gt; Str
+String::padStart(Str string, Str padWith, Int goalLength) -&gt; Str
+String::prepend(Str s1, Str s2) -&gt; Str
+String::random_v2(Int length) -&gt; Result
+String::replaceAll(Str s, Str searchFor, Str replaceWith) -&gt; Str
+String::reverse(Str string) -&gt; Str
+String::slice(Str string, Int from, Int to) -&gt; Str
+String::slugify_v2(Str string) -&gt; Str
+String::split(Str s, Str separator) -&gt; List
+String::startsWith(Str subject, Str prefix) -&gt; Bool
+String::toBytes(Str str) -&gt; Bytes
+String::toFloat_v1(Str s) -&gt; Result
+String::toInt_v1(Str s) -&gt; Result
+String::toList_v1(Str s) -&gt; List
+String::toLowercase_v1(Str s) -&gt; Str
+String::toUUID_v1(Str uuid) -&gt; Result
+String::toUppercase_v1(Str s) -&gt; Str
+String::trim(Str str) -&gt; Str
+String::trimEnd(Str str) -&gt; Str
+String::trimStart(Str str) -&gt; Str
+Twilio::sendText_v1(Str accountSID, Str authToken, Str fromNumber, Str toNumber, Str body) -&gt; Dict
+Uuid::generate() -&gt; UUID
+X509::pemCertificatePublicKey(Str pemCert) -&gt; Result
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../stdlib/style-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../stdlib/user-module.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../stdlib/style-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../stdlib/user-module.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

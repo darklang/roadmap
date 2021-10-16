@@ -1,0 +1,2394 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Darklang roadmap</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="goals-of-dark-v2.html"><strong aria-hidden="true">2.</strong> Goals of Dark v2</a></li><li class="chapter-item expanded "><a href="language/index.html"><strong aria-hidden="true">3.</strong> Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language/built-in-types/index.html"><strong aria-hidden="true">3.1.</strong> Built in types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language/built-in-types/ints.html"><strong aria-hidden="true">3.1.1.</strong> Int</a></li><li class="chapter-item expanded "><a href="language/built-in-types/strings.html"><strong aria-hidden="true">3.1.2.</strong> String</a></li><li class="chapter-item expanded "><a href="language/built-in-types/characters.html"><strong aria-hidden="true">3.1.3.</strong> Character</a></li><li class="chapter-item expanded "><a href="language/built-in-types/floats.html"><strong aria-hidden="true">3.1.4.</strong> Float</a></li><li class="chapter-item expanded "><a href="language/built-in-types/tuples.html"><strong aria-hidden="true">3.1.5.</strong> Tuple</a></li><li class="chapter-item expanded "><a href="language/built-in-types/bools.html"><strong aria-hidden="true">3.1.6.</strong> Bool</a></li><li class="chapter-item expanded "><a href="language/built-in-types/lists.html"><strong aria-hidden="true">3.1.7.</strong> List</a></li><li class="chapter-item expanded "><a href="language/built-in-types/dictionaries.html"><strong aria-hidden="true">3.1.8.</strong> Dictionary</a></li><li class="chapter-item expanded "><a href="language/built-in-types/options.html"><strong aria-hidden="true">3.1.9.</strong> Option</a></li><li class="chapter-item expanded "><a href="language/built-in-types/results.html"><strong aria-hidden="true">3.1.10.</strong> Result</a></li><li class="chapter-item expanded "><a href="language/built-in-types/set.html"><strong aria-hidden="true">3.1.11.</strong> Set</a></li><li class="chapter-item expanded "><a href="language/built-in-types/refs.html"><strong aria-hidden="true">3.1.12.</strong> Ref</a></li><li class="chapter-item expanded "><a href="language/built-in-types/regex.html"><strong aria-hidden="true">3.1.13.</strong> Regex</a></li><li class="chapter-item expanded "><a href="language/built-in-types/uuids.html"><strong aria-hidden="true">3.1.14.</strong> UUID</a></li><li class="chapter-item expanded "><a href="language/built-in-types/bytes.html"><strong aria-hidden="true">3.1.15.</strong> Bytes</a></li><li class="chapter-item expanded "><a href="language/built-in-types/null.html"><strong aria-hidden="true">3.1.16.</strong> Null</a></li></ol></li><li class="chapter-item expanded "><a href="language/control-flow/index.html"><strong aria-hidden="true">3.2.</strong> Control-flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language/control-flow/concurrency-parallelism.html"><strong aria-hidden="true">3.2.1.</strong> Concurrency / parallelism</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/index.html"><strong aria-hidden="true">3.2.2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language/control-flow/functions/higher-order-functions.html"><strong aria-hidden="true">3.2.2.1.</strong> Higher-order functions</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/binops.html"><strong aria-hidden="true">3.2.2.2.</strong> BinOps</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/function-definitions.html"><strong aria-hidden="true">3.2.2.3.</strong> Function definitions</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/function-calls.html"><strong aria-hidden="true">3.2.2.4.</strong> Function calls</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/lambda.html"><strong aria-hidden="true">3.2.2.5.</strong> Lambda</a></li><li class="chapter-item expanded "><a href="language/control-flow/functions/pipe.html"><strong aria-hidden="true">3.2.2.6.</strong> Pipe</a></li></ol></li><li class="chapter-item expanded "><a href="language/control-flow/match.html"><strong aria-hidden="true">3.2.3.</strong> Match</a></li><li class="chapter-item expanded "><a href="language/control-flow/let-statements.html"><strong aria-hidden="true">3.2.4.</strong> Let</a></li><li class="chapter-item expanded "><a href="language/control-flow/if-statements.html"><strong aria-hidden="true">3.2.5.</strong> If</a></li></ol></li><li class="chapter-item expanded "><a href="language/type-system/index.html"><strong aria-hidden="true">3.3.</strong> Type System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="language/type-system/real-types.html"><strong aria-hidden="true">3.3.1.</strong> Real types</a></li><li class="chapter-item expanded "><a href="language/type-system/type-checking.html"><strong aria-hidden="true">3.3.2.</strong> Type checking</a></li><li class="chapter-item expanded "><a href="language/type-system/error-rail.html"><strong aria-hidden="true">3.3.3.</strong> Error Rail</a></li><li class="chapter-item expanded "><a href="language/type-system/records.html"><strong aria-hidden="true">3.3.4.</strong> Records</a></li><li class="chapter-item expanded "><a href="language/type-system/enums.html"><strong aria-hidden="true">3.3.5.</strong> Enums</a></li><li class="chapter-item expanded "><a href="language/type-system/type-aliases.html"><strong aria-hidden="true">3.3.6.</strong> Type aliases</a></li><li class="chapter-item expanded "><a href="language/type-system/traits.html"><strong aria-hidden="true">3.3.7.</strong> Traits</a></li></ol></li><li class="chapter-item expanded "><a href="language/modules-and-namespacing.html"><strong aria-hidden="true">3.4.</strong> Modules and Namespacing</a></li><li class="chapter-item expanded "><a href="language/json-handling.html"><strong aria-hidden="true">3.5.</strong> JSON handling</a></li><li class="chapter-item expanded "><a href="language/language-versioning.html"><strong aria-hidden="true">3.6.</strong> Language versioning</a></li></ol></li><li class="chapter-item expanded "><a href="editor/index.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="editor/help-understanding.html"><strong aria-hidden="true">4.1.</strong> Help understanding</a></li><li class="chapter-item expanded "><a href="editor/error-messages.html"><strong aria-hidden="true">4.2.</strong> Error messages</a></li><li class="chapter-item expanded "><a href="editor/fluid-editor.html"><strong aria-hidden="true">4.3.</strong> Fluid editor</a></li><li class="chapter-item expanded "><a href="editor/permissions-model.html"><strong aria-hidden="true">4.4.</strong> Permissions model</a></li><li class="chapter-item expanded "><a href="editor/collaboration.html"><strong aria-hidden="true">4.5.</strong> Collaboration</a></li><li class="chapter-item expanded "><a href="editor/ops.html"><strong aria-hidden="true">4.6.</strong> Ops</a></li><li class="chapter-item expanded "><a href="editor/refactoring-commands.html"><strong aria-hidden="true">4.7.</strong> Refactoring commands</a></li><li class="chapter-item expanded "><a href="editor/feature-flags.html"><strong aria-hidden="true">4.8.</strong> Feature flags</a></li><li class="chapter-item expanded "><a href="editor/canvas.html"><strong aria-hidden="true">4.9.</strong> Canvas / code organization</a></li><li class="chapter-item expanded "><a href="editor/profiler.html"><strong aria-hidden="true">4.10.</strong> Profiler</a></li><li class="chapter-item expanded "><a href="editor/accounts.html"><strong aria-hidden="true">4.11.</strong> Accounts</a></li></ol></li><li class="chapter-item expanded "><a href="framework/index.html"><strong aria-hidden="true">5.</strong> Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="framework/error-tracking.html"><strong aria-hidden="true">5.1.</strong> Error Tracking</a></li><li class="chapter-item expanded "><a href="framework/http-framework.html"><strong aria-hidden="true">5.2.</strong> HTTP handlers</a></li><li class="chapter-item expanded "><a href="framework/graphql.html"><strong aria-hidden="true">5.3.</strong> GraphQL</a></li><li class="chapter-item expanded "><a href="framework/datastores.html"><strong aria-hidden="true">5.4.</strong> Datastores</a></li><li class="chapter-item expanded "><a href="framework/workers.html"><strong aria-hidden="true">5.5.</strong> Workers</a></li><li class="chapter-item expanded "><a href="framework/cron-scheduled-jobs.html"><strong aria-hidden="true">5.6.</strong> Cron / scheduled jobs</a></li><li class="chapter-item expanded "><a href="framework/analysis-and-traces.html"><strong aria-hidden="true">5.7.</strong> Traces / analysis / tests</a></li><li class="chapter-item expanded "><a href="framework/domain-registration.html"><strong aria-hidden="true">5.8.</strong> Domain registration</a></li><li class="chapter-item expanded "><a href="framework/static-assets.html"><strong aria-hidden="true">5.9.</strong> Static assets</a></li></ol></li><li class="chapter-item expanded "><a href="infrastructure/index.html"><strong aria-hidden="true">6.</strong> Infrastructure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="infrastructure/program-storage.html"><strong aria-hidden="true">6.1.</strong> Program storage</a></li></ol></li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">7.</strong> Libraries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="stdlib/packages-and-stdlib.html"><strong aria-hidden="true">7.1.</strong> Package manager</a></li><li class="chapter-item expanded "><a href="stdlib/httpclient-calls.html"><strong aria-hidden="true">7.2.</strong> HTTPClient calls</a></li><li class="chapter-item expanded "><a href="stdlib/style-guide.html"><strong aria-hidden="true">7.3.</strong> Style guide</a></li><li class="chapter-item expanded "><a href="stdlib/dark-v1-stdlib-1.html"><strong aria-hidden="true">7.4.</strong> Dark v1 stdlib</a></li><li class="chapter-item expanded "><a href="stdlib/user-module.html"><strong aria-hidden="true">7.5.</strong> User module</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Darklang roadmap</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This document is to describe the &quot;2nd&quot; version of Dark. The intent is to document the vision for Dark in the future, which can then be used to design a path from v1 to v2.</p>
+<p>This document is being written simultaneously with &quot;writing&quot; a few Dark applications. I say writing because they are being written not against a real implementation, but on paper, to try and articulate the design of the language without getting bogged down on the implementation (v1 of Dark has an implementation which I already have a lot of experience with).</p>
+<p>After this chapter, the rest of this document is organized by feature - we discuss what we learned from Dark v1 and what problems users experienced, then explain what we believe the solution is. Finally, each section will have a spec for v2 of the feature. This will expand to (or possibly link to) an implementation plan to migrate from v1 to v2.</p>
+<h3 id="outline"><a class="header" href="#outline">Outline</a></h3>
+<p>Each section in the doc represents part of the Dark language, editor, platform, infrastructure, package manager, etc. Each section will follow a standard outline:</p>
+<ul>
+<li>Dark v1 problem
+<ul>
+<li>List of problems with outline
+<ul>
+<li>problem statement</li>
+<li>solution description</li>
+<li>status
+<ul>
+<li>spec'ed, implemented, unknown, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>v2 spec
+<ul>
+<li>v2 language changes</li>
+<li>v2 editor changes</li>
+<li>v2 standard library changes</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
+<h3 id="implementation-plan"><a class="header" href="#implementation-plan">Implementation plan</a></h3>
+<p>The intent is to gradually migrate v1 into v2 -- that is, the current version will migrate into v2. Where this is not possible (for example, needing to remove a core type), we will use Dark's language versioning to migrate people to the new version. We hope to enable this with handler-by-handler granularity, allowing users to slowly move their code over in small pieces as they gain certainty that they won't be affected by the change.</p>
+<h3 id="roadmap-collaboration"><a class="header" href="#roadmap-collaboration">Roadmap collaboration</a></h3>
+<p>There will at some point be a connection between this doc and the work being implemented, perhaps in some project management software. For now, Dark users are welcome to add <a href="https://github.com/darklang/dark">GitHub issues in the Dark repo</a> to discuss the contents of this roadmap, and in general to discuss or propose changes to Dark.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="goals-of-dark-v2"><a class="header" href="#goals-of-dark-v2">Goals of Dark v2</a></h1>
+<h2 id="overall-goals-of-dark"><a class="header" href="#overall-goals-of-dark">Overall goals of Dark</a></h2>
+<p>Dark's goals are to remove accidental complexity from writing backends, via:</p>
+<ul>
+<li>Instant infrastructure: create and scale infrastructure without thinking about it</li>
+<li>Deployless: Changes are safely deployed to production instantly</li>
+<li>making APIs as easy to call as functions</li>
+<li>Trace-drive development: use live requests to speed/improve development</li>
+<li>Integrated tooling: by integrating the editor, programming language and infrastructure, reducing a huge amount of surface area that can cause mistakes or take significant coding time.</li>
+</ul>
+<h2 id="specific-goals-of-dark-v2"><a class="header" href="#specific-goals-of-dark-v2">Specific Goals of Dark v2</a></h2>
+<h3 id="get-to-product-market-fit"><a class="header" href="#get-to-product-market-fit">Get to Product market fit</a></h3>
+<p>Currently, we get 10 user signups a day, and on average, 0 of them stick. We do have developers who love Dark, but not enough.</p>
+<p>The specific problem is that developers trying Dark today must trade one set of accidental complexity for another. While they get the advantages of Dark and they typically resonate with them, they also lose the advantages they have in most alternatives:</p>
+<ul>
+<li>developers need access to a large library of functions/modules/packages to access 3rd party services, such as Stripe, Twilio, Slack, etc -- this sort of thing is trivial in almost all other languages</li>
+<li>developers need to be able to trivially set up a user account system for their users (such as what they can accomplish using Firebase, Rails, Django, etc)</li>
+</ul>
+<p>These are believed to be the major missing features. However, these missing features -- in order to be implemented with a great UX -- need the language and platform to expand to support having them be a great experience.</p>
+<h3 id="fix-issues-from-dark-v1"><a class="header" href="#fix-issues-from-dark-v1">Fix issues from Dark v1</a></h3>
+<p>&quot;v1&quot; of Dark refers to the current state of Dark in August 2020. While this isn't really a v1, it serves as a reference point to discuss the shortcomings and challenges that we discovered by people using, creating, and maintaining it. Most parts of this document start by listing the problems in v1, and this document attempts to discuss overarching problems that users experienced.</p>
+<h3 id="platformization"><a class="header" href="#platformization">Platformization</a></h3>
+<p>Dark v1 is very much a &quot;product&quot; - each feature was built and supported directly. Dark v2 attempts to be more of a platform, where more and more features are built in a way that they can be extended, or their own versions created.</p>
+<p>For example, instead of having a dozen built-in refactoring commands, we'll expose the Dark language within the editor, allowing people to write transformations in the editor, in Dark itself.</p>
+<p>Many of the things that are built into Dark could be put in the package manager, such as refactoring commands, templates, etc. That way developers could add refactoring tools that would allow them or other to , for example, create handlers to receive API-specific webhooks, build CRUD generators, build tooling to automatically create entire API modules from swagger files, or automatically upgrade from deprecated interfaces to newer ones.</p>
+<p>In the platformizing spirit, we also want to write as much of Dark in Dark as possible. Since Dark is much easier to write than most other languages, writing as many features as possible in Dark will lead to faster iteration cycles and so better outcomes. It will also allow contributors to contribute more easily to core services and features.</p>
+<h3 id="continuous-delivery"><a class="header" href="#continuous-delivery">Continuous Delivery</a></h3>
+<p>A core tenet of Dark is that everything is live. That means we need robust ways to carefully make changes to running applications. We have some already:</p>
+<ul>
+<li>all stdlib functions are versioned</li>
+<li>basic feature flag support exists</li>
+<li>static assets are all versioned</li>
+</ul>
+<p>However, we want to support a situation where any change can be made carefully and incrementally, such as:</p>
+<ul>
+<li>versioning functions</li>
+<li>support carefully changing other features, such as types, secrets, and handlers</li>
+<li>db migrations</li>
+</ul>
+<p>The rule here should be that all changes that affect the observable system to grandusers should be controllable and slow launched by the developer.</p>
+<h3 id="support-different-access-levels"><a class="header" href="#support-different-access-levels">Support different access levels</a></h3>
+<p>Right now, there are no access types and Dark can only be accessed by signed-in users. We want to support:</p>
+<ul>
+<li>users trying dark without logging in</li>
+<li>using the editor (including live values) embedded in other docs</li>
+<li>public canvases that can be edited by anybody (safely, that is, so solving things like access to traces, passwords, etc)</li>
+<li>granular ACLs for organizations</li>
+</ul>
+<h3 id="make-dark-more-robust"><a class="header" href="#make-dark-more-robust">Make Dark more robust</a></h3>
+<p>Dark v1 was built quickly and hackily, and was brittle in a number of senses. We cut every corner we could in an effort to get Dark far enough along to get feedback about how it works. Though we went back and reworked several components (in some cases several times) and iterated quite broadly, many problems surfaced because components of Dark were MVP quality.</p>
+<p>This is true of product and language features (eg the error rail and feature flags), as well as simple usability (eg traces can be created, but not edited, searched, graphed, named, saved, etc). In a sense, we often only implement the &quot;C&quot; and &quot;R&quot; of CRUD.</p>
+<p>I want to fully think through the problem spaces and their solutions, to deliver an excellent experience.</p>
+<p>A number of examples:</p>
+<ul>
+<li>use a real type system to avoid all the hacks in v1</li>
+<li>use an async language/framework so that things like calling HTTP functions do not use all the resources, and so that functions like <code>sleep</code> can be supported</li>
+<li>abandon OCaml for a place with more mature libraries &amp; community (probably rust or F#)</li>
+<li>GraphQL: one reason that Dark isn't as robust as it could be is due to the overhead of supporting each CRUD operation in the client is that we need to create APIs for everything. I want to look at using GraphQL to ease that.</li>
+</ul>
+<h3 id="improve-the-feeling-of-safety-while-coding"><a class="header" href="#improve-the-feeling-of-safety-while-coding">Improve the feeling of safety while coding</a></h3>
+<p>Dark feels unsafe to users. They feel reluctant to make changes because they don't know if they will work, or if they'll break things. We need ways to make this safer:</p>
+<ul>
+<li>unit tests on functions and handlers will make users feel safe</li>
+<li>type checking:
+<ul>
+<li>by having type checking on functions and handlers, users can feel confident that their code will work</li>
+</ul>
+</li>
+<li>error tracking
+<ul>
+<li>highlight (and email users about) errors in their apps</li>
+<li>highlight data being sent that isn't being used by the app (eg form fields)
+<ul>
+<li>is this the same as warn/error log messages?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>application understanding
+<ul>
+<li>email users about their traffic so that they understand that their code works</li>
+<li>allow people search their traces for </li>
+</ul>
+</li>
+<li>feature flags:
+<ul>
+<li>make feature flags global and easier to use and understand</li>
+</ul>
+</li>
+<li>fix size of traces</li>
+<li>fix editor layout
+<ul>
+<li>the layout of the canvas</li>
+</ul>
+</li>
+<li>education so that users can understand</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="language"><a class="header" href="#language">Language</a></h1>
+<h3 id="dark-v1-problems"><a class="header" href="#dark-v1-problems">Dark v1 problems:</a></h3>
+<p>Dark v1 didn't have great types. Though technically there were some types under the hood, we didn't really expose them to users and they were only useful for checking the arguments and return values of functions.</p>
+<p>However, the lack of types caused problems:</p>
+<ul>
+<li>DBs use a custom schema</li>
+<li>no way to validate handlers, which types would be useful for</li>
+<li>no enums to represent complex data</li>
+<li>records and dictionaries are sorta the same, which is horrible</li>
+<li>dictionaries are just dynamic typing</li>
+<li>autocomplete didn't work when a trace is missing (no way to know field names)
+<ul>
+<li>we should be able to write code in the absence of traces</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-types"><a class="header" href="#built-in-types">Built in types</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="int"><a class="header" href="#int">Int</a></h1>
+<p>Ints are infinite precision integer values.</p>
+<h2 id="dark-v1-problems-1"><a class="header" href="#dark-v1-problems-1">Dark v1 Problems</a></h2>
+<h3 id="infinite-precision"><a class="header" href="#infinite-precision">Infinite precision</a></h3>
+<p><strong>Problem:</strong> Dark v1 integers are 63-bit integers, they should be infinite precision.</p>
+<p><strong>Solution:</strong> make them infinite precision instead using a BigNum library</p>
+<p><strong>Status: Spec'ed</strong></p>
+<h3 id="json-and-integer-size"><a class="header" href="#json-and-integer-size">JSON and integer size</a></h3>
+<p><strong>Problem:</strong> when we automatically coerce integers to/from JSON, many JSON implementations do not support integers larger than 53 bits (for example, the Twitter API has &quot;id&quot; and &quot;id_str&quot; fields because sometimes the &quot;id&quot; is bigger than 53 bits)</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li>Integer conversion into JSON should use a string if appropriate.</li>
+<li>Integer conversion from JSON should always be typed, and so if there's an int it can be parsed from a stringified integer literal if appropriate</li>
+</ul>
+<p><strong>Status: Not spec'ed</strong></p>
+<h3 id="negative-numbers"><a class="header" href="#negative-numbers">Negative numbers</a></h3>
+<p><strong>Problem:</strong> The fluid editor does not allow negative numbers.</p>
+<p><strong>Solution:</strong> a UX for negative numbers is described below, it was quite straightforward.</p>
+<p><strong>Status: Spec'ed</strong></p>
+<h3 id="arithmetic-errors"><a class="header" href="#arithmetic-errors">Arithmetic errors</a></h3>
+<p><strong>Problem:</strong> some arithmetic operations can lead to errors:</p>
+<ul>
+<li>division by 0</li>
+<li>modulus by 0</li>
+</ul>
+<p><strong>Solution:</strong> these should return <code>Result (Int, IntError)</code>. One problem here is how we can make the  error rail less cumbersome so that this isn't really irritating to handle.</p>
+<p><strong>Status: spec'ed</strong></p>
+<h3 id="integers-of-other-sizes"><a class="header" href="#integers-of-other-sizes">Integers of other sizes</a></h3>
+<p><strong>Problem:</strong> it can be useful to have integers of specific sizes, in order to better model specific values or enforce overflow</p>
+<p><strong>Solution:</strong> we should add <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code></p>
+<p><strong>Status: not spec'ed</strong></p>
+<h2 id="v2-spec"><a class="header" href="#v2-spec">v2 Spec</a></h2>
+<h3 id="v2-language-definition"><a class="header" href="#v2-language-definition">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type Expr =
+  | EInt { val = BigInt }
+  | ...
+
+type Pattern =
+  | PInt { val : BigInt }
+  | ...
+
+type Dval =
+  | DInt { val = BigInt }
+  | ...
+
+type DType =
+  | TInt
+  | ...
+</code></pre>
+<h3 id="v2-standard-library-int"><a class="header" href="#v2-standard-library-int">v2 Standard library: Int</a></h3>
+<pre><code class="language-fsharp">type Error =
+  | DivideByZero
+
+// the same as V1
+Int::absoluteValue(Int: a) -&gt; Int
+Int::add(Int: a, Int: b) -&gt; Int
+Int::clamp(Int: value, Int: limitA, Int: limitB) -&gt; Int
+Int::greaterThan(Int: a, Int: b) -&gt; Bool
+Int::greaterThanOrEqualTo(Int: a, Int: b) -&gt; Bool
+Int::lessThan(Int: a, Int: b) -&gt; Bool
+Int::lessThanOrEqualTo(Int: a, Int: b) -&gt; Bool
+Int::max(Int: a, Int: b) -&gt; Int
+Int::min(Int: a, Int: b) -&gt; Int
+Int::multiply(Int: a, Int: b) -&gt; Int
+Int::negate(Int: a) -&gt; Int
+Int::power(Int: base, Int: exponent) -&gt; Int
+Int::random_v1(Int: start, Int: end) -&gt; Int
+Int::remainder(Int: value, Int: divisor) -&gt; Result
+Int::sqrt(Int: a) -&gt; Float
+Int::subtract(Int: a, Int: b) -&gt; Int
+Int::toFloat(Int: a) -&gt; Float
+
+// different from v1
+Int::divide(Int: a, Int: b) -&gt; Result (Int, Error)
+Int::mod(Int: a, Int: b) -&gt; Result (Int, Error)
+Int::sum(List Int: a) -&gt; Int
+
+</code></pre>
+<h3 id="v2-editor-changes"><a class="header" href="#v2-editor-changes">v2 Editor changes</a></h3>
+<ul>
+<li>support negative integers
+<ul>
+<li>allow entering <code>-</code> at the start of an integer to convert it to a negative number</li>
+<li>allow deleting <code>-</code> from the start of an integer to convert it back to a positive</li>
+<li>if typing <code>-</code> in a position that is not a binop, start a partial (already happens). Once a partial of <code>-</code>gets a number added, turn it into an integer</li>
+</ul>
+</li>
+<li>remove the conversion when a number gets too big - no longer needed for infinite precision ints</li>
+</ul>
+<h3 id="json-serialization-changes"><a class="header" href="#json-serialization-changes">Json serialization changes</a></h3>
+<p><strong>TODO:</strong> wait til we figure out how JSON serialization works in Dark v2</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="string"><a class="header" href="#string">String</a></h1>
+<p>Strings are unicode encode text. Specifically, string are immutable UTF-8 encoded sequences of Unicode code points.</p>
+<h2 id="dark-v1-problems-2"><a class="header" href="#dark-v1-problems-2">Dark v1 problems</a></h2>
+<h3 id="concatenation"><a class="header" href="#concatenation">Concatenation</a></h3>
+<p><strong>Problem:</strong> Users currently have to do concatenation like so:</p>
+<pre><code class="language-fsharp">&quot;I am &quot;
+|&gt; ++ user.name
+|&gt; ++ &quot; and I am &quot;
+|&gt; ++ (toString user.age)
+|&gt; ++ &quot; years old&quot;
+</code></pre>
+<p><strong>Solution:</strong> Instead, we'd like to support string interpolation</p>
+<pre><code class="language-fsharp">&quot;I am ${user.name} and I am ${user.age} years old&quot;
+</code></pre>
+<p><strong>Status: language definition spec'ed. Interaction model not spec'ed</strong></p>
+<h3 id="special-characters"><a class="header" href="#special-characters">Special characters</a></h3>
+<p><strong>Problem:</strong> To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.</p>
+<p><strong>Solution:</strong> support using escape characters (<code>\</code>) to support them (<code>\n, \r, \t, \\, \&quot;, etc</code>). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.</p>
+<p><strong>Status: language definition spec'ed, interaction model not spec'ed</strong></p>
+<h3 id="emoji"><a class="header" href="#emoji">Emoji</a></h3>
+<p><strong>Problem:</strong> I think the editor does not support proper unicode - I'm not sure.</p>
+<p><strong>Solution:</strong> the editor should support entering all LTR Unicode text (RTL can wait until Dark v3) - if you can type it into the browser, we should support it in the editor.</p>
+<p><strong>Status: problem not understood, not spec'ed</strong></p>
+<h3 id="string-length"><a class="header" href="#string-length">String length</a></h3>
+<p><strong>Problem:</strong> String length is determined in <code>O(n)</code> time.</p>
+<p><strong>Solution:</strong> String length should be cached as part of the string. Using a better string implementation would help solve this.</p>
+<p><strong>Status: spec'ed</strong></p>
+<h3 id="shortened-display"><a class="header" href="#shortened-display">Shortened display</a></h3>
+<p><strong>Problem:</strong> We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:</p>
+<ul>
+<li>sometimes the string is only 41 character and it looks bad</li>
+<li>sometimes the line has more room than 40 characters and it looks dumb</li>
+<li>sometimes the line has builtin line breaks, but it breaks off length instead</li>
+<li>We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.</li>
+</ul>
+<p><strong>Solution:</strong> TODO</p>
+<p><strong>Status: not spec'ed</strong></p>
+<h3 id="cursor-affinity"><a class="header" href="#cursor-affinity">Cursor affinity</a></h3>
+<p><strong>Problem:</strong> the cursor can be in two different places which logically mean the same thing (the end of a line, and the start of the subsequent line). This leads to &quot;cursor affinity&quot; problems.</p>
+<p><strong>Solution:</strong> TODO: this was written down somewhere.</p>
+<p><strong>Status:</strong> Not spec'ed</p>
+<h2 id="v2-spec-1"><a class="header" href="#v2-spec-1">v2 spec</a></h2>
+<p>Strings are unicode, and character are unicode “characters” (if it appears as one character on the screen, that’s a “character” in Dark).</p>
+<p>Specifically, string are immutable UTF-8 encoded sequences of Unicode code points. Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that implement unicode characters, a grapheme is some codepoints forming a unicode entity, such as an emoji; an EGC is some graphemes, used to handle things like emojis which combine to form a single emoji).</p>
+<h3 id="v2-language-definition-1"><a class="header" href="#v2-language-definition-1">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type string = # unicode supporting type, should include length
+
+type stringSegment =
+  | Text of string
+  | InterpolatedExpr of expr
+
+type Expr =
+  | EString of stringSegment list
+  | ...
+
+type Pattern =
+  | PString of string list
+  | ...
+
+type Dval =
+  | DString of string
+  | ...
+
+type DType =
+  | TString
+  | ...
+</code></pre>
+<p>Escaped characters can be stored as their actual values in the string, and displayed/entered differently in the editor.</p>
+<h3 id="v2-standard-library"><a class="header" href="#v2-standard-library">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">type StringError =
+  | FloatConversionError
+  | IntegerConversionError
+
+// same as v1
+String::append_v1(String: s1, String: s2) -&gt; String
+String::base64Decode(String: s) -&gt; String
+String::base64Encode(String: s) -&gt; String
+String::contains(String: lookingIn, String: searchingFor) -&gt; Bool
+String::digest(String: s) -&gt; String
+String::dropFirst(String: string, Int: characterCount) -&gt; String
+String::dropLast(String: string, Int: characterCount) -&gt; String
+String::endsWith(String: subject, String: suffix) -&gt; Bool
+String::first(String: string, Int: characterCount) -&gt; String
+String::fromChar_v1(Character: c) -&gt; String
+String::isEmpty(String: s) -&gt; Bool
+String::join(List l, String separator) -&gt; String
+String::last(String: string, Int: characterCount) -&gt; String
+String::length_v1(String: s) -&gt; Int
+String::padEnd(String: string, String: padWith, Int: goalLength) -&gt; String
+String::padStart(String: string, String: padWith, Int: goalLength) -&gt; String
+String::prepend(String: s1, String: s2) -&gt; String
+String::replaceAll(String: s, String: searchFor, String: replaceWith) -&gt; String
+String::reverse(String: string) -&gt; String
+String::slice(String: string, Int: from, Int: to) -&gt; String
+String::slugify_v2(String string) -&gt; String
+String::split(String s, String separator) -&gt; List
+String::startsWith(String: subject, String: prefix) -&gt; Bool
+String::toBytes(String: str) -&gt; Bytes
+String::toFloat_v1(String: s) -&gt; Result (Float, StringError)
+String::toInt_v1(String: s) -&gt; Result (Float, StringError)
+String::toList_v1(String: s) -&gt; List Character
+String::toLowercase_v1(String: s) -&gt; String
+String::toUppercase_v1(String: s) -&gt; String
+String::trim(String: str) -&gt; String
+String::trimEnd(String: str) -&gt; String
+String::trimStart(String: str) -&gt; String
+
+// Maybe could be better
+String::htmlEscape(String html) -&gt; String
+String::newline() -&gt; String
+
+// Move to UUID module
+String::toUUID_v1(String: uuid) -&gt; Result (UUID, StringError)
+
+
+// Different in v2
+String::foreach_v1(String: s, Block f) -&gt; String
+String::fromList_v1(List l) -&gt; String
+String::random_v2(Int: length) -&gt; String // length &lt; 0 means empty string
+
+
+
+</code></pre>
+<h3 id="v2-interaction-model"><a class="header" href="#v2-interaction-model">v2 Interaction model</a></h3>
+<h4 id="string-escaping"><a class="header" href="#string-escaping">String escaping</a></h4>
+<p>TODO</p>
+<h4 id="interpolation"><a class="header" href="#interpolation">Interpolation</a></h4>
+<p>TODO</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="character"><a class="header" href="#character">Character</a></h1>
+<p>Characters should be an Extended Grapheme Cluster, corresponding to a single display character.</p>
+<p>Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that implement unicode characters, a grapheme is some codepoints forming a unicode entity, such as an emoji; an EGC is some graphemes, used to handle things like emojis which combine to form a single emoji).</p>
+<h2 id="dark-v1-problems-3"><a class="header" href="#dark-v1-problems-3">Dark v1 problems</a></h2>
+<h3 id="cant-create-characters"><a class="header" href="#cant-create-characters">Can't create characters</a></h3>
+<p><strong>Problem:</strong> Characters were implemented, but you couldn't create one.</p>
+<p><strong>Solution:</strong> implement characters creation</p>
+<h3 id="no-character-stdlib"><a class="header" href="#no-character-stdlib">No character stdlib</a></h3>
+<p><strong>Problem</strong>: Characters were implemented but there were no functions on characters (they were on strings instead)</p>
+<p><strong>Solution</strong>: Add functions the use characters</p>
+<h2 id="v2-spec-2"><a class="header" href="#v2-spec-2">v2 spec</a></h2>
+<h3 id="v2-language-definition-2"><a class="header" href="#v2-language-definition-2">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type egcChar = // type suitable to hold an EGC
+
+type Expr =
+  | EChar { val = egcChar }
+  | ...
+
+type Pattern =
+  | PChar { val : egcChar }
+  | ...
+
+type Dval =
+  | DChar { val = egcChar }
+  | ...
+
+type DType =
+  | TChar
+  | ...
+</code></pre>
+<h3 id="v2-standard-library-darkstdlibchar"><a class="header" href="#v2-standard-library-darkstdlibchar">v2 Standard library: dark/stdlib/Char</a></h3>
+<pre><code class="language-fsharp">// New
+Character::toString(Char: c) -&gt; String
+String::map(String: s, (Char -&gt; Char)) -&gt; String
+String::toList(String: s) -&gt; List Char
+String::fromList(l : List Char) -&gt; String
+
+
+</code></pre>
+<h3 id="v2-editor-changes-1"><a class="header" href="#v2-editor-changes-1">v2 Editor changes</a></h3>
+<ul>
+<li>allow entering characters
+<ul>
+<li><code>'</code> creates a partial showing <code>''</code></li>
+<li>entering a character turns the partial into an ECharacter (eg <code>'a'</code>)</li>
+<li>entering another character turns it into a Partial with both characters (eg <code>'ab'</code>)</li>
+<li>converting it back into a properly formed character turns it into one</li>
+<li>typing <code>'</code> when when your cursor is on the closing quote skips over it</li>
+</ul>
+</li>
+<li>escaping should be supported
+<ul>
+<li>common expected escapes: \n, \r, \t</li>
+<li>escapes that are needed for the text to work \\, \'</li>
+<li>allow a specific byte: \xhh (hex escaping)</li>
+<li>could possibly allow octal escaping too</li>
+<li>escape sequences should be clear to the user (a different color)</li>
+<li>escape sequence should have a clear doc explaining how it works and what the user is looking at</li>
+<li>the expr should be a partial while the <code>\</code> is not followed by a valid character</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="float"><a class="header" href="#float">Float</a></h1>
+<p>Floats are 64-bit IEEE-754 arithmetic, with what I hope are improvements. Dark's floats were designed to not support infinity or overflow. Those are sentinel values which can sneak into logic, and continue to propagate. Instead, we want to use results to handle these errors.</p>
+<h2 id="dark-v1-problems-4"><a class="header" href="#dark-v1-problems-4">Dark v1 problems</a></h2>
+<h3 id="operators"><a class="header" href="#operators">Operators</a></h3>
+<p><strong>Problem:</strong> Dark's operators (<code>+</code>, <code>-</code>, <code>*</code>, etc) work on integers. In Dark v1, we use <code>Float::+</code> instead, which doesn't suck but isn't great</p>
+<p>**Non-solution: **We speculated that we could use the editor to simply hide the <code>Float::</code> part. However, that doesn't allow polymorphism, you can't have a library that takes numbers of any kind and (for example) sums them.</p>
+<p><strong>Solution:</strong> use traits to support reuse of common operators for different types</p>
+<p><strong>Status</strong>: Not spec'ed</p>
+<h3 id="float-entry-problems-that-convert-to-0"><a class="header" href="#float-entry-problems-that-convert-to-0">Float entry problems that convert to 0</a></h3>
+<p>TODO</p>
+<p><strong>Status:</strong> Problem not understood</p>
+<h3 id="inf-and-nan"><a class="header" href="#inf-and-nan">Inf and NaN</a></h3>
+<p><strong>Problem:</strong> In Dark v1, it's possible to accidentally create <code>Inf</code> and <code>NaN</code>, but it was not really possible to use them.</p>
+<p><strong>Solution:</strong> prevent creating Inf or NaN. Any functions which (internally) create invalid floats will return Results instead.</p>
+<p><strong>Status</strong>: Spec'ed, not implemented</p>
+<h3 id="negative-00"><a class="header" href="#negative-00">Negative 0.0</a></h3>
+<p><strong>Problem:</strong> it's possible to have negative 0.0. This is a confusing part of floats.</p>
+<p><strong>Solution:</strong> TODO</p>
+<p><strong>Status:</strong> problem not understood, solution unknown</p>
+<h3 id="support-other-representations"><a class="header" href="#support-other-representations">Support other representations</a></h3>
+<p><strong>Problem:</strong> v1 only supports decimalized floats, like <code>5.6</code>. It should also support exponent style like <code>6.02e23</code></p>
+<p><strong>Solution:</strong> Also support exponent format</p>
+<p><strong>Status:</strong> Representation is spec'ed. Interaction model not spec'ed.</p>
+<h3 id="floats-dont-support-negatives"><a class="header" href="#floats-dont-support-negatives"><strong>Floats don't support negatives</strong></a></h3>
+<p><strong>Problem:</strong> same as ints</p>
+<p><strong>Solution:</strong> copy the proposed interaction model from ints</p>
+<p><strong>Status:</strong> not spec'ed</p>
+<h2 id="v2-spec-3"><a class="header" href="#v2-spec-3">v2 spec</a></h2>
+<h3 id="v2-language-definition-3"><a class="header" href="#v2-language-definition-3">v2 language definition</a></h3>
+<p>Same as V1, except we represent a float better.</p>
+<pre><code class="language-fsharp">type Sign =
+  | Plus
+  | Minus
+
+type floatRep = {
+      wholeNumberPart : Int64,
+      fractionalPart : Int64
+      exponentExists : Bool
+      exponentSign : Sign
+      exponentPower : Int64
+    }
+
+type Expr =
+  | EFloat of floatRep
+  | ...
+
+type Pattern =
+  | PFloat of floatRep
+  | ...
+
+type Dval =
+  | DFloat of double
+  | ...
+
+type DType =
+  | TFloat
+  | ...
+</code></pre>
+<h4 id="examples"><a class="header" href="#examples">Examples</a></h4>
+<ul>
+<li><code>5.</code></li>
+<li><code>.6</code></li>
+<li><code>0.6</code></li>
+<li><code>-678.234</code></li>
+<li><code>-6.436E-567</code></li>
+</ul>
+<h3 id="float-stdlib-functions"><a class="header" href="#float-stdlib-functions">Float stdlib functions</a></h3>
+<pre><code class="language-fsharp">type Error =
+  | FloatOverflowError
+
+// same as v1
+Float::absoluteValue(Float: a) -&gt; Float
+Float::ceiling(Float: a) -&gt; Int
+Float::clamp(Float: value, Float: limitA, Float: limitB) -&gt; Float
+Float::floor(Float: a) -&gt; Int
+Float::greaterThan(Float: a, Float: b) -&gt; Bool
+Float::greaterThanOrEqualTo(Float: a, Float: b) -&gt; Bool
+Float::lessThan(Float: a, Float: b) -&gt; Bool
+Float::lessThanOrEqualTo(Float: a, Float: b) -&gt; Bool
+Float::max(Float: a, Float: b) -&gt; Float
+Float::min(Float: a, Float: b) -&gt; Float
+Float::negate(Float: a) -&gt; Float
+Float::round(Float: a) -&gt; Int
+Float::roundDown(Float: a) -&gt; Int
+Float::roundTowardsZero(Float: a) -&gt; Int
+Float::roundUp(Float: a) -&gt; Int
+Float::sqrt(Float: a) -&gt; Float
+Float::subtract(Float: a, Float: b) -&gt; Float
+Float::truncate(Float: a) -&gt; Int
+Float::sum(List Float: a) -&gt; Float
+
+// different from v1
+Float::add(Float: a, Float: b) -&gt; Result (Float, Error)
+Float::subtract(Float: a, Float: b) -&gt; Result (Float, Error)
+Float::divide(Float a, Float b) -&gt; Result (Float, Error)
+Float::power(Float base, Float exponent) -&gt; Result (Float, Error)
+Float::multiply(Float: a, Float: b) -&gt; Result (Float, Error)
+
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuple"><a class="header" href="#tuple">Tuple</a></h1>
+<p>Dark v1 does not have tuples. Dark v1 allowed different types in the same list, though, which was not a great experience as the rest of the language mostly expected the language to be typed.</p>
+<h2 id="goals"><a class="header" href="#goals">Goals</a></h2>
+<p>Tuples are useful for situations where you want to group information together but do:</p>
+<ul>
+<li>do not want a full blown record</li>
+<li>want heterogeneous types</li>
+<li>want destructuring</li>
+</ul>
+<h2 id="v2-definition"><a class="header" href="#v2-definition">V2 definition</a></h2>
+<pre><code class="language-fsharp">type Expr =
+  | ETuple { exprs : List Expr }
+  | ...
+
+type Pattern =
+  | PTuple { pats : List Pattern }
+  | ...
+
+type Dval =
+  | DTuple { vals = List Dval }
+  | ...
+
+type DType =
+  | TTuple { contents = List DTyple }
+  | ...
+</code></pre>
+<h3 id="interaction-model"><a class="header" href="#interaction-model">Interaction model</a></h3>
+<pre><code class="language-fsharp">let (myString, myInt) = (&quot;str&quot;, 6)
+</code></pre>
+<h4 id="creation"><a class="header" href="#creation">Creation:</a></h4>
+<pre><code class="language-fsharp">'let ' =&gt;
+  let |___ = ___
+( =&gt;
+  let (|) = ___
+myString =&gt;
+  let (myString|) = ___
+, =&gt;
+  let (myString, |___) = ___
+'myInt) = ' =&gt;
+  let (myString, myInt) = |___
+( =&gt;
+  let (myString, myInt) = (|)
+'&quot;str&quot;, ' =&gt;
+  let (myString, myInt) = (&quot;str&quot;, |___)
+5) =&gt;
+  let (myString, myInt) = (&quot;str&quot;, 5)|
+</code></pre>
+<h3 id="standard-library"><a class="header" href="#standard-library">Standard library</a></h3>
+<pre><code class="language-fsharp">// Access
+Tuple2::first ('a,'b) -&gt; 'a
+Tuple2::second ('a,'b) -&gt; 'b
+
+// Creation
+Tuple2::pair ('a, 'b) -&gt; ('a,'b)
+
+// Manipulation
+Tuple2::mapFirst (('a,'b), ('a -&gt; 'c)) -&gt; ('c, 'b)
+Tuple2::mapSecond (('a,'b), ('b -&gt; 'c)) -&gt; ('b, 'c)
+Tuple2::mapBoth (('a,'b), ('a -&gt; 'c), ('b -&gt; 'd)) -&gt; ('c, 'd)
+
+Tuple2::swap (('a,'b)) -&gt; ('b, 'a)
+
+
+// And all the equivalents for Tuple3
+// Also possibly bonus functions from https://package.elm-lang.org/packages/TSFoster/elm-tuple-extra/latest/Tuple3
+
+</code></pre>
+<p>Changes in existing libraries:</p>
+<pre><code class="language-fsharp">List.zip_v1(List 'a, List 'b) -&gt; Option (List ('a, 'b))
+List.zipShortest_v1(List 'a, List 'b) -&gt; List ('a, 'b)
+List.unzip_v1(List ('a, 'b) -&gt; (List 'a, List 'b)
+
+Dict.fromList_v1(List ('a, 'b)) -&gt; Option (Dict 'a 'b)
+Dict.fromListOverwritingDuplicates_v1(List ('a, 'b)) -&gt; Dict 'a 'b
+Dict.toList_v1(Dict 'a 'b) -&gt; List ('a, 'b)
+</code></pre>
+<p>There should be some version of a HttpClient function that takes tuples, as it is legal to have multiple headers of the same type and so tuples rather than dicts represent the <strong>correct</strong> type. Since we expect users to use built-ins for headers (such as <code>Http::jsonContentType</code>), this seems doable soon.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bool"><a class="header" href="#bool">Bool</a></h1>
+<p>Booleans are <code>true</code> or <code>false</code></p>
+<h2 id="dark-v1-problems-5"><a class="header" href="#dark-v1-problems-5">Dark v1 Problems</a></h2>
+<p>None</p>
+<h2 id="v2-spec-4"><a class="header" href="#v2-spec-4">v2 Spec</a></h2>
+<h3 id="v2-language-definition-4"><a class="header" href="#v2-language-definition-4">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type Expr =
+  | EBool { val = bool }
+  | ...
+
+type Pattern =
+  | PBool { val : bool }
+  | ...
+
+type Dval =
+  | DBool { val = bool }
+  | ...
+
+type DType =
+  | TBool
+  | ...
+</code></pre>
+<h3 id="v2-standard-library-1"><a class="header" href="#v2-standard-library-1">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">// same as V1
+Bool::and(Bool, Bool) -&gt; Bool
+Bool::not(Bool) -&gt; Bool
+Bool::or(Bool, Bool) -&gt; Bool
+Bool::xor(Bool, Bool) -&gt; Bool
+
+// removed
+// no nulls anymore (also, shouldn't have been in the bool namespace)
+Bool::isNull(Any check) -&gt; Bool
+Bool::isError(Any check) -&gt; Bool
+</code></pre>
+<h3 id="v2-editor-changes-2"><a class="header" href="#v2-editor-changes-2">v2 Editor changes</a></h3>
+<p>None</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list"><a class="header" href="#list">List</a></h1>
+<p>Lists and Arrays use the same datatype, called Lists. The Dark compiler will in the future optimize their implementation to support good algorithmic complexity and performance for whatever you use them for.</p>
+<p>Lists should be used for all “I want a sequence of things” situations, including iterating across them, random access, push/pop, etc.</p>
+<h2 id="dark-v1-problems-6"><a class="header" href="#dark-v1-problems-6">Dark v1 Problems</a></h2>
+<h3 id="no-pattern-matching-on-lists"><a class="header" href="#no-pattern-matching-on-lists">No pattern matching on lists</a></h3>
+<p><strong>Problem:</strong> patterns don't support lists yet</p>
+<p><strong>Solution:</strong> implement</p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h3 id="fake-values-are-sometimes-in-lists"><a class="header" href="#fake-values-are-sometimes-in-lists">Fake values are sometimes in lists</a></h3>
+<p><strong>Problem:</strong> errors, errorrails and incompletes can be put in lists, if we're not careful</p>
+<p><strong>Solution:</strong> Though we have mostly been careful, it would be useful to try and fuzz functions, or add logging, or something to ensure that this doesnt happen</p>
+<p><strong>Status:</strong> Unspeced</p>
+<h3 id="its-possible-to-have-heterogenous-lists"><a class="header" href="#its-possible-to-have-heterogenous-lists">It's possible to have heterogenous lists</a></h3>
+<p><strong>Problem:</strong> If you have a list of ints, you can add a string to it</p>
+<p><strong>Solution:</strong> This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a list and raise an error if the wrong type is inserted</p>
+<p><strong>Status</strong>: still unclear on solution</p>
+<h2 id="v2-spec-5"><a class="header" href="#v2-spec-5">v2 Spec</a></h2>
+<h3 id="v2-language-definition-5"><a class="header" href="#v2-language-definition-5">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type Expr =
+  | EList { list : List Expr }
+  | ...
+
+type Pattern =
+  | PList { val : List Pattern }
+  | ...
+
+type Dval =
+  | DList { val = List Dval }
+  | ...
+
+type DType =
+  | TList of DType
+  | ...
+</code></pre>
+<h3 id="v2-standard-library-2"><a class="header" href="#v2-standard-library-2">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">List::append(List 'a, List 'a) -&gt; List 'a
+List::drop(List 'a, Int) -&gt; List 'a
+List::dropWhile(List 'a, ('a -&gt; bool)) -&gt; List 'a
+List::empty() -&gt; List 'a
+List::filterMap(List 'a, ('a -&gt; Option 'b)) -&gt; List 'b
+List::filter_v2(List list, ('a -&gt; bool)) -&gt; List 'a
+List::findFirst_v2(List 'a, ('a -&gt; bool)) -&gt; Option 'a
+List::flatten(List (List 'a)) -&gt; List 'a
+List::fold(List 'a, 'b, ('a -&gt; 'b -&gt; 'b)) -&gt; 'b
+List::getAt_v1(List 'a, Int) -&gt; Option 'a
+List::head_v2(List 'a) -&gt; Option 'a
+List::indexedMap(List 'a, (Int -&gt; 'a -&gt; 'b)) -&gt; List 'b
+List::interleave(List 'a, List 'a) -&gt; List 'a
+List::interpose(List 'a, 'a) -&gt; List 'a
+List::isEmpty(List 'a) -&gt; Bool
+List::last_v2(List 'a) -&gt; Option 'a
+List::length(List 'a) -&gt; Int
+List::map(List 'a, ('a -&gt; 'b)) -&gt; List 'b
+List::map2(List 'a, List 'b, ('a -&gt; 'b -&gt; 'c)) -&gt; Option (List 'c)
+List::map2shortest(List 'a, List 'b, ('a -&gt; 'b -&gt; 'c)) -&gt; List 'c
+List::member(List 'a, 'a) -&gt; Bool
+List::push(List 'a, 'a) -&gt; List 'a
+List::pushBack(List 'a, 'a) -&gt; List 'a
+List::randomElement(List 'a ) -&gt; Option 'a
+List::range(Int, Int) -&gt; List Int
+List::repeat(Int, 'a) -&gt; List 'a
+List::reverse(List 'a) -&gt; List 'a
+List::singleton('a) -&gt; List 'a
+List::sort(List 'a) -&gt; List ;a
+List::sortBy(List 'a, ('a -&gt; 'b)) -&gt; List 'a
+List::sortByComparator(List 'a, ('a -&gt; Int)) -&gt; Result (List 'a) String
+List::tail(List 'a) -&gt; Option (List 'a)
+List::take(List 'a, Int count) -&gt; List 'a
+List::takeWhile(List 'a, ('a -&gt; Bool)) -&gt; List 'a
+List::uniqueBy(List list, ('a -&gt; 'b)) -&gt; List 'a
+
+// To remove, see Tuples
+List::unzip(List) -&gt; List
+List::zip(List, List) -&gt; Option
+List::zipShortest(List, List) -&gt; List
+</code></pre>
+<h3 id="v2-editor-changes-3"><a class="header" href="#v2-editor-changes-3">v2 Editor changes</a></h3>
+<ul>
+<li>support for list patterns</li>
+<li>support for cons perhaps?</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dictionary"><a class="header" href="#dictionary">Dictionary</a></h1>
+<p>Dicts are maps from a certain key type to a certain value type. The key must currently be a string. The value can be any type but all elements of the Dict are the same type (not currently enforced).</p>
+<p>Dicts are different than records: dicts can have arbitrary keys.</p>
+<h2 id="dark-v1-problems-7"><a class="header" href="#dark-v1-problems-7">Dark v1 Problems</a></h2>
+<h3 id="dictionaries-are-the-same-as-records"><a class="header" href="#dictionaries-are-the-same-as-records">Dictionaries are the same as records</a></h3>
+<p><strong>Problem:</strong> Right now, both dictionaries and records are represented by a <code>DObj</code> and a <code>TObj</code>. We need to separate them.</p>
+<p><strong>Subproblem:</strong> the only way to update a &quot;record&quot; is with <code>Dict::set</code>.</p>
+<p><strong>Solution</strong>: add a syntax for updating records. In existing functional languages, they use <code>{ existingValue with fieldName1 = newValue1; fieldName2 = newValue2 }</code></p>
+<p><strong>Status: not speced</strong></p>
+<p><strong>Subproblem:</strong> The &quot;syntax&quot; to create dicts and records is overloaded. Both use <code>{ field : value }</code> (as both are the same thing right now. If we split them, we need a way to disambiguate which one you're creating.</p>
+<p><strong>Solution option 1:</strong> Add a new syntax for records. For example, we might do:</p>
+<p><code>Person {.</code></p>
+<p>The big advantage here is that the autocomplete would create a bunch of new fields to fill in the object, like so:</p>
+<pre><code class="language-fsharp">Person {
+  name : ___ // &quot;string&quot; placeholder text)
+  age : ___ // &quot;int&quot; placeholder text
+}
+</code></pre>
+<p><strong>Solution option 2:</strong> Add a new syntax for dictionaries. For example, we might do:</p>
+<pre><code class="language-fsharp">let myDict = dict{
+    ___ : ___ // would be useful to have a prompt to tell you to use quotes here
+}
+</code></pre>
+<p>This would have a number of other benefits</p>
+<p><strong>Subproblem:</strong> What do we do with existing records and objects? Do they become records or objects or a third legacy <code>DObj</code>?</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Add a new dictionary type, that is not compatible with DObj
+<ul>
+<li>It would need new functions that are type compatible</li>
+<li>It would allow keys of any single type</li>
+<li>The values would homogenous</li>
+<li>dot syntax would not be supported (use <code>Dict::get</code> instead)</li>
+<li>record syntax would not be supported
+<ul>
+<li>could support dot</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Remove hack where we allow hyphens in record names
+<ul>
+<li>Since people use maps for headers, switch headers to string pairs</li>
+</ul>
+</li>
+<li>Add a type checker which distinguishes between Dicts and Record</li>
+<li>DObj would become just a record
+<ul>
+<li>old <code>Dict::</code> functions would be for records, and would be deprecated. They could even be renamed to <code>Record::</code> for now, until we add syntax for the new stuff. We could automatically transition them to the new stuff</li>
+<li>dot access could instead be</li>
+</ul>
+</li>
+</ul>
+<p><strong>Status: TODO</strong></p>
+<h3 id="dictionaries-are-string-only"><a class="header" href="#dictionaries-are-string-only">Dictionaries are <strong>string only</strong></a></h3>
+<p><strong>Problem:</strong> Right now, you can't have a dictionary of other things</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Add a syntax for updating records so that we don't have to use Dict::set</li>
+<li>Add a type checker which distinguishes between Dicts and Record
+<ul>
+<li>I wonder if we could use the same syntax for both?</li>
+</ul>
+</li>
+<li>Stop using the DObj for both
+<ul>
+<li>will likely need a new version of the language for this</li>
+</ul>
+</li>
+</ul>
+<p><strong>Status: TODO</strong></p>
+<h3 id="its-possible-to-have-heterogenous-dictionaries"><a class="header" href="#its-possible-to-have-heterogenous-dictionaries">It's possible to have heterogenous dictionaries</a></h3>
+<p><strong>Problem:</strong> If you have a dict of ints, you can add a string to it</p>
+<p><strong>Solution:</strong> This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a dict and raise an error if the wrong type is inserted</p>
+<p><strong>Status</strong>: <strong>TODO</strong></p>
+<h2 id="v2-spec-6"><a class="header" href="#v2-spec-6">v2 Spec</a></h2>
+<h3 id="v2-language-definition-6"><a class="header" href="#v2-language-definition-6">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-3"><a class="header" href="#v2-standard-library-3">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">Dict::filterMap(Dict 'k 'v, ('v -&gt; Option 'b)) -&gt; Dict 'k 'b
+Dict::filter_v1(Dict 'k 'v, ('v -&gt; bool)) -&gt; Dict 'k 'v
+Dict::isEmpty(Dict dict) -&gt; Bool
+Dict::keys(Dict dict) -&gt; List
+Dict::map(Dict dict, Block f) -&gt; Dict
+Dict::member(Dict dict, Str key) -&gt; Bool
+Dict::merge(Dict left, Dict right) -&gt; Dict
+Dict::remove(Dict dict, Str key) -&gt; Dict
+Dict::set(Dict dict, Str key, Any val) -&gt; Dict
+Dict::singleton(Str key, Any value) -&gt; Dict
+Dict::size(Dict dict) -&gt; Int
+Dict::toJSON(Dict dict) -&gt; Str
+Dict::toList(Dict dict) -&gt; List
+Dict::values(Dict dict) -&gt; List
+
+// Remove string-only
+Dict::get_v2(Dict Str 'v, Str) -&gt; Option 'v
+Dict::get_v2(Dict Str 'v, Str) -&gt; Option 'v
+
+
+// TODO use tuples
+Dict::fromList(List entries) -&gt; Option
+Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
+
+</code></pre>
+<h3 id="v2-editor-changes-4"><a class="header" href="#v2-editor-changes-4">v2 Editor changes</a></h3>
+<h3 id=""><a class="header" href="#"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="option"><a class="header" href="#option">Option</a></h1>
+<p>Description</p>
+<h2 id="dark-v1-problems-8"><a class="header" href="#dark-v1-problems-8">Dark v1 Problems</a></h2>
+<h3 id="title"><a class="header" href="#title">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-7"><a class="header" href="#v2-spec-7">v2 Spec</a></h2>
+<h3 id="v2-language-definition-7"><a class="header" href="#v2-language-definition-7">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-4"><a class="header" href="#v2-standard-library-4">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-5"><a class="header" href="#v2-editor-changes-5">v2 Editor changes</a></h3>
+<h3 id="-1"><a class="header" href="#-1"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="result"><a class="header" href="#result">Result</a></h1>
+<p>Description</p>
+<h2 id="dark-v1-problems-9"><a class="header" href="#dark-v1-problems-9">Dark v1 Problems</a></h2>
+<h3 id="results-are-not-polymorphic"><a class="header" href="#results-are-not-polymorphic">Results are not polymorphic</a></h3>
+<p><strong>Problem:</strong> The result type is <code>TResult</code>, and doesn't have parameters for its contents</p>
+<p><strong>Solution:</strong> Replace <code>TResult</code> with <code>TResult(successType, errorType)</code></p>
+<p><strong>Status: Not spec'ed</strong></p>
+<h3 id="results-are-a-special-type"><a class="header" href="#results-are-a-special-type">Results are <strong>a special type</strong></a></h3>
+<p><strong>Problem:</strong> Results should be a regular type in the standard library, not one built into the implementation</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>remove <code>DResult</code>
+<ul>
+<li>replace with <code>DVariant(name : String, args : Dval list</code>)</li>
+</ul>
+</li>
+<li>remove <code>TResult</code> from types
+<ul>
+<li>add type definitions to standard library</li>
+<li>replace with instance of enum type</li>
+</ul>
+</li>
+</ul>
+<p><strong>Status: Not spec'ed</strong></p>
+<h2 id="-2"><a class="header" href="#-2"></a></h2>
+<h2 id="v2-spec-8"><a class="header" href="#v2-spec-8">v2 Spec</a></h2>
+<h3 id="v2-language-definition-8"><a class="header" href="#v2-language-definition-8">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-5"><a class="header" href="#v2-standard-library-5">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-6"><a class="header" href="#v2-editor-changes-6">v2 Editor changes</a></h3>
+<h3 id="-3"><a class="header" href="#-3"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="set"><a class="header" href="#set">Set</a></h1>
+<p>Description</p>
+<h2 id="dark-v1-problems-10"><a class="header" href="#dark-v1-problems-10">Dark v1 Problems</a></h2>
+<h3 id="title-1"><a class="header" href="#title-1">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-9"><a class="header" href="#v2-spec-9">v2 Spec</a></h2>
+<h3 id="v2-language-definition-9"><a class="header" href="#v2-language-definition-9">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-6"><a class="header" href="#v2-standard-library-6">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-7"><a class="header" href="#v2-editor-changes-7">v2 Editor changes</a></h3>
+<h3 id="-4"><a class="header" href="#-4"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ref"><a class="header" href="#ref">Ref</a></h1>
+<p>Description</p>
+<h2 id="dark-v1-problems-11"><a class="header" href="#dark-v1-problems-11">Dark v1 Problems</a></h2>
+<h3 id="title-2"><a class="header" href="#title-2">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-10"><a class="header" href="#v2-spec-10">v2 Spec</a></h2>
+<h3 id="v2-language-definition-10"><a class="header" href="#v2-language-definition-10">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-7"><a class="header" href="#v2-standard-library-7">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-8"><a class="header" href="#v2-editor-changes-8">v2 Editor changes</a></h3>
+<h3 id="-5"><a class="header" href="#-5"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="regex"><a class="header" href="#regex">Regex</a></h1>
+<h2 id="dark-v1-thoughts"><a class="header" href="#dark-v1-thoughts">Dark v1 thoughts</a></h2>
+<p>Dark v1 does not have regex, due to the technical challenge that the OCaml native regex implementation we used (re2) does not compile to JS.</p>
+<p>We want to use a regex implementation which can not be DOSed. Parse.com apparently had big problems with their regex.</p>
+<p>Users asked for regex a lot.</p>
+<p>I've never seen a regex implementation that was as easy to use as Perl's, so that's what we're aiming for (in terms of simplicity, not necessarily syntax):</p>
+<pre><code class="language-perl"># does it match?
+if ($str =~ /ul/) { ... }
+
+# capturing
+if($line =~ /name:\s+(\w+\s+\w+),\s+period:\s*(\d{4}\-\d{4})/)
+  $composers{$1} = $2;
+
+
+</code></pre>
+<p>Description</p>
+<h2 id="dark-v1-problems-12"><a class="header" href="#dark-v1-problems-12">Dark v1 Problems</a></h2>
+<h3 id="title-3"><a class="header" href="#title-3">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-11"><a class="header" href="#v2-spec-11">v2 Spec</a></h2>
+<h3 id="v2-language-definition-11"><a class="header" href="#v2-language-definition-11">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-8"><a class="header" href="#v2-standard-library-8">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-9"><a class="header" href="#v2-editor-changes-9">v2 Editor changes</a></h3>
+<h3 id="-6"><a class="header" href="#-6"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uuid"><a class="header" href="#uuid">UUID</a></h1>
+<p>Dark supports UUIDs directly.</p>
+<h2 id="dark-v1-problems-13"><a class="header" href="#dark-v1-problems-13">Dark v1 Problems</a></h2>
+<h3 id="uuid-is-a-special-type-in-the-runtime-not-a-type-defined-using-the-type-system"><a class="header" href="#uuid-is-a-special-type-in-the-runtime-not-a-type-defined-using-the-type-system">UUID is a special type in the runtime, not a type defined using the type system</a></h3>
+<p><strong>Problem:</strong> There should be very few &quot;special&quot; types, and there's no reason that UUIDs should be one of them</p>
+<p><strong>Solution:</strong> Add a built-in UUID type, presumably an alias of binary or perhaps a record with a bunch of u8s</p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="stringtouuid-is-in-the-wrong-module"><a class="header" href="#stringtouuid-is-in-the-wrong-module"><strong>String::toUUID is in the wrong module</strong></a></h3>
+<p><strong>Solution:</strong> Rename <code>String::toUUID</code> to <code>UUID::parse</code></p>
+<p><strong>Status: TODO</strong></p>
+<h2 id="v2-spec-12"><a class="header" href="#v2-spec-12">v2 Spec</a></h2>
+<h3 id="v2-language-definition-12"><a class="header" href="#v2-language-definition-12">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">TODO
+</code></pre>
+<h3 id="v2-standard-library-9"><a class="header" href="#v2-standard-library-9">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">// Removed
+String::toUUID_v1(Str uuid) -&gt; Result
+
+// Added
+UUID::parse(String) -&gt; Result UUID Unit
+
+Uuid::generate() -&gt; UUID
+</code></pre>
+<h3 id="v2-editor-changes-10"><a class="header" href="#v2-editor-changes-10">v2 Editor changes</a></h3>
+<h3 id="-7"><a class="header" href="#-7"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bytes"><a class="header" href="#bytes">Bytes</a></h1>
+<p>Non-unicode sequences of bytes are supported as the <code>Bytes</code> type.</p>
+<h2 id="dark-v1-problems-14"><a class="header" href="#dark-v1-problems-14">Dark v1 Problems</a></h2>
+<h3 id="http-body-is-a-string-if-not-json"><a class="header" href="#http-body-is-a-string-if-not-json"><strong>HTTP body is a string (if not json)</strong></a></h3>
+<p><strong>Problem:</strong> We automatically convert HTTP bodies into strings, even if it's not valid Unicode</p>
+<p><strong>Solution:</strong> Use types to specify how to convert bytes to bodies, such that the logical code is as follows <code>body |&gt; Bytes::toString |&gt; Json.Deserialize&lt;MyType&gt;</code></p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="http-request-raw-values-are-strings-but-they-might-not-be"><a class="header" href="#http-request-raw-values-are-strings-but-they-might-not-be">HTTP request raw values are strings but they might not be</a></h3>
+<p><strong>Problem:</strong> HTTP request <code>raw</code> field is a string, but</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h3 id="http-client-calls-use-strings-so-you-cant-send-bytes"><a class="header" href="#http-client-calls-use-strings-so-you-cant-send-bytes">HTTP <strong>client calls use Strings, so you can't send bytes</strong></a></h3>
+<p><strong>Problem:</strong> We'd like to be able to make raw http calls</p>
+<p><strong>Solution:</strong> Add a type, or even middleware, to HTTP calls such that we can use more types</p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="-8"><a class="header" href="#-8"></a></h2>
+<h2 id="v2-spec-13"><a class="header" href="#v2-spec-13">v2 Spec</a></h2>
+<h3 id="v2-language-definition-13"><a class="header" href="#v2-language-definition-13">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-10"><a class="header" href="#v2-standard-library-10">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-11"><a class="header" href="#v2-editor-changes-11">v2 Editor changes</a></h3>
+<h3 id="-9"><a class="header" href="#-9"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="null"><a class="header" href="#null">Null</a></h1>
+<p>As a temporary hack, Dark supports <code>null</code>. This allows us handle JSON while we build out enough type-system support to allow them to be replaced by <code>Option</code>.</p>
+<p>Null is mostly useful for comparing against incoming JSON and results of HttpClient calls. When returning JSON or making HttpClient calls, you can use Options instead and they will be converted properly to <code>null</code> in the JSON output.</p>
+<h2 id="dark-v1-problems-15"><a class="header" href="#dark-v1-problems-15">Dark v1 Problems</a></h2>
+<h3 id="nulls-can-appear-in-json"><a class="header" href="#nulls-can-appear-in-json">Nulls can appear in JSON</a></h3>
+<p><strong>Problem:</strong> Nulls shouldn't really exist, but they do because</p>
+<p><strong>Solution:</strong> Add a way to have types in HTTP handlers, and when retrieving data over Http APIs.</p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="nulls-can-appear-in-the-database"><a class="header" href="#nulls-can-appear-in-the-database">Nulls can appear in the database</a></h3>
+<p><strong>Problem:</strong> It is technically possible to add nulls to the database, though it shouldn't really be allowed.</p>
+<p><strong>Solution:</strong> We need some sort of way to migrate this to a newly typed world. A good way to start would be to determine how common null values are in the database, and to go from there.</p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="what-to-do-with-existing-uses-of-null"><a class="header" href="#what-to-do-with-existing-uses-of-null">**What to do with existing uses of **Null?</a></h3>
+<p><strong>Problem:</strong> When we've identified how to not require null anymore, we still have to do something with existing code that uses Null</p>
+<p><strong>Solution:</strong> Probably make a new version of the dark language without null and deprecate the old one. Another alternative is to convert null into <code>()</code> (unit, or empty tuple).</p>
+<p>**Alternative solution: **convert all uses of null into Json::Null_v0, which would be deprecated</p>
+<p><strong>Status: TODO</strong></p>
+<h2 id="v2-spec-14"><a class="header" href="#v2-spec-14">v2 Spec</a></h2>
+<h3 id="v2-language-definition-14"><a class="header" href="#v2-language-definition-14">v2 Language definition</a></h3>
+<p>Remove nulls</p>
+<h3 id="v2-standard-library-11"><a class="header" href="#v2-standard-library-11">v2 Standard library</a></h3>
+<pre><code class="language-fsharp">// remove
+Bool::isNull
+</code></pre>
+<h3 id="-10"><a class="header" href="#-10"></a></h3>
+<h3 id="-11"><a class="header" href="#-11"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control-flow</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="concurrency--parallelism"><a class="header" href="#concurrency--parallelism">Concurrency / parallelism</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>Higher o</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="higher-order-functions"><a class="header" href="#higher-order-functions">Higher-order functions</a></h1>
+<h2 id="dark-v1-problems-16"><a class="header" href="#dark-v1-problems-16">Dark v1 problems</a></h2>
+<p>Dark's higher order functions could only take lambdas. For example:</p>
+<pre><code class="language-fsharp">List::map [1,2,3] (Int::add 1) // not possible
+
+List::map [1,2,3] (\i -&gt; Int:add i 1) // workaround
+</code></pre>
+<p>However, this was allowed in pipes:</p>
+<pre><code class="language-fsharp">[1,2,3]
+|&gt; Int::add 1
+</code></pre>
+<p>But this came with problems of it's own:</p>
+<pre><code class="language-fsharp">[1,2,3]
+|&gt; Int::sub 1 // [0,1,2] or [0,-1,-2]?
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="binops"><a class="header" href="#binops">BinOps</a></h1>
+<ul>
+<li>how do we version binops?</li>
+<li>How do we make <code>+</code> work for floats as well as ints (and dates, etc)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-definitions"><a class="header" href="#function-definitions">Function definitions</a></h1>
+<h2 id="dark-v1-problems-and-solutions"><a class="header" href="#dark-v1-problems-and-solutions">Dark v1 Problems and solutions:</a></h2>
+<h3 id="function-space"><a class="header" href="#function-space">Function space</a></h3>
+<p><strong>Problem:</strong> function definitions were in the &quot;function space&quot;, which confused people.</p>
+<p><strong>Solution:</strong> the function space is not important, but keeping functions off of the main canvas is a key part of the <a href="language/control-flow/functions/../../../editor/canvas.html">Infrastructure view</a> metaphor. I think we need to make it clearer whats happening here, possibly by making better animations as we transition from handler to caller.</p>
+<p>I welcome other suggestions for how to improve this.</p>
+<h3 id="parameters-are-not-fluid"><a class="header" href="#parameters-are-not-fluid">Parameters are not fluid</a></h3>
+<p><strong>Problem:</strong> Parameters use a non-fluid way to enter them. We want everything to be fluid.</p>
+<p><strong>Solution:</strong> Make function definitions fluid, including parameters and docstrings.</p>
+<p>One thing that's nice about function parameters is that they're draggable - I think we could augment many fluid things by making them draggable (eg <code>let</code> definitions, record entries, etc).</p>
+<h3 id="docstrings-in-user-functions"><a class="header" href="#docstrings-in-user-functions">Docstrings in user functions</a></h3>
+<p><strong>Problem:</strong> Dark v1 doesn't have docstrings. We had a [PR for it](<a href="https://github.com/darklang/dark/pull/2571">https://github.com/darklang/dark/pull/2571</a>) but it had weird behaviour due to <code>blankOrs</code>.</p>
+<p><strong>Solution:</strong> docstrings should be part of the structured editor definition of a function, using a fluid mechanism.</p>
+<h3 id="docstrings-arent-used-properly-in-stdlib"><a class="header" href="#docstrings-arent-used-properly-in-stdlib">Docstrings aren't used properly in stdlib</a></h3>
+<p><strong>Problem:</strong> Though we support docstrings</p>
+<p><strong>Solution:</strong> Go through the stdlib and use docstrings properly, according to the <a href="https://github.com/darklang/dark/blob/main/docs/writing-docstrings.md">guide</a>.</p>
+<p><strong>Problem</strong>: we support docstrings for individual parameters (as well as the parameters of lambda functions) but we don't use them</p>
+<p><strong>Solution:</strong> go through the stdlib and add docstrings for individual parameters. Show those docstrings in the UI when your cursor in on a parameter.</p>
+<h3 id="user-functions-dont-have-continuous-delivery-built-in"><a class="header" href="#user-functions-dont-have-continuous-delivery-built-in">User Functions don't have continuous delivery built-in</a></h3>
+<p><strong>Problem:</strong> there isn't a way to safely make a new version of an existing function that's used by other functions or handlers.</p>
+<p>There is, <em>conceptually at least</em>, a good solution for continuous delivery of a handler:</p>
+<ul>
+<li>lock the handler when used</li>
+<li>only allow changes via feature flags</li>
+</ul>
+<p>For functions, versioning is a better strategy, as it allows handlers to use feature flags to change which version they call.</p>
+<p><strong>Solution:</strong> We need to write down the exact UX of how this works, start to finish. How do the flags get set, when do functions lock and version, and what happens when we have a new version of a function that's down the callgraph?</p>
+<h3 id="methods"><a class="header" href="#methods">Methods</a></h3>
+<p><strong>Problem:</strong> most people coming to dark are used to calling methods on &quot;objects&quot; and get confused when they type <code>&quot;hello world&quot;.toUppercase</code> and discover not only that there's no function called <code>&quot;uppercase&quot;</code>, but also that they're not offered any functions. This is because Dark uses pipes, and doesn't do function dispatch.</p>
+<p><strong>Non-Solution</strong>: one solution would be like what Rust does solution: offer both functions and methods. If the function is implemented on that type, then it's available as a method, but you can also have methods. However, this is a little frustrating, as you can (afaik) only chain methods, you can't add a function call to that chain. Dark uses piping for chaining calls together nicely, so we should use that.</p>
+<p><strong>Solution:</strong> when a developer types '<code>.</code>' after an object, offer not just the fields of the struct in the autocomplete, but also the functions that the user would expect to find as methods. These would include at least anything that has the type as the first parameter.</p>
+<h3 id="todo"><a class="header" href="#todo">TODO:</a></h3>
+<pre><code class="language-fsharp">package manager from the start
+can we implement built-in Dark functions via the package manager
+what is the story with namespacing (types vs modules)
+How should tests work? Should they be for a specific
+TODO: partial application/currying
+TODO: optional parameters
+</code></pre>
+<h3 id="versioning"><a class="header" href="#versioning">Versioning:</a></h3>
+<ul>
+<li>functions should be versioned, but we haven't got a good system</li>
+<li>idea: functions called by locked handlers are locked</li>
+<li>the challenge is that when you change a function, you change the entire call tree</li>
+<li>can you add a feature flag to a function?</li>
+<li>make it easy to clone another version</li>
+</ul>
+<h3 id="package-manager"><a class="header" href="#package-manager">Package manager</a></h3>
+<p>We want a package manager, so stdlibs need to fit into this. The namespace of stdlib is <code>dark/stdlib/</code>. Because functions</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-fsharp">def range_v0:
+  start : Int =&gt; The lower end of the range
+  end   : Int =&gt; The upper end of the range. This is not
+                 included in the output.
+
+</code></pre>
+<h2 id="function-calls"><a class="header" href="#function-calls">Function calls</a></h2>
+<h2 id="binop-calls"><a class="header" href="#binop-calls">BinOp calls</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-calls-1"><a class="header" href="#function-calls-1">Function calls</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lambda"><a class="header" href="#lambda">Lambda</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pipe"><a class="header" href="#pipe">Pipe</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="match"><a class="header" href="#match">Match</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="let"><a class="header" href="#let">Let</a></h1>
+<h2 id="dark-v1"><a class="header" href="#dark-v1">Dark v1</a></h2>
+<p>Dark v1 had this defintiion of <code>let</code>:</p>
+<pre><code class="language-fsharp">type Expr =
+  | Let { lhs : string, rhs : expr, body : expr }
+  | ...
+
+// No pattern, dval, or dtype
+</code></pre>
+<p>This had a number of problems:</p>
+<ul>
+<li>no support for destructuring</li>
+<li>users expected Dark to be a list of statements followed by an expr, but they got a single expr with unexpected semantics
+<ul>
+<li>esp due to refactoring tools, which didn't necessarily handle this well.</li>
+</ul>
+</li>
+</ul>
+<h4 id="problem"><a class="header" href="#problem"><strong>Problem</strong></a></h4>
+<p>Users expect Dark to be a list of statements followed by an expr. The actual semantics (a single expr, which allows nested expressions) confuses users. One particular manifestation is that the refactoring tooling does not have expected behaviour.</p>
+<h4 id="solution"><a class="header" href="#solution"><strong>Solution</strong></a></h4>
+<ul>
+<li>much more testing for refactoring functions, especially in the presence of nesting</li>
+<li>TODO: more needed here</li>
+</ul>
+<h2 id="v2-definition-1"><a class="header" href="#v2-definition-1">V2 definition</a></h2>
+<pre><code class="language-fsharp">type Expr =
+  | Let { lhs : pattern, rhs : expr, body : expr }
+  | ...
+
+// No pattern, dval, or dtype
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if"><a class="header" href="#if">If</a></h1>
+<p>An if statement in Dark is a conditional,</p>
+<h2 id="dark-v1-1"><a class="header" href="#dark-v1-1">Dark v1</a></h2>
+<pre><code class="language-fsharp">type Expr =
+  | If { cond : Expr, thenbody : Expr, elsebody : Expr }
+  | ...
+
+// No pattern, dval, or dtype
+</code></pre>
+<h3 id="problem-1"><a class="header" href="#problem-1">Problem</a></h3>
+<p>In Dark v1, the interpreter allows an non-false, non-fake value to return true.</p>
+<h4 id="solution-1"><a class="header" href="#solution-1">Solution</a></h4>
+<h2 id="dark-v2"><a class="header" href="#dark-v2">Dark v2</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-system"><a class="header" href="#type-system">Type System</a></h1>
+<h2 id="dark-v1-problems-17"><a class="header" href="#dark-v1-problems-17">Dark v1 problems</a></h2>
+<p>Dark v1 didn't have great types. Though technically there existed some types under the hood, we didn't really expose them to users and they were only useful for checking the arguments and return values of functions.</p>
+<h3 id="lack-of-enums"><a class="header" href="#lack-of-enums">Lack of enums</a></h3>
+<h3 id="input-validation"><a class="header" href="#input-validation">Input Validation</a></h3>
+<h3 id="db-schemas"><a class="header" href="#db-schemas">DB schemas</a></h3>
+<p><strong>Problem:</strong> Datastores used a custom schema. This meant that we couldn't use the same types to validate input</p>
+<p>However, the lack of types caused problems:</p>
+<ul>
+<li>DBs use a custom schema</li>
+<li>no way to validate handlers, which types would be useful for</li>
+<li>no enums to represent complex data</li>
+<li>records and dictionaries are sorta the same, which is horrible</li>
+<li>dictionaries are just dynamic typing</li>
+<li>autocomplete didn't work when a trace is missing (no way to know field names)
+<ul>
+<li>we should be able to write code in the absence of traces</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="real-types"><a class="header" href="#real-types">Real types</a></h1>
+<h2 id="dark-v1-problems-18"><a class="header" href="#dark-v1-problems-18">Dark v1 problems</a></h2>
+<ul>
+<li></li>
+<li>Worker  <code>event</code> variables do not have types, and so they can receive types of any shape</li>
+<li>HTTPClient calls automatically convert JSON into objects of the right shape</li>
+</ul>
+<p>Description</p>
+<h2 id="dark-v1-problems-19"><a class="header" href="#dark-v1-problems-19">Dark v1 Problems</a></h2>
+<h3 id="datastores-use-a-schema"><a class="header" href="#datastores-use-a-schema">Datastores use a &quot;schema&quot;</a></h3>
+<p><strong>Problem:</strong> Datastores use this totally custom thing called a &quot;schema&quot;. It should obviously be a type instead.</p>
+<p><strong>Solution:</strong> Figure out how to migrate from schemas to types</p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="http-handlers-create-types-dynamically"><a class="header" href="#http-handlers-create-types-dynamically">HTTP handlers create types dynamically</a></h3>
+<p><strong>Problem:</strong> HTTP's <code>request</code> variable are magically converted into JSON. The HTTP middleware does not have real types.</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>add a way of instantly creating a type from a trace</li>
+<li>allow adding types to the middleware so that they can be validated
+<ul>
+<li>return 400 if they're not the right shape, possibly with a nice error message</li>
+</ul>
+</li>
+</ul>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h3 id="title-4"><a class="header" href="#title-4">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h3 id="title-5"><a class="header" href="#title-5">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="-12"><a class="header" href="#-12"></a></h2>
+<h2 id="v2-spec-15"><a class="header" href="#v2-spec-15">v2 Spec</a></h2>
+<h3 id="v2-language-definition-15"><a class="header" href="#v2-language-definition-15">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-12"><a class="header" href="#v2-standard-library-12">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-12"><a class="header" href="#v2-editor-changes-12">v2 Editor changes</a></h3>
+<h3 id="-13"><a class="header" href="#-13"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-checking"><a class="header" href="#type-checking">Type checking</a></h1>
+<h3 id="dark-v1-problems-20"><a class="header" href="#dark-v1-problems-20">Dark v1 problems</a></h3>
+<p>A big issue is that Dark v1 didn't support type checking directly. Instead, the execution engine sometimes produced error which highlighted and propagated type errors.</p>
+<p>Because there was no type checking, programs were often broken, but this was hard to see if it was not triggered by a particular trace.</p>
+<p>This particularly affected the automatic JSON parsing from HTTP requests and the result of HTTPClient calls, which essentially used dynamic typing. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-rail"><a class="header" href="#error-rail">Error Rail</a></h1>
+<p>The error rail isn't great, people get confused and it doesn't really do what we want.</p>
+<p>Result.map and Option.map, etc, shouldn't go to the error rail</p>
+<p>What if we replaced it by something from another language (eg Rust/coffeescript's <code>?</code> or F#'s <code>let!</code> (which is bind).</p>
+<h3 id="let-1"><a class="header" href="#let-1">let!</a></h3>
+<p>In F#:</p>
+<pre><code class="language-fsharp">let! x = 5 / 6
+let! y = x + 2
+return y + 1
+</code></pre>
+<p>Desugars into</p>
+<pre><code class="language-fsharp">Bind(5 / 6, fun x -&gt;
+Bind(x + 2, fun y -&gt;
+(y + 1)
+</code></pre>
+<p>Perhaps that's a better approach. It would imply needing a Bindable Trait or similar. See <a href="https://fsharpforfunandprofit.com/posts/computation-expressions-bind/">https://fsharpforfunandprofit.com/posts/computation-expressions-bind</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="records"><a class="header" href="#records">Records</a></h1>
+<h2 id="dark-v1-problems-21"><a class="header" href="#dark-v1-problems-21">Dark v1 problems</a></h2>
+<ul>
+<li>updating records</li>
+<li>confusion between records and dicts</li>
+</ul>
+<p>You access records fields by:</p>
+<pre><code class="language-fsharp">myRecord.x
+</code></pre>
+<p>If the field doesn't exist: <code>DError</code>. But there will be a type checker to ensure the field exists</p>
+<p>Description</p>
+<h2 id="dark-v1-problems-22"><a class="header" href="#dark-v1-problems-22">Dark v1 Problems</a></h2>
+<h3 id="title-6"><a class="header" href="#title-6">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-16"><a class="header" href="#v2-spec-16">v2 Spec</a></h2>
+<h3 id="v2-language-definition-16"><a class="header" href="#v2-language-definition-16">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-13"><a class="header" href="#v2-standard-library-13">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-13"><a class="header" href="#v2-editor-changes-13">v2 Editor changes</a></h3>
+<h3 id="-14"><a class="header" href="#-14"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="enums"><a class="header" href="#enums">Enums</a></h1>
+<p>Description: TODO</p>
+<h2 id="dark-v1-problems-23"><a class="header" href="#dark-v1-problems-23">Dark v1 Problems</a></h2>
+<h3 id="built-in-enums-are-not-real-types"><a class="header" href="#built-in-enums-are-not-real-types">Built-in enums are not real types</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="users-cannot-create-their-own-enum-types"><a class="header" href="#users-cannot-create-their-own-enum-types">Users cannot create their own enum types</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: TODO</strong></p>
+<h3 id="cannot-pipe-to-constructors"><a class="header" href="#cannot-pipe-to-constructors">Cannot pipe to constructors</a></h3>
+<p><strong>Problem:</strong> you can't pipe to a constructor</p>
+<ul>
+<li>account for constructors with multiple</li>
+</ul>
+<h2 id="v2-spec-17"><a class="header" href="#v2-spec-17">v2 Spec</a></h2>
+<h3 id="v2-language-definition-17"><a class="header" href="#v2-language-definition-17">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-14"><a class="header" href="#v2-standard-library-14">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-14"><a class="header" href="#v2-editor-changes-14">v2 Editor changes</a></h3>
+<h3 id="-15"><a class="header" href="#-15"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="type-aliases"><a class="header" href="#type-aliases">Type aliases</a></h1>
+<p>Description</p>
+<h2 id="dark-v1-problems-24"><a class="header" href="#dark-v1-problems-24">Dark v1 Problems</a></h2>
+<h3 id="title-7"><a class="header" href="#title-7">Title</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h2 id="v2-spec-18"><a class="header" href="#v2-spec-18">v2 Spec</a></h2>
+<h3 id="v2-language-definition-18"><a class="header" href="#v2-language-definition-18">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-15"><a class="header" href="#v2-standard-library-15">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-15"><a class="header" href="#v2-editor-changes-15">v2 Editor changes</a></h3>
+<h3 id="-16"><a class="header" href="#-16"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<p>Traits are one way to provide generics or ad-hoc polymorphism.</p>
+<h2 id="dark-v1-problems-25"><a class="header" href="#dark-v1-problems-25">Dark v1 Problems</a></h2>
+<p>Many of the things that relied on &quot;magic&quot; in v1 could be solved with Traits. Thoughts:</p>
+<ul>
+<li>Trait for how to pretty-print for users</li>
+<li>Trait for hooking a value into a visualization system in the editor</li>
+<li>Trait for the SQL query compiler?</li>
+<li>Trait for addition, subtraction, etc
+<ul>
+<li>maybe there's a set of known binops and they have traits defined for each of them</li>
+</ul>
+</li>
+<li>fromJSON, toJSON</li>
+<li>Should implementations be implicitly derived, or explicitly derived and editable?</li>
+</ul>
+<p>Open questions:</p>
+<ul>
+<li>support we have a type A, and users are using type A. Can we add trait B to type A? Probably not, that would change its behaviour. So we'd have to make type A1, with that trait.</li>
+<li>This could cause type explosion, so we'll need to automatically generate ways to convert types to/from different versions that are structurally the same</li>
+</ul>
+<h2 id="v2-spec-19"><a class="header" href="#v2-spec-19">v2 Spec</a></h2>
+<h3 id="v2-language-definition-19"><a class="header" href="#v2-language-definition-19">v2 Language definition</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-standard-library-16"><a class="header" href="#v2-standard-library-16">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-16"><a class="header" href="#v2-editor-changes-16">v2 Editor changes</a></h3>
+<h3 id="-17"><a class="header" href="#-17"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="modules-and-namespacing"><a class="header" href="#modules-and-namespacing">Modules and Namespacing</a></h1>
+<p>Modules and namespaces are used to separate functions and types so that they can have the same names without treading on each other.</p>
+<h2 id="dark-v1-problems-26"><a class="header" href="#dark-v1-problems-26">Dark v1 Problems</a></h2>
+<h3 id="package-manager-function-names-are-ugly"><a class="header" href="#package-manager-function-names-are-ugly">Package manager function names are ugly</a></h3>
+<p><strong>Problem:</strong></p>
+<p><strong>Solution: TODO</strong></p>
+<p><strong>Status: Design needed</strong></p>
+<h3 id="built-in-types-have-no-module"><a class="header" href="#built-in-types-have-no-module"><strong>Built-in types have no module</strong></a></h3>
+<p><strong>Problem:</strong> Ok, Error, Just and Nothing are not in any namespace</p>
+<p><strong>Solution:</strong> Ok should be</p>
+<p><strong>Status: Design needed</strong></p>
+<h3 id="built-in-types-have-no-module-1"><a class="header" href="#built-in-types-have-no-module-1"><strong>Built-in types have no module</strong></a></h3>
+<p><strong>Problem:</strong> Ok, Error, Just and Nothing are not in any namespace</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<hr />
+<h2 id="-18"><a class="header" href="#-18"></a></h2>
+<h2 id="v2-spec-20"><a class="header" href="#v2-spec-20">v2 Spec</a></h2>
+<h3 id="v2-language-definition-20"><a class="header" href="#v2-language-definition-20">v2 Language definition</a></h3>
+<pre><code class="language-fsharp">type FQFnName =
+  | Stdlib { module = string, name = string, version = int }
+  | PackageManager
+      { owner = UserID,
+        package = string,
+        module = string,
+        name = string,
+        version = int
+      }
+</code></pre>
+<h3 id="v2-standard-library-17"><a class="header" href="#v2-standard-library-17">v2 Standard library</a></h3>
+<pre><code class="language-fsharp"></code></pre>
+<h3 id="v2-editor-changes-17"><a class="header" href="#v2-editor-changes-17">v2 Editor changes</a></h3>
+<h3 id="-19"><a class="header" href="#-19"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="json-handling"><a class="header" href="#json-handling">JSON handling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="language-versioning"><a class="header" href="#language-versioning">Language versioning</a></h1>
+<p>Dark needs to be able to support evolution of the language. We intend to have different versions of the language, removing old language features and adding better ones.</p>
+<p>At the same time, we have a goal that customers experience no downtime. We also don't want language versions to become a burden either to users or to us.</p>
+<h3 id="evolving-within-a-single-language-version"><a class="header" href="#evolving-within-a-single-language-version">Evolving within a single language version</a></h3>
+<p>As we control the language implementation, and all running instances of it, we can make changes to the language if we can make them fully compatible  (or one deemed so close to fully compatible that no-one will be bothered by it). The F# rewrite is one example of this, and we made a number of different changes to Dark in this version which were compatible:</p>
+<ul>
+<li>added a real type system
+<ul>
+<li>this was compatible as the type system was barely used</li>
+</ul>
+</li>
+<li>switch to bigint
+<ul>
+<li>since we didn't actually know what the overflow behaviour was, this was deemed safe</li>
+</ul>
+</li>
+<li>changed <code>FnCall</code> to <code>Apply</code>, technically making functions first-class (rather than just passing around lambdas)</li>
+</ul>
+<p>Some other changes we should be able to do:</p>
+<ul>
+<li>Remove <code>null</code> and change all instances to <code>Nothing</code>
+<ul>
+<li>Definitely some open questions on this</li>
+</ul>
+</li>
+<li>Change variable, function and DB definitions to use an ID instead of looking it up by name</li>
+<li>Add Worker global vars like we have DB global vars</li>
+<li>Move OK/Nothing/Error/Just into types</li>
+<li>Move uuid, date and httpresponse into types</li>
+</ul>
+<p>To keep this safe, we need a definition of what is a &quot;safe&quot; change. For example, we currently believe that changing error messages should be allowed to be a &quot;Safe&quot; change. To allow this, we need to inform users what behaviour we believe is changeable without notice, and to discourage the use of that behaviour.</p>
+<h3 id="support-for-multiple-language-versions"><a class="header" href="#support-for-multiple-language-versions">Support for multiple language versions</a></h3>
+<p>Sometimes there's a change which can't be done fully-compatibly. In order to support this, we want to make multiple versions of the language. This means, that we'll always need an implementation of the following for all language versions:</p>
+<ul>
+<li>RuntimeTypes</li>
+<li>ProgramTypes</li>
+<li>toEnduser serialization function</li>
+<li>toPrettyMachineReadable serialization function</li>
+<li>toRoundtrippable serialization function</li>
+<li>toQueryable serialization function</li>
+<li>a way to indicate which language version some data is serialized with</li>
+<li>a conversion function to/from the <code>n-1</code> language version</li>
+<li>a conversion function to/from the <code>n + 1</code> language version</li>
+</ul>
+<h4 id="versioning-code"><a class="header" href="#versioning-code">Versioning code</a></h4>
+<p>User code needs to be versioned. Users will need to version functions, handlers and types. Each one can be versioned individually.</p>
+<p>Dark stdlib functions are typed by the some version. If we add a new v7 of the language, what should happen to a stdlib function (call this <code>myFunc_v2</code>) that returns v6. Options:</p>
+<ul>
+<li>add <code>myFunc_v3</code> which returns v7</li>
+<li>change <code>myFunc_v2</code> so that it returns a v7 value</li>
+<li>we could also change it where appropriate and version it where appropriate</li>
+</ul>
+<h4 id="interactions-between-language-versions"><a class="header" href="#interactions-between-language-versions">Interactions between language versions</a></h4>
+<p>Suppose we have a handler with v6 code, and it calls a function with v7 code. What should happen? Obviously, the v6 arguments should be converted to v7, the code should be run, and the v7 return value should be converted to v6.</p>
+<p>This should work for any simple cases of calling code. Handlers calling functions, functions calling functions, handlers/functions emitting to other workers.</p>
+<p>What about if we're trying to store a v7 value in a DB with type v6? We would convert the value to v6 and then store it.</p>
+<h4 id="transitioning-between-language-versions"><a class="header" href="#transitioning-between-language-versions">Transitioning between language versions</a></h4>
+<p>Handlers should always aim to be on the latest version, as should functions.</p>
+<p>But what about types and DBs? Should they even have language versions? What benefit would that bring? For storing a value in a DB, rows already have a Dark type field. That could represent the language version and we tell us which serializer to use. Then the retrieved value would be of a particular version and can be converted appropriately.</p>
+<p>Types don't have any code associated with them to be versioned (though if they did, presumably we could version those functions). So it's not really clear why we'd have language versions for types, and what that would mean. So we can ignore this for now.</p>
+<h4 id="migrating-code-automatically-for-users"><a class="header" href="#migrating-code-automatically-for-users">Migrating code automatically for users</a></h4>
+<p>Flags?</p>
+<p>Dark should have a single version number, even if for example there is no difference between types in v2 and v3.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="editor"><a class="header" href="#editor">Editor</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="help-understanding"><a class="header" href="#help-understanding">Help understanding</a></h1>
+<h3 id="dark-v1-problems-27"><a class="header" href="#dark-v1-problems-27">Dark v1 problems</a></h3>
+<p>Users often have problems understanding what they're seeing, for a number of reasons:</p>
+<ul>
+<li>they are learning the language for the first time, and are unfamiliar with the constructs, frameworks, types, functions, etc</li>
+<li>the editor prints things in an ambiguous way</li>
+</ul>
+<h3 id="solution-2"><a class="header" href="#solution-2">Solution</a></h3>
+<p>We already partially solve this with traces, where we show actual values. However, we can show more information to help:</p>
+<ul>
+<li>show the type in the live value display</li>
+<li>show <code>(i)</code> info icon on framework elements, types. This will show a doc for this, perhaps with a link to more information</li>
+<li>an &quot;AST view&quot; where you can see the AST of this code, and when you mouse over particular code you see the AST you're selecting</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-messages"><a class="header" href="#error-messages">Error messages</a></h1>
+<h3 id="dark-v1-problems-28"><a class="header" href="#dark-v1-problems-28">Dark v1 problems</a></h3>
+<ul>
+<li>Error messages don't have stacktraces (we lose context)</li>
+<li>Error messages are shown as a red bar, rather than appearing where the error occurs</li>
+<li>Errors are not tracked, and devs are not alerted to the presence of errors (eg like in Rollbar, bugsnag, etc)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fluid-editor"><a class="header" href="#fluid-editor">Fluid editor</a></h1>
+<h2 id="dark-v1-problems-29"><a class="header" href="#dark-v1-problems-29">Dark v1 problems</a></h2>
+<h3 id="different-editing-schemes"><a class="header" href="#different-editing-schemes">Different editing schemes</a></h3>
+<p><strong>Problem:</strong> Dark has two different ways of editing text. The &quot;blankOr&quot; method where something is blank or has a value, and the fluid method of editing code. The fact that there are two is confusing, as they have different interaction models (they also intersect badly).</p>
+<p><strong>Solution:</strong> The Fluid method is far superior, so make it so we can edit databases, handlers, functions, using Fluid editing</p>
+<ul>
+<li>note that some places have the ability to do cool shit now (eg, dragging function parameters to a different order); we should super-impose nice editing tooling like this on fluid tokens</li>
+</ul>
+<h3 id="unclear-how-to-change-text"><a class="header" href="#unclear-how-to-change-text">Unclear how to change text</a></h3>
+<p><strong>Problem:</strong> while it's relatively nice to create text, changing existing code is a bit of an ordeal.</p>
+<p><strong>Solution:</strong> We need to identify a (large) list of specific areas where changing code is annoying, and find ways to make them nice, whether using refactoring tools, overlays, keyboard shortcuts, copy/paste, or just typing</p>
+<p>List of known problems:</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h3 id="text-wrapping"><a class="header" href="#text-wrapping">Text Wrapping</a></h3>
+<p><strong>Problem</strong>: We wrap text in a number of places (strings at 40 characters), function calls at 120 characters. We need to wrap more things.</p>
+<p><strong>Solution:</strong> Write down how wrapping should work for various constructs.</p>
+<h3 id="precedence"><a class="header" href="#precedence">Precedence</a></h3>
+<p><strong>Problem</strong>: It's difficult for users to set (or to see) the precedence of code in Dark. For example: <code>i % 15 == 0</code> , if typed out left-to-right in the way you'd expect, is actually <code>i % (15 == 0). </code></p>
+<p>**Solution (seeing precedence): **the code is actually in the repo for displaying parens around expressions when they need them. It just needs:</p>
+<ul>
+<li>to be enabled</li>
+<li>to be trimmed so that we only show them at useful times (eg <code>1 + 1</code> doesn't need it, but <code>i % 15 == 0</code> does)</li>
+</ul>
+<p>The major issue that made this challenging is that when you add an expression which needs parens, it adds a parenthesis behind you, which moves your cursor. When we had a caret which uses an integer offset as position, this would keep it in the same place and that would be really annoying. We switched to <code>AstRefs</code> instead (the caret is now determined relative to a particular AST element), but we probably still have some bugs that will come from this.</p>
+<p>**Solution (automatically setting precedence): **when typing infix, there is a known set of precedence rules that humans expect (most languages define them in the parser). As a result, we should use them to automatically set precedence as users type.</p>
+<p>**Solution (allowing users change precedence): **once you've got a particular precedence, how do you change it? We don't allow you to type parens randomly, or to delete them. Instead, we should add refactoring commands to shift what's covered in the parens. Paredit (one of the inspirations for Dark's editor) does this really well.</p>
+<h3 id="undo-is-slow"><a class="header" href="#undo-is-slow">Undo is slow</a></h3>
+<p><strong>Problem:</strong> when undoing something in Dark, it can take a long time and you can't see that.</p>
+<p><strong>Solution:</strong> make it faster. Dark opcodes are often huge and pulling them all from the DB, then writing them back, does indeed take time.</p>
+<ul>
+<li>We can shrink the opcodes significantly (most opcode in the DB are SetHandlers, which contain the entire handler. Switching to much smaller opcodes such as <code>SetExpr</code> and <code>InsertIntoStringAt</code> would result in much much smaller ops.</li>
+<li>We can also send fewer opcodes when a user is typing (eg a long string) by debouncing.</li>
+<li>We can cache previous states in the client or server</li>
+<li>We can make the opcodes so that we can go both ways</li>
+</ul>
+<p><strong>Solution:</strong> make it clear that something is happening. There should be an indicator to let you know that Dark is actually undoing your code for you.</p>
+<h3 id="undo-is-broken-for-functiondb-renames"><a class="header" href="#undo-is-broken-for-functiondb-renames">Undo is broken for function/DB renames</a></h3>
+<p><strong>Problem</strong>: if you rename a function, it will rename all users of that function. If you then undo a handler with a use in it, it will go back to the old name (which breaks it). If you undo a function name change, none of the uses are updated.</p>
+<p><strong>Solution:</strong> we could store the TLIDs of functions being called and the DBs being referenced, instead of their names. Then renames wouldn't be needed, and wouldn't be part of the undo stack</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="permissions-model"><a class="header" href="#permissions-model">Permissions model</a></h1>
+<p>Dark should support fine-grained permissioning</p>
+<h2 id="dark-v1-problems-30"><a class="header" href="#dark-v1-problems-30">Dark v1 Problems</a></h2>
+<h3 id="only-owners-exist"><a class="header" href="#only-owners-exist">Only owners exist</a></h3>
+<p><strong>Problem:</strong> Users who are added to orgs become owners</p>
+<p><strong>Solution:</strong> Allow different permissions, and create common roles to reflect them</p>
+<p><strong>Status: Design needed</strong></p>
+<h3 id="public-canvases-are-not-yet-supported"><a class="header" href="#public-canvases-are-not-yet-supported">Public canvases are not yet supported</a></h3>
+<p><strong>Problem:</strong> We'd like users to show off their canvases (and may even make this the default)</p>
+<p><strong>Solution:</strong> We need enough permissions that this is safe to do</p>
+<ul>
+<li>Should be able to disable traces on a canvas</li>
+<li>Secrets should actually be secret</li>
+<li>We need a subset of traces that provide value,</li>
+</ul>
+<p><strong>Status: Spec needed</strong></p>
+<hr />
+<h2 id="v2-spec-21"><a class="header" href="#v2-spec-21">v2 Spec</a></h2>
+<h3 id="trace-design"><a class="header" href="#trace-design">Trace design:</a></h3>
+<ul>
+<li>By default, traces are private, even on public canvases (can be made public, opt-in)</li>
+<li>A subset of traces are shown to users
+<ul>
+<li>just the fact that they exist</li>
+<li>when traces have users, show something else, like flags of the country the IP address is from</li>
+</ul>
+</li>
+<li>Default values are generated for each type to help who are contributing</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="collaboration"><a class="header" href="#collaboration">Collaboration</a></h1>
+<h2 id="dark-v1-problems-31"><a class="header" href="#dark-v1-problems-31">Dark v1 problems</a></h2>
+<h3 id="users-cant-see-what-changes-were-made-when-or-by-who"><a class="header" href="#users-cant-see-what-changes-were-made-when-or-by-who">Users can't see what changes were made, when, or by who?</a></h3>
+<p><strong>Problem:</strong> when you go to look at some code, sometimes it looks wrong? Which idiot made that change (and was it, in fact, me)? Lacking the ability to see changes</p>
+<p><strong>Solution:</strong> store the user and the timestamp on ops</p>
+<p>TODO: notifications for changes. Look at what notion/slack does, work in github too.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ops"><a class="header" href="#ops">Ops</a></h1>
+<ul>
+<li>undo</li>
+<li>operational transforms / collaboration</li>
+<li>edits are too big
+<ul>
+<li>reduce size</li>
+<li>debounce</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="refactoring-commands"><a class="header" href="#refactoring-commands">Refactoring commands</a></h1>
+<ul>
+<li>Editing commands should be part of the main autocomplete, not special</li>
+<li>should be able to add them to packages</li>
+<li>Should support being able to set keyboard shortcuts for refactoring commands</li>
+</ul>
+<h3 id="what-commands-should-be-available"><a class="header" href="#what-commands-should-be-available">What commands should be available?</a></h3>
+<ul>
+<li>move to next/prev spot in list (eg in tuple, list, record, match, pipe)</li>
+<li>insert all fields of this record</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="feature-flags"><a class="header" href="#feature-flags">Feature flags</a></h1>
+<p>Global feature flags</p>
+<h3 id="open-questions"><a class="header" href="#open-questions">Open questions</a></h3>
+<ul>
+<li>how can we flag the input/output type of a handler</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="canvas--code-organization"><a class="header" href="#canvas--code-organization">Canvas / code organization</a></h1>
+<h2 id="dark-v1-problems-32"><a class="header" href="#dark-v1-problems-32">Dark v1 problems</a></h2>
+<h3 id="code-layout"><a class="header" href="#code-layout">Code layout</a></h3>
+<p>The layout of code in Dark v1 is ugly and unloved. It was a compromise to get it shipped, but not what's actually needed.</p>
+<p>The vision for how we display code in the editor is called the &quot;Architectural View&quot;. It's intended as a better way to view your components of your infrastructure than files and folders. Instead, you view your infrastructure according to its structure - that is, the same way you would see it if a senior engineer was drawing your infrastructure on the whiteboard.</p>
+<p>An example:</p>
+<p><img src="editor/../.gitbook/assets/Messages%20Image(2551186841).jpeg" alt="" /></p>
+<p>This is a simple app that probably does something like project tracking, and it has 3 services: users, templates, and projects. Each of the HTTP routes is clustered around the database that they affect. Some of the DBs and routes have stats showing. The lines between the different routes represent traffic. </p>
+<h3 id="problems"><a class="header" href="#problems">Problems</a></h3>
+<ul>
+<li>dark code is currently in &quot;boxes&quot; that users drag around
+<ul>
+<li>some users drag them to high precision and it bothers them if they're not lined up. Of course, they grow when you add code!</li>
+</ul>
+</li>
+<li>users can't see multiple functions at the same time</li>
+<li>we currently load the entire canvas at once, which can sometimes be too big</li>
+<li>no way to group things</li>
+<li>Users have many canvases. The intent was for users to have a single canvas with everything in it.</li>
+<li>Need a way to display modules that's separate from how we display &quot;structural&quot; components</li>
+</ul>
+<h2 id="solutions"><a class="header" href="#solutions">Solutions:</a></h2>
+<ul>
+<li>implement the architectural view</li>
+<li>find a way to display modules of functions/types that's not the architectural view</li>
+<li>add grouping of canvas elements, reimplement multiple canvases as a single canvas with multiple groups.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="profiler"><a class="header" href="#profiler">Profiler</a></h1>
+<p>In Dark v1:</p>
+<ul>
+<li>it's hard to know how long things take</li>
+<li>it's hard to know when things are slow</li>
+<li>it's very hard to know why</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="accounts"><a class="header" href="#accounts">Accounts</a></h1>
+<p>Dark supports both users and organizations, in a similar way that GitHub does</p>
+<h2 id="dark-v1-problems-33"><a class="header" href="#dark-v1-problems-33">Dark v1 Problems</a></h2>
+<h3 id="only-dark-employees-can-create-organizations"><a class="header" href="#only-dark-employees-can-create-organizations">Only Dark employees can create organizations</a></h3>
+<p><strong>Problem:</strong> There is no UI for organizations</p>
+<p><strong>Solution:</strong> Add UI, using a Dark canvas</p>
+<p><strong>Status: Spec'ed or not spec'ed</strong></p>
+<h3 id="users-and-orgs-are-the-same-thing"><a class="header" href="#users-and-orgs-are-the-same-thing">Users and orgs are the same thing</a></h3>
+<p><strong>Problem:</strong> It seems that it's wise to separate user and orgs somehow. We should do that.</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>figure out best practices</li>
+<li>should not be possible to login as an org (we've been implementing this by having the username be a dark email and the password be invalid)</li>
+<li>keep orgs and</li>
+</ul>
+<p><strong>Status: Need to investigate best practices and make a design</strong></p>
+<h3 id="cant-rename-username-or-orgs"><a class="header" href="#cant-rename-username-or-orgs">Can't rename username or orgs</a></h3>
+<p><strong>Problem:</strong> We would like to rename usernames or orgs. The main issue is that the builtwithdark urls would change</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>stop using user.builtwithdark.com and create a new URL per canvas (or possibly multiple per canvas) using darklang.io</li>
+<li>then allow users to change their username, validating the same rules as otherwise exists</li>
+</ul>
+<p><strong>Status: Need to spec darklang.io naming, and forwarding and deprecation policy for builtwithdark.com</strong></p>
+<h3 id="no-trademarkusage-policy-for-username"><a class="header" href="#no-trademarkusage-policy-for-username">No trademark/usage policy for username</a></h3>
+<p><strong>Problem:</strong> Companies get into trouble when they make changes to usernames. Users are very protective of their identities so we should establish rules and norms early</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>investigate best practices</li>
+<li>Some obvious rules
+<ul>
+<li>Users can't sell usernames (any financial transaction would result in the domain being taken)</li>
+<li>No squatting</li>
+<li>Allow company to re-allocate usernames in event of abuse, significant confusion, or squatting, dead accounts</li>
+</ul>
+</li>
+</ul>
+<p><strong>Status: TODO</strong></p>
+<hr />
+<h3 id="-20"><a class="header" href="#-20"></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="framework"><a class="header" href="#framework">Framework</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-tracking"><a class="header" href="#error-tracking">Error Tracking</a></h1>
+<p>Developers need to feel safe that Dark works. Right now, it is impossible (or at least extremely challenging) to know if your users are having issues, if all webhooks are being accepted, etc. Requests may hit Dark but hit an error of many kinds, and that error will create a trace that is hard to find.</p>
+<p>Categories of error:</p>
+<ul>
+<li>runtime errors
+<ul>
+<li>coding error:
+<ul>
+<li>an incomplete value appears</li>
+</ul>
+</li>
+<li>unexpected function error
+<ul>
+<li>a DError (Dark built-in error)</li>
+</ul>
+</li>
+<li>unhandled exception
+<ul>
+<li>DErrorRail - an error path reaches the user with Error/Nothing</li>
+</ul>
+</li>
+<li>an expected unexpected value
+<ul>
+<li>Non-200 results</li>
+</ul>
+</li>
+<li>dev-defined assertion</li>
+</ul>
+</li>
+<li>&quot;compile time&quot;
+<ul>
+<li>unit tests not passing</li>
+<li>uses of deprecated functions</li>
+</ul>
+</li>
+<li>other
+<ul>
+<li>can users add bugs, TODOs, etc, in here.</li>
+<li>Can users add things in here dynamically?</li>
+</ul>
+</li>
+</ul>
+<h3 id="problem-developers-should-be-able-to-discover-the-error"><a class="header" href="#problem-developers-should-be-able-to-discover-the-error">Problem: developers should be able to discover the error</a></h3>
+<p><strong>Solution:</strong> Error traces should be put in a dead-letter queue, which have urls</p>
+<p><strong>Solution:</strong> Developers should be notified about errors. One implementation is that there would be a default error handler for the whole canvas, which would email the developer for each error (potentially every nth error). As an extension, this handler could be customized (if there is an error in the customization, the default handler would run again).</p>
+<p><strong>Solution:</strong> the canvas should have a list of TODO items, which should include errors in the error tracker</p>
+<h3 id="problem-developers-should-be-able-to-solve-the-error"><a class="header" href="#problem-developers-should-be-able-to-solve-the-error">Problem: developers should be able to solve the error</a></h3>
+<p><strong>Solution:</strong> When an error is found, the notification should link to the trace. The trace should be replayable (either fully or partially) using existing trace features, which would allow the developer to ensure the intended action still happens for their user. The dev should then able to  to resolve it.</p>
+<p><strong>Solution:</strong> If there are a lot of errors, the user should be able to handle them all. For example, all of them could be pushed into a standard queue to be processed. If this is done, a button to run just one queue entry would be extremely valuable.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="http-handlers"><a class="header" href="#http-handlers">HTTP handlers</a></h1>
+<h2 id="problem-2"><a class="header" href="#problem-2"><strong>Problem</strong></a></h2>
+<p>Dark v1 had an implicit HTTP framework that was limited, opaque, and inflexible.</p>
+<h3 id="problems-with-the-dark-v1"><a class="header" href="#problems-with-the-dark-v1"><strong>Problems with the Dark v1</strong></a></h3>
+<ul>
+<li>Users could not change how we processed a HTTP request
+<ul>
+<li>other encodings aren't supported and can't be added</li>
+<li>you can't upload video or other &quot;bytes&quot; and things that aren't strings</li>
+<li>Headers in HTTP should be allowed to be specified twice</li>
+</ul>
+</li>
+<li>No input validation for any fields
+<ul>
+<li>you can validate manually which is really annoying</li>
+<li>a JSON field is not type checked and could be any type</li>
+</ul>
+</li>
+<li>empty request body (with just incompletes) was impossible to use</li>
+<li>magic sending did not match the magic receiving</li>
+<li>No way to specify a 404 or a 500 handler</li>
+<li>No way to match arbitrary HTTP methods</li>
+<li>Can't have a HEAD handler (the framework converts the request to a GET)</li>
+<li>Should the standard 404 have a content-type header</li>
+<li>if you return a string, it shouldn't have quotes, right? I mean it already is ct: text/plain</li>
+<li>locking</li>
+</ul>
+<h2 id="solution-1-middleware"><a class="header" href="#solution-1-middleware"><strong>Solution 1: middleware</strong></a></h2>
+<p>We want to support the creation of middleware stacks, collections of functions which transform HTTP requests and responses in a common way. These would allow:</p>
+<ul>
+<li>users to customize how input to HTTP handlers is created</li>
+<li>separate handling for authenticated and unauthenticated routes</li>
+<li>gradually adding support for partially implemented features (for example, v1 Dark can read latin1 and utf8, but not other encodings)</li>
+<li>potentially graphql support could be a different middleware</li>
+</ul>
+<p>Middleware stacks are pretty common in other languages, Python (WSGI) and Clojure (Ring) being the two I'm most familiar with.</p>
+<p>A middleware stack is simply a function wrapping another function.</p>
+<p>If we have a function <code>handle(req : Request) -&gt; Response</code>, then a middleware handler is a function<code>middleware(innerFn : Request -&gt; Response) -&gt; (Request -&gt; Response)</code> (that is, it takes as an argument a function and returns a function, and both the parameter and returned functions take a request and return a result).</p>
+<h3 id="whats-in-the-dark-v1-middleware"><a class="header" href="#whats-in-the-dark-v1-middleware"><strong>What's in the Dark v1 &quot;middleware&quot;?</strong></a></h3>
+<ul>
+<li>The Dark middleware is complicated and works poorly.</li>
+</ul>
+<p>Responses</p>
+<ul>
+<li>Anytime we infer a content-type, the content type is <code>text/plain; charset=utf-8</code> unless the value is an Object or List, in which case it is <code>application/json; charset=utf-8</code></li>
+<li>If the response is a HttpResponse value, then we infer a content-type if none exists, then convert it to json or plain text using built-in functions</li>
+<li>If the response in a HttpRedirect response, the value is ignored.</li>
+<li>If the response is on the ErrorRail, a response of 404 is returned (**Note: **even if the ErrorRail is an Error)</li>
+<li>If the response is a DError, a 500 is returned with an error message.</li>
+<li>If the response is none of these, then we convert it to JSON and infer the header, using a code of 200. <strong>Note: this often gives a JSON string response with a text/plain header. this is unexpected and bad, and also the most common outcode. Instead it should content-negotiate</strong></li>
+<li>Cors headers are then added, based on the CORS settings in the canvas</li>
+<li>The value is then converted to Bytes, and returned to the caller</li>
+<li>At no point does Dark do any content-negotiation</li>
+</ul>
+<p>Requests</p>
+<ul>
+<li>parsing path segments and inserting into the symtable</li>
+<li>returning 418 for text/ping</li>
+<li>creating a request object with formBody, jsonBody, cookies, url, body</li>
+<li>automatically respond to HEAD for GET requests. Currently HEAD handlers can be created but will not be hit</li>
+<li>automatically handling OPTIONS/CORS</li>
+<li>using the dark favicon if none is provided</li>
+<li>returning a blank sitemap or favicon</li>
+<li>converting response to JSON string</li>
+<li>converting response to other type?</li>
+</ul>
+<h3 id="how-would-users-create-edit-and-delete-a-middleware"><a class="header" href="#how-would-users-create-edit-and-delete-a-middleware"><strong>How would users create, edit, and delete a middleware?</strong></a></h3>
+<ul>
+<li>middleware is just a function with a specific type signature</li>
+<li>each step in the middleware would have to type check with the previous middleware</li>
+<li>final middleware shows the type of request</li>
+</ul>
+<h3 id="where-would-users-specify-a-middleware-for-their-handler"><a class="header" href="#where-would-users-specify-a-middleware-for-their-handler"><strong>Where would users specify a middleware for their handler?</strong></a></h3>
+<ul>
+<li>the editor would allow the choice. HTTP uses the default stack (defined at handler creation time), and you can change the middleware stack directly, including changing to use the &quot;feature flag middleware&quot; stack</li>
+</ul>
+<h3 id="how-would-users-change-the-middleware-of-some-handler-or-set-of-handlers-eg-feature-flags"><a class="header" href="#how-would-users-change-the-middleware-of-some-handler-or-set-of-handlers-eg-feature-flags"><strong>How would users change the middleware of some handler or set of handlers (eg feature flags)?</strong></a></h3>
+<ul>
+<li>a feature flag middleware which chooses which of the two middleware stacks to process</li>
+</ul>
+<h2 id="implementation"><a class="header" href="#implementation"><strong>Implementation</strong></a></h2>
+<p><strong>Middlewares</strong></p>
+<p>Middlewares are typed functions that contribute a small, composable part of decoding a web request for the handler to use. Middlewares receive a request, and then based on the request, may choose to call the next middleware or simply return a response instead. As such, middlewares receive as parameters both the request so far, as well as the next middleware to call. They are responsible for calling the next middleware, possibly changing the request first and possible altering the response as well. This leads to middlewares having the following shape:</p>
+<pre><code class="language-fsharp">let myMiddleware (arg : myMiddlewareArgType) next =
+  fun (req : 'req) -&gt;
+    let doSomethingToRequest req = { req with someExtraField = someFunction req }
+    let doSomethingToResponse res = { res with someExtraField = someFunction res }
+    let shortCircuitResponse = { status = 404, body = &quot;&quot;, headers = [] }
+    if someCondition req
+    then shortCircuitResponse
+    else req
+         |&gt; doSomethingToRequest
+         |&gt; nextMiddleware
+         |&gt; doSomethingToResponse
+</code></pre>
+<p>A middleware returns a function which takes a request. A middleware takes whatever arguments it needs, as well as the next middleware to call. As such, a middleware stack looks like this:</p>
+<pre><code class="language-fsharp">let middleware =
+  (\ctx -&gt; handler ctx) // shown like this for clarity
+  |&gt; addQueryParams url
+  |&gt; addHeaders headers
+  |&gt; readVarsFromURL
+  |&gt; addJsonBody headers body
+  |&gt; addFormBody headers body
+  |&gt; addCookies headers
+  |&gt; processErrorRail
+  |&gt; optionsHanderMiddleware
+  |&gt; headHandlerMiddleware
+  |&gt; textPingMiddleware
+  |&gt; sitemapFaviconMiddleware middleware emptyRequest
+</code></pre>
+<p>Each middleware wraps the previous one, so the outermost middleware is last, and the handler comes first.</p>
+<p>EmptyRequest is an empty record, and each middleware adds fields to it until the request has the shape required by the handler. It then returns a response, which can also have fields added to it by middleware wishing to send those fields to other middlewares.</p>
+<p>As such, the types of the entire middleware have to add up to the type of the handler.</p>
+<h2 id="editor-integration"><a class="header" href="#editor-integration">Editor integration</a></h2>
+<p>How do we write out HTTP handlers in fluid, taking into account middleware?</p>
+<pre><code class="language-fsharp">// idea: type http::GET, and it fills out the parameters path and response
+http::GET
+  path : ___
+  response : ___
+___
+
+// then we fill in the values and we get
+http::GET
+  path : /hello/:name/:age
+  name : String
+  age : String
+  response :
+
+// these are defined by middleware such as:
+fn get_body(raw_req :: HTTP::Request, user_obj,
+</code></pre>
+<p>Problem: we don't have anyway to dynamically create data in a type sensitive way. I want the handler to say &quot;there is this value _body_ that you now have available&quot;, how can I do that?</p>
+<ul>
+<li>Can the user_obj just be untyped and everything writes to it and we know it's type because the type checker figures it out?</li>
+<li>add fields like in elm, start with an empty record and add fields to it. Type checks the whole way down</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="graphql"><a class="header" href="#graphql">GraphQL</a></h1>
+<h3 id="dark-v1-problems-34"><a class="header" href="#dark-v1-problems-34">Dark v1 problems</a></h3>
+<h3 id="no-graphql"><a class="header" href="#no-graphql">No GraphQL</a></h3>
+<p><strong>Problem:</strong> GraphQL is one of the most asked-for additions to Dark. It's also a massively growing area, that promises to reduce accidental complexity compared to REST/JSON APIs. Dark has no GraphQL ability, though users have built GraphQL APIs on Dark.</p>
+<p><strong>Solution:</strong> Design an easy way to create GraphQL APIs for types and DBs. (As a non-expert, I hope this is a place the community will make suggestions).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="datastores"><a class="header" href="#datastores">Datastores</a></h1>
+<p>Do we need DB::query, or can we pre-process the actual implementations (is there a trait to type check it, the query returns a lazy value that gets built up?) how does that work?</p>
+<p>DB schema</p>
+<p>Migrations</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="workers"><a class="header" href="#workers">Workers</a></h1>
+<h3 id="dark-v1-problems-35"><a class="header" href="#dark-v1-problems-35">Dark v1 problems</a></h3>
+<ul>
+<li>Queues should be processed with QoS. If someone puts 100k items in the queue, the user with just 1 should still go immediately.</li>
+<li>V1 doesn't have the ability to fanout, or do any patterns except emit</li>
+<li>We dont have a good understanding of the currently implemented retry logic, or what the retry logic should be</li>
+<li>users dont have a good way to get warnings if their queues are failing
+<ul>
+<li>maybe add a dead-letter queue</li>
+</ul>
+</li>
+<li>no way to introspect queues using code, barely any way to introspect them without code</li>
+<li>sometimes queues take too long or fail, and items build up. should they be rerun? Should there be an expiry time?</li>
+<li>Queues don't autoscale
+<ul>
+<li>perhaps we shouldn't be using built-in queues and should istead of cloud-y queues</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cron--scheduled-jobs"><a class="header" href="#cron--scheduled-jobs">Cron / scheduled jobs</a></h1>
+<p>Why do people need every 1m calls to the queue?</p>
+<ul>
+<li>users often ask to be able to run an event at a particular time
+<ul>
+<li>the implementation of our queues would actually allow this quite nicely</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="traces--analysis--tests"><a class="header" href="#traces--analysis--tests">Traces / analysis / tests</a></h1>
+<ul>
+<li>Dark feels unsafe to users. We need to add ways</li>
+<li>record and places where the</li>
+<li>size of traces is out of control</li>
+<li>when moving around the editor, we don't stay in the same trace</li>
+</ul>
+<h3 id="storage-of-traces"><a class="header" href="#storage-of-traces">Storage of traces</a></h3>
+<p><strong>Problem:</strong> the storage of traces is poor. Each trace is currently stored and then GCed - the performance of the GC is poor, despite multiple incremental fixes, and causes operational issues.</p>
+<p><strong>Solution:</strong> The trace feature should be redesigned with performance taken into account. The access patterns are:</p>
+<ul>
+<li>traces are created on each request. They are created in several parts and written to the DB each time. The inputs are written on input (they are stored with the path, module, and modifier instead of a tlid, to allow searching for 404s. It also means that 404s are created dynamically. The intent was for 404s to be automatically repopulated when changing the name of a canvas: this feature is alsp confusing to users)</li>
+<li>traces are updated via:</li>
+</ul>
+<p>So</p>
+<ul>
+<li>store 404s individually</li>
+<li>new handler and function executions get new traces</li>
+<li>store traces so that they can be accessed by</li>
+</ul>
+<h3 id="traces-dont-work-well-in-functions"><a class="header" href="#traces-dont-work-well-in-functions">Traces don't work well in functions</a></h3>
+<p><strong>Problem:</strong> when you create code in a function for the first time, the function does not have a trace, and the arguments are <code>Incomplete</code>. This means everything is red and when you try to call functions, nothing works.</p>
+<p><strong>Why?</strong> The system is built around trace-driven development, but if you don't have a trace, nothing works.</p>
+<p><strong>Solution:</strong> Add a warning that you're using the default trace and it doesn't have values for the arguments. Fade the Play button and show a warning about this. Or at least give an error when you try to run something with an incomplete in it.</p>
+<p><strong>Solution:</strong> Perhaps default traces should use default values for known types. However, that will result in real values being put in the DB, which the user will then have to dig out.</p>
+<p><strong>Solution:</strong> perhaps a dry-run of some sort might be an idea in this situation?</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domain-registration"><a class="header" href="#domain-registration">Domain registration</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="static-assets"><a class="header" href="#static-assets">Static assets</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="infrastructure"><a class="header" href="#infrastructure">Infrastructure</a></h1>
+<p>The infrastructure needs to be async</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="program-storage"><a class="header" href="#program-storage">Program storage</a></h1>
+<ul>
+<li>when loading a handler, we also load every function, etc, not just the necessary ones. We should store the dependencies with the code (this could be done in the client)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="libraries"><a class="header" href="#libraries">Libraries</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="package-manager-1"><a class="header" href="#package-manager-1">Package manager</a></h1>
+<p>Most of the libraries in Dark, especially for access to 3rd party services (Twitter, Stripe, etc), will be provided by users in the package manager.</p>
+<p>Packages will have a naming scheme similar to github (username/package, eg &quot;darklang/tablecloth&quot;) and a module and versioning system like Dark's current stdlib (module::function_version, eg &quot;String::trim_v1&quot;).</p>
+<h3 id="dark-v1-problems-36"><a class="header" href="#dark-v1-problems-36">Dark v1 problems</a></h3>
+<ul>
+<li>In Dark, packages do not have versions, their contents do. Individual functions, types, etc, are versioned, and once added to a package are never removed. Instead, they can be deprecated by future functions.</li>
+<li>TODO: how do we slow roll out new versions if we're not sure they're ready?</li>
+<li>TODO: do we address functions by hash/ID, or by name?</li>
+<li>What is the mechanism to upload functions?</li>
+<li>What about dependencies?</li>
+<li>TODO: nested modules</li>
+<li>How do traces work? we want traces to be available to users of functions, and we want to allow users to be able to submit traces to package managers (probably with info redacted)</li>
+</ul>
+<h3 id="other"><a class="header" href="#other">Other</a></h3>
+<p>In all languages, there is a question of allowing the user to add functions to libraries they don't control. Given a function <code>module.x</code>, they want to add <code>module.x1</code> which is sort of different, without having to write <code>MyModule.x1</code> instead. JS and Ruby use monkey patching, in C++ and F# you can open the module and add to it. In Java you use inheritance, sorta.</p>
+<p>In Dark, you add a function which is in a different namespace, but the editor makes it feel like you didn't. So if you've added <code>mymodule/stdlib/String::trimDifferent</code>, the editor will show you <code>String::trimDifferent</code> instead. Unless there is another <code>String::trimDifferent</code> in scope, in which case it will disambiguate.</p>
+<h3 id="definition-of-a-package-v2"><a class="header" href="#definition-of-a-package-v2">Definition of a package, v2</a></h3>
+<p>A dark toplevel is a namespace, defined as <code>&lt;owner&gt;/&lt;package&gt;/&lt;module&gt;::&lt;item&gt;_&lt;version&gt;</code>. The owner is the user or organization who owns it, similar to github. similar to github. Within this namespace, </p>
+<h4 id="security"><a class="header" href="#security">Security</a></h4>
+<ul>
+<li>dont allow access to global variables (DBs)</li>
+<li>only allow httpclient calls to know domains</li>
+<li>packages must typecheck</li>
+</ul>
+<h4 id="standard-packages"><a class="header" href="#standard-packages">Standard packages</a></h4>
+<p>The dark standard library is within <code>dark/stdlib</code>.</p>
+<p>TODO</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="httpclient-calls"><a class="header" href="#httpclient-calls">HTTPClient calls</a></h1>
+<p>TODO: JSON deserialization</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="style-guide"><a class="header" href="#style-guide">Style guide</a></h1>
+<ul>
+<li>If converting between less-specific and more-specific types, put the conversion functions in the more specific type
+<ul>
+<li>eg <code>UUID::parse (String) -&gt; UUID</code></li>
+<li>eg <code>String::toInt (String -&gt; Int)</code></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dark-v1-stdlib"><a class="header" href="#dark-v1-stdlib">Dark v1 stdlib</a></h1>
+<h3 id="dark-v1-stdlib-1"><a class="header" href="#dark-v1-stdlib-1">Dark v1 stdlib</a></h3>
+<pre><code class="language-fsharp">!=(Any a, Any b) -&gt; Bool
+%(Int a, Int b) -&gt; Int
+&amp;&amp;(Bool a, Bool b) -&gt; Bool
+*(Int a, Int b) -&gt; Int
++(Int a, Int b) -&gt; Int
+++(Str s1, Str s2) -&gt; Str
+-(Int a, Int b) -&gt; Int
+/(Float a, Float b) -&gt; Float
+&lt;(Int a, Int b) -&gt; Bool
+&lt;=(Int a, Int b) -&gt; Bool
+==(Any a, Any b) -&gt; Bool
+&gt;(Int a, Int b) -&gt; Bool
+&gt;=(Int a, Int b) -&gt; Bool
+^(Int base, Int exponent) -&gt; Int
+||(Bool a, Bool b) -&gt; Bool
+
+emit_v1(Any event, Str Name) -&gt; Any
+equals(Any a, Any b) -&gt; Bool
+notEquals(Any a, Any b) -&gt; Bool
+toString(Any v) -&gt; Str
+
+AWS::urlencode(Str str) -&gt; Str
+Bool::and(Bool a, Bool b) -&gt; Bool
+Bool::isNull(Any check) -&gt; Bool
+Bool::not(Bool b) -&gt; Bool
+Bool::or(Bool a, Bool b) -&gt; Bool
+Bool::xor(Bool a, Bool b) -&gt; Bool
+Bytes::base64Encode(Bytes bytes) -&gt; Str
+Bytes::hexEncode(Bytes bytes) -&gt; Str
+Bytes::length(Bytes bytes) -&gt; Int
+Crypto::md5(Bytes data) -&gt; Bytes
+Crypto::sha1hmac(Bytes key, Bytes data) -&gt; Bytes
+Crypto::sha256(Bytes data) -&gt; Bytes
+Crypto::sha256hmac(Bytes key, Bytes data) -&gt; Bytes
+Crypto::sha384(Bytes data) -&gt; Bytes
+DB::count(Datastore table) -&gt; Int
+DB::deleteAll_v1(Datastore table) -&gt; Nothing
+DB::delete_v1(Str key, Datastore table) -&gt; Nothing
+DB::generateKey() -&gt; Str
+DB::getAllWithKeys_v2(Datastore table) -&gt; Dict
+DB::getAll_v3(Datastore table) -&gt; List
+DB::getExisting(List keys, Datastore table) -&gt; List
+DB::getManyWithKeys_v1(List keys, Datastore table) -&gt; Dict
+DB::getMany_v3(List keys, Datastore table) -&gt; Option
+DB::get_v2(Str key, Datastore table) -&gt; Option
+DB::keys_v1(Datastore table) -&gt; List
+DB::queryCount(Datastore table, Block filter) -&gt; Int
+DB::queryExactFields(Dict spec, Datastore table) -&gt; List
+DB::queryExactFieldsWithKey(Dict spec, Datastore table) -&gt; Dict
+DB::queryOneWithExactFields(Dict spec, Datastore table) -&gt; Option
+DB::queryOneWithExactFieldsWithKey(Dict spec, Datastore table) -&gt; Option
+DB::queryOneWithKey_v3(Datastore table, Block filter) -&gt; Option
+DB::queryOne_v4(Datastore table, Block filter) -&gt; Option
+DB::queryWithKey_v3(Datastore table, Block filter) -&gt; Dict
+DB::query_v4(Datastore table, Block filter) -&gt; List
+DB::schemaFields_v1(Datastore table) -&gt; List
+DB::schema_v1(Datastore table) -&gt; Dict
+DB::set_v1(Dict val, Str key, Datastore table) -&gt; Dict
+Date::&lt;(Date d1, Date d2) -&gt; Bool
+Date::&lt;=(Date d1, Date d2) -&gt; Bool
+Date::&gt;(Date d1, Date d2) -&gt; Bool
+Date::&gt;=(Date d1, Date d2) -&gt; Bool
+Date::add(Date d, Int seconds) -&gt; Date
+Date::atStartOfDay(Date date) -&gt; Date
+Date::day(Date date) -&gt; Int
+Date::fromSeconds(Int seconds) -&gt; Date
+Date::greaterThan(Date d1, Date d2) -&gt; Bool
+Date::greaterThanOrEqualTo(Date d1, Date d2) -&gt; Bool
+Date::hour_v1(Date date) -&gt; Int
+Date::lessThan(Date d1, Date d2) -&gt; Bool
+Date::lessThanOrEqualTo(Date d1, Date d2) -&gt; Bool
+Date::minute(Date date) -&gt; Int
+Date::month(Date date) -&gt; Int
+Date::now() -&gt; Date
+Date::parse_v2(Str s) -&gt; Result
+Date::second(Date date) -&gt; Int
+Date::subtract(Date d, Int seconds) -&gt; Date
+Date::toSeconds(Date date) -&gt; Int
+Date::toString(Date date) -&gt; Str
+Date::toStringISO8601BasicDate(Date date) -&gt; Str
+Date::toStringISO8601BasicDateTime(Date date) -&gt; Str
+Date::today() -&gt; Date
+Date::weekday(Date date) -&gt; Int
+Date::year(Date date) -&gt; Int
+Dict::empty() -&gt; Dict
+Dict::filterMap(Dict dict, Block f) -&gt; Dict
+Dict::filter_v1(Dict dict, Block f) -&gt; Dict
+Dict::fromList(List entries) -&gt; Option
+Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
+Dict::get_v2(Dict dict, Str key) -&gt; Option
+Dict::isEmpty(Dict dict) -&gt; Bool
+Dict::keys(Dict dict) -&gt; List
+Dict::map(Dict dict, Block f) -&gt; Dict
+Dict::member(Dict dict, Str key) -&gt; Bool
+Dict::merge(Dict left, Dict right) -&gt; Dict
+Dict::remove(Dict dict, Str key) -&gt; Dict
+Dict::set(Dict dict, Str key, Any val) -&gt; Dict
+Dict::singleton(Str key, Any value) -&gt; Dict
+Dict::size(Dict dict) -&gt; Int
+Dict::toJSON(Dict dict) -&gt; Str
+Dict::toList(Dict dict) -&gt; List
+Dict::values(Dict dict) -&gt; List
+Float::absoluteValue(Float a) -&gt; Float
+Float::add(Float a, Float b) -&gt; Float
+Float::ceiling(Float a) -&gt; Int
+Float::clamp(Float value, Float limitA, Float limitB) -&gt; Float
+Float::divide(Float a, Float b) -&gt; Float
+Float::floor(Float a) -&gt; Int
+Float::greaterThan(Float a, Float b) -&gt; Bool
+Float::greaterThanOrEqualTo(Float a, Float b) -&gt; Bool
+Float::lessThan(Float a, Float b) -&gt; Bool
+Float::lessThanOrEqualTo(Float a, Float b) -&gt; Bool
+Float::max(Float a, Float b) -&gt; Float
+Float::min(Float a, Float b) -&gt; Float
+Float::multiply(Float a, Float b) -&gt; Float
+Float::negate(Float a) -&gt; Float
+Float::power(Float base, Float exponent) -&gt; Float
+Float::round(Float a) -&gt; Int
+Float::roundDown(Float a) -&gt; Int
+Float::roundTowardsZero(Float a) -&gt; Int
+Float::roundUp(Float a) -&gt; Int
+Float::sqrt(Float a) -&gt; Float
+Float::subtract(Float a, Float b) -&gt; Float
+Float::sum(List a) -&gt; Float
+Float::truncate(Float a) -&gt; Int
+Http::badRequest(Str error) -&gt; Response
+Http::forbidden() -&gt; Response
+Http::notFound() -&gt; Response
+Http::redirectTo(Str url) -&gt; Response
+Http::response(Any response, Int code) -&gt; Response
+Http::responseWithHeaders(Any response, Dict headers, Int code) -&gt; Response
+Http::responseWithHtml(Any response, Int code) -&gt; Response
+Http::responseWithJson(Any response, Int code) -&gt; Response
+Http::responseWithText(Any response, Int code) -&gt; Response
+Http::setCookie_v2(Str name, Str value, Dict params) -&gt; Dict
+Http::success(Any response) -&gt; Response
+Http::unauthorized() -&gt; Response
+HttpClient::basicAuth_v1(Str username, Str password) -&gt; Dict
+HttpClient::bearerToken_v1(Str token) -&gt; Dict
+HttpClient::delete_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::formContentType() -&gt; Dict
+HttpClient::get_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::head_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::htmlContentType() -&gt; Dict
+HttpClient::jsonContentType() -&gt; Dict
+HttpClient::options_v5(Str uri, Dict query, Dict headers) -&gt; Result
+HttpClient::patch_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+HttpClient::plainTextContentType() -&gt; Dict
+HttpClient::post_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+HttpClient::put_v5(Str uri, Any body, Dict query, Dict headers) -&gt; Result
+Int::absoluteValue(Int a) -&gt; Int
+Int::add(Int a, Int b) -&gt; Int
+Int::clamp(Int value, Int limitA, Int limitB) -&gt; Int
+Int::divide(Int a, Int b) -&gt; Int
+Int::greaterThan(Int a, Int b) -&gt; Bool
+Int::greaterThanOrEqualTo(Int a, Int b) -&gt; Bool
+Int::lessThan(Int a, Int b) -&gt; Bool
+Int::lessThanOrEqualTo(Int a, Int b) -&gt; Bool
+Int::max(Int a, Int b) -&gt; Int
+Int::min(Int a, Int b) -&gt; Int
+Int::mod(Int a, Int b) -&gt; Int
+Int::multiply(Int a, Int b) -&gt; Int
+Int::negate(Int a) -&gt; Int
+Int::power(Int base, Int exponent) -&gt; Int
+Int::random_v1(Int start, Int end) -&gt; Int
+Int::remainder(Int value, Int divisor) -&gt; Result
+Int::sqrt(Int a) -&gt; Float
+Int::subtract(Int a, Int b) -&gt; Int
+Int::sum(List a) -&gt; Int
+Int::toFloat(Int a) -&gt; Float
+JSON::parse_v1(Str json) -&gt; Result
+JWT::signAndEncodeWithHeaders_v1(Str pemPrivKey, Dict headers, Any payload) -&gt; Result
+JWT::signAndEncode_v1(Str pemPrivKey, Any payload) -&gt; Result
+JWT::verifyAndExtract_v1(Str pemPubKey, Str token) -&gt; Result
+List::append(List as, List bs) -&gt; List
+List::drop(List list, Int count) -&gt; List
+List::dropWhile(List list, Block f) -&gt; List
+List::empty() -&gt; List
+List::filterMap(List list, Block f) -&gt; List
+List::filter_v2(List list, Block f) -&gt; List
+List::findFirst_v2(List list, Block f) -&gt; Option
+List::flatten(List list) -&gt; List
+List::fold(List list, Any init, Block f) -&gt; Any
+List::getAt_v1(List list, Int index) -&gt; Option
+List::head_v2(List list) -&gt; Option
+List::indexedMap(List list, Block f) -&gt; List
+List::interleave(List as, List bs) -&gt; List
+List::interpose(List list, Any sep) -&gt; List
+List::isEmpty(List list) -&gt; Bool
+List::last_v2(List list) -&gt; Option
+List::length(List list) -&gt; Int
+List::map(List list, Block f) -&gt; List
+List::map2(List as, List bs, Block f) -&gt; Option
+List::map2shortest(List as, List bs, Block f) -&gt; List
+List::member(List list, Any val) -&gt; Bool
+List::push(List list, Any val) -&gt; List
+List::pushBack(List list, Any val) -&gt; List
+List::randomElement(List list) -&gt; Option
+List::range(Int lowest, Int highest) -&gt; List
+List::repeat(Int times, Any val) -&gt; List
+List::reverse(List list) -&gt; List
+List::singleton(Any val) -&gt; List
+List::sort(List list) -&gt; List
+List::sortBy(List list, Block f) -&gt; List
+List::sortByComparator(List list, Block f) -&gt; Result
+List::tail(List list) -&gt; Option
+List::take(List list, Int count) -&gt; List
+List::takeWhile(List list, Block f) -&gt; List
+List::uniqueBy(List list, Block f) -&gt; List
+List::unzip(List pairs) -&gt; List
+List::zip(List as, List bs) -&gt; Option
+List::zipShortest(List as, List bs) -&gt; List
+Math::acos(Float ratio) -&gt; Option
+Math::asin(Float ratio) -&gt; Option
+Math::atan(Float ratio) -&gt; Float
+Math::atan2(Float y, Float x) -&gt; Float
+Math::cos(Float angleInRadians) -&gt; Float
+Math::cosh(Float angleInRadians) -&gt; Float
+Math::degrees(Float angleInDegrees) -&gt; Float
+Math::pi() -&gt; Float
+Math::radians(Float angleInRadians) -&gt; Float
+Math::sin(Float angleInRadians) -&gt; Float
+Math::sinh(Float angleInRadians) -&gt; Float
+Math::tan(Float angleInRadians) -&gt; Float
+Math::tanh(Float angleInRadians) -&gt; Float
+Math::tau() -&gt; Float
+Math::turns(Float angleInTurns) -&gt; Float
+Option::andThen(Option option, Block f) -&gt; Option
+Option::map2(Option option1, Option option2, Block f) -&gt; Option
+Option::map_v1(Option option, Block f) -&gt; Option
+Option::withDefault(Option option, Any default) -&gt; Any
+Password::check(Password existingpwr, Str rawpw) -&gt; Bool
+Password::hash(Str pw) -&gt; Password
+Result::andThen_v1(Result result, Block f) -&gt; Result
+Result::fromOption_v1(Option option, Str error) -&gt; Result
+Result::map2(Result result1, Result result2, Block f) -&gt; Result
+Result::mapError_v1(Result result, Block f) -&gt; Result
+Result::map_v1(Result result, Block f) -&gt; Result
+Result::toOption_v1(Result result) -&gt; Option
+Result::withDefault(Result result, Any default) -&gt; Any
+StaticAssets::baseUrlFor(Str deploy_hash) -&gt; Str
+StaticAssets::baseUrlForLatest() -&gt; Str
+StaticAssets::fetchBytes(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::fetchLatestBytes(Str file) -&gt; Result
+StaticAssets::fetchLatest_v1(Str file) -&gt; Result
+StaticAssets::fetch_v1(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::serveLatest_v1(Str file) -&gt; Result
+StaticAssets::serve_v1(Str deploy_hash, Str file) -&gt; Result
+StaticAssets::urlFor(Str deploy_hash, Str file) -&gt; Str
+StaticAssets::urlForLatest(Str file) -&gt; Str
+String::append_v1(Str s1, Str s2) -&gt; Str
+String::base64Decode(Str s) -&gt; Str
+String::base64Encode(Str s) -&gt; Str
+String::contains(Str lookingIn, Str searchingFor) -&gt; Bool
+String::digest(Str s) -&gt; Str
+String::dropFirst(Str string, Int characterCount) -&gt; Str
+String::dropLast(Str string, Int characterCount) -&gt; Str
+String::endsWith(Str subject, Str suffix) -&gt; Bool
+String::first(Str string, Int characterCount) -&gt; Str
+String::foreach_v1(Str s, Block f) -&gt; Str
+String::fromChar_v1(Character c) -&gt; Str
+String::fromList_v1(List l) -&gt; Str
+String::htmlEscape(Str html) -&gt; Str
+String::isEmpty(Str s) -&gt; Bool
+String::join(List l, Str separator) -&gt; Str
+String::last(Str string, Int characterCount) -&gt; Str
+String::length_v1(Str s) -&gt; Int
+String::newline() -&gt; Str
+String::padEnd(Str string, Str padWith, Int goalLength) -&gt; Str
+String::padStart(Str string, Str padWith, Int goalLength) -&gt; Str
+String::prepend(Str s1, Str s2) -&gt; Str
+String::random_v2(Int length) -&gt; Result
+String::replaceAll(Str s, Str searchFor, Str replaceWith) -&gt; Str
+String::reverse(Str string) -&gt; Str
+String::slice(Str string, Int from, Int to) -&gt; Str
+String::slugify_v2(Str string) -&gt; Str
+String::split(Str s, Str separator) -&gt; List
+String::startsWith(Str subject, Str prefix) -&gt; Bool
+String::toBytes(Str str) -&gt; Bytes
+String::toFloat_v1(Str s) -&gt; Result
+String::toInt_v1(Str s) -&gt; Result
+String::toList_v1(Str s) -&gt; List
+String::toLowercase_v1(Str s) -&gt; Str
+String::toUUID_v1(Str uuid) -&gt; Result
+String::toUppercase_v1(Str s) -&gt; Str
+String::trim(Str str) -&gt; Str
+String::trimEnd(Str str) -&gt; Str
+String::trimStart(Str str) -&gt; Str
+Twilio::sendText_v1(Str accountSID, Str authToken, Str fromNumber, Str toNumber, Str body) -&gt; Dict
+Uuid::generate() -&gt; UUID
+X509::pemCertificatePublicKey(Str pemCert) -&gt; Result
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-module"><a class="header" href="#user-module">User module</a></h1>
+<p>One essential item in Dark is a User module. It should be trivial (take no more than 1 minute) to set up a user module. The user module should support:</p>
+<ul>
+<li>signing up, logging in and out</li>
+<li>password reset, including emailing</li>
+<li>password security - no visible passwords in a trace</li>
+<li>login with social accounts (where logins on multiple accounts can be combined)
+<ul>
+<li>github, twitter, facebook and google, at least</li>
+</ul>
+</li>
+<li>a primary key that is not an email address</li>
+<li>easy integration with React and Vue, as well as iOS and Android</li>
+<li>Easy-to-use, styleable, HTML pages </li>
+<li>Profile images (pre-populated from gravatar)</li>
+<li>Tight integration with traces - see a users' profile image on the trace</li>
+<li>Tight integration with feature flags - easily enable a flag for sets of users</li>
+<li>Cookies</li>
+<li>JWT</li>
+</ul>
+<p>And it should aim to, in the future, support:</p>
+<ul>
+<li>Multi-factor auth</li>
+<li>allowing this be a login system for backends written in other systems</li>
+<li>adding other social accounts</li>
+<li>ability to see an audit log of a single user</li>
+<li>ability to automatically delete a single user's data for compliance reasons</li>
+<li>levels of authorization</li>
+</ul>
+<p>TODO: </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
