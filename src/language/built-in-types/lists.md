@@ -20,7 +20,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 **Solution:** Though we have mostly been careful, it would be useful to try and fuzz functions, or add logging, or something to ensure that this doesnt happen
 
-**Status: **Unspeced
+**Status:** Unspeced
 
 ### It's possible to have heterogenous lists
 

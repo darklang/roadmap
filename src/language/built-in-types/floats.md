@@ -18,7 +18,7 @@ Floats are 64-bit IEEE-754 arithmetic, with what I hope are improvements. Dark's
 
 TODO
 
-**Status: **Problem not understood
+**Status:** Problem not understood
 
 ### Inf and NaN
 
@@ -34,7 +34,7 @@ TODO
 
 **Solution:** TODO
 
-**Status: **problem not understood, solution unknown
+**Status:** problem not understood, solution unknown
 
 ### Support other representations
 
@@ -42,7 +42,7 @@ TODO
 
 **Solution:** Also support exponent format
 
-**Status: **Representation is spec'ed. Interaction model not spec'ed.
+**Status:** Representation is spec'ed. Interaction model not spec'ed.
 
 ### **Floats don't support negatives**
 
@@ -50,7 +50,7 @@ TODO
 
 **Solution:** copy the proposed interaction model from ints
 
-**Status: **not spec'ed
+**Status:** not spec'ed
 
 ## v2 spec
 
