@@ -1,4 +1,4 @@
-# Template
+# Type aliases
 
 Description
 
