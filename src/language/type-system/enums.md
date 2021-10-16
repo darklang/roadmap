@@ -14,9 +14,9 @@ Description: TODO
 
 ### Users cannot create their own enum types
 
-**Problem: **
+**Problem:**
 
-**Solution: **
+**Solution:**
 
 **Status: TODO**
 

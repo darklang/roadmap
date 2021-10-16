@@ -16,7 +16,7 @@ Non-unicode sequences of bytes are supported as the `Bytes` type.
 
 **Problem:** HTTP request `raw` field is a string, but
 
-**Solution: **
+**Solution:**
 
 **Status: Spec'ed or not spec'ed**
 

@@ -6,7 +6,7 @@ Modules and namespaces are used to separate functions and types so that they can
 
 ### Package manager function names are ugly
 
-**Problem: **
+**Problem:**
 
 **Solution: TODO**
 
@@ -24,7 +24,7 @@ Modules and namespaces are used to separate functions and types so that they can
 
 **Problem:** Ok, Error, Just and Nothing are not in any namespace
 
-**Solution: **
+**Solution:**
 
 **Status: Spec'ed or not spec'ed**
 

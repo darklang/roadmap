@@ -114,4 +114,4 @@ Int::sum(List Int: a) -> Int
 
 ### Json serialization changes
 
-**TODO: **wait til we figure out how JSON serialization works in Dark v2
+**TODO:** wait til we figure out how JSON serialization works in Dark v2

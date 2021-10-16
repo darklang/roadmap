@@ -12,7 +12,7 @@ Dark supports both users and organizations, in a similar way that GitHub does
 
 **Status: Spec'ed or not spec'ed**
 
-### **Users and orgs are the same thing**
+### Users and orgs are the same thing
 
 **Problem:** It seems that it's wise to separate user and orgs somehow. We should do that.
 
@@ -28,14 +28,14 @@ Dark supports both users and organizations, in a similar way that GitHub does
 
 **Problem:** We would like to rename usernames or orgs. The main issue is that the builtwithdark urls would change
 
-**Solution: **
+**Solution:**
 
 * stop using user.builtwithdark.com and create a new URL per canvas (or possibly multiple per canvas) using darklang.io
 * then allow users to change their username, validating the same rules as otherwise exists
 
 **Status: Need to spec darklang.io naming, and forwarding and deprecation policy for builtwithdark.com**
 
-### **No trademark/usage policy for username**
+### No trademark/usage policy for username
 
 **Problem:** Companies get into trouble when they make changes to usernames. Users are very protective of their identities so we should establish rules and norms early
 

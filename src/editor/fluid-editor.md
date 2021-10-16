@@ -43,7 +43,7 @@ The major issue that made this challenging is that when you add an expression wh
 
 ### Undo is slow
 
-**Problem: ** when undoing something in Dark, it can take a long time and you can't see that.
+**Problem:** when undoing something in Dark, it can take a long time and you can't see that.
 
 **Solution:** make it faster. Dark opcodes are often huge and pulling them all from the DB, then writing them back, does indeed take time.
 

@@ -57,7 +57,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 * sometimes the line has builtin line breaks, but it breaks off length instead
 *  We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
 
-**Solution: ** TODO
+**Solution:** TODO
 
 **Status: not spec'ed**
 

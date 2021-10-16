@@ -6,9 +6,9 @@ Description
 
 ### Title
 
-**Problem: **
+**Problem:**
 
-**Solution: **
+**Solution:**
 
 **Status: Spec'ed or not spec'ed**
 
