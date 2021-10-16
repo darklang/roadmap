@@ -10,9 +10,9 @@ The vision for how we display code in the editor is called the "Architectural Vi
 
 An example:
 
-![](<../.gitbook/assets/Messages Image(2551186841).jpeg>)
+![](./architecture.jpeg)
 
-This is a simple app that probably does something like project tracking, and it has 3 services: users, templates, and projects. Each of the HTTP routes is clustered around the database that they affect. Some of the DBs and routes have stats showing. The lines between the different routes represent traffic. 
+This is a simple app that probably does something like project tracking, and it has 3 services: users, templates, and projects. Each of the HTTP routes is clustered around the database that they affect. Some of the DBs and routes have stats showing. The lines between the different routes represent traffic.
 
 ### Problems
 
