@@ -1,33 +1,32 @@
-aliases:
-  - &filter-only-main
-    branches:
-      only:
-        - main
-
 version: 2
 jobs:
-  build-and-test:
+  build-test:
     docker:
       - image: cimg/rust:1.55.0
     steps:
       - checkout
-      - run: cargo install mdbook
-      - run: mdbook build
-      - run: mdbook test
+      - run:
+          name: Install mdbook
+          command: |
+            wget https://github.com/rust-lang/mdBook/releases/download/v0.4.13/mdbook-v0.4.13-x86_64-unknown-linux-gnu.tar.gz
+            tar zxvf mdbook-v0.4.13-x86_64-unknown-linux-gnu.tar.gz
+            chmod +x mdbook
+      - run: ./mdbook build
+      - run: ./mdbook test
+      - persist_to_workspace:
+          root: "."
+          paths: [ "book" ]
 
   deploy-website:
     docker:
-      - image: cimg/rust:1.55.0
-
+      - image: cimg/node:16.11
     steps:
+      - checkout
+      - attach_workspace: { at: "." }
       - add_ssh_keys:
           fingerprints:
             # repo-specific deploy key
             - "01:35:41:49:e3:f1:cd:43:1c:a8:5b:80:e4:62:b8:63"
-      - checkout
-      - run: cargo install mdbook
-      - run: mdbook build
-      - run: mdbook test
       - run:
           name: Deploying to GitHub Pages
           command: |
@@ -45,11 +44,10 @@ workflows:
   version: 2
   build:
     jobs:
-      - build-and-test
-  build_and_deploy:
-    jobs:
+      - build
       - deploy-website:
-          # Only run on direct commits to main
-          filters: *filter-only-main
-
-
+          requires: ["build"]
+          filters:
+            branches:
+              only:
+                - main
