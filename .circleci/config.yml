@@ -12,7 +12,7 @@ jobs:
             tar zxvf mdbook-v0.4.13-x86_64-unknown-linux-gnu.tar.gz
             chmod +x mdbook
       - run: ./mdbook build
-      - run: ./mdbook test
+      # - run: ./mdbook test
       - persist_to_workspace:
           root: "."
           paths: [ "book" ]
