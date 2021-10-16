@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build-test:
+  build:
     docker:
-      - image: cimg/rust:1.55.0
+      - image: cimg/base:2021.10
     steps:
       - checkout
       - run:
@@ -19,7 +19,7 @@ jobs:
 
   deploy-website:
     docker:
-      - image: cimg/node:16.11
+      - image: cimg/base:2021.10
     steps:
       - checkout
       - attach_workspace: { at: "." }
