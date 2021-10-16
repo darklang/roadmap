@@ -24,7 +24,7 @@ Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that impl
 
 ### v2 Language definition
 
-```
+```fsharp
 type egcChar = // type suitable to hold an EGC
 
 type Expr =
@@ -46,7 +46,7 @@ type DType =
 
 ### v2 Standard library: dark/stdlib/Char
 
-```
+```fsharp
 // New
 Character::toString(Char: c) -> String
 String::map(String: s, (Char -> Char)) -> String

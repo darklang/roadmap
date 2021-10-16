@@ -7,7 +7,7 @@
 
 You access records fields by:
 
-```
+```fsharp
 myRecord.x
 ```
 
@@ -29,12 +29,12 @@ Description
 
 ### v2 Language definition
 
-```
+```fsharp
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 ```
 
 ### v2 Editor changes

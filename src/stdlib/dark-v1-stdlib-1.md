@@ -2,7 +2,7 @@
 
 ### Dark v1 stdlib
 
-```
+```fsharp
 !=(Any a, Any b) -> Bool
 %(Int a, Int b) -> Int
 &&(Bool a, Bool b) -> Bool

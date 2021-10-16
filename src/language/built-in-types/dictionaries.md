@@ -24,7 +24,7 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 The big advantage here is that the autocomplete would create a bunch of new fields to fill in the object, like so:
 
-```
+```fsharp
 Person {
   name : ___ // "string" placeholder text)
   age : ___ // "int" placeholder text
@@ -33,7 +33,7 @@ Person {
 
 **Solution option 2: **Add a new syntax for dictionaries. For example, we might do:
 
-```
+```fsharp
 let myDict = dict{
     ___ : ___ // would be useful to have a prompt to tell you to use quotes here
 }
@@ -47,7 +47,6 @@ This would have a number of other benefits
 
 **Solutions:**
 
-*
 * Add a new dictionary type, that is not compatible with DObj
   * It would need new functions that are type compatible
   * It would allow keys of any single type
@@ -61,7 +60,8 @@ This would have a number of other benefits
 * DObj would become just a record
   * old `Dict::` functions would be for records, and would be deprecated. They could even be renamed to `Record::` for now, until we add syntax for the new stuff. We could automatically transition them to the new stuff
   * dot access could instead be
-* **Status: TODO**
+
+**Status: TODO**
 
 ### Dictionaries are **string only**
 
@@ -89,12 +89,12 @@ This would have a number of other benefits
 
 ### v2 Language definition
 
-```
+```fsharp
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 Dict::filterMap(Dict 'k 'v, ('v -> Option 'b)) -> Dict 'k 'b
 Dict::filter_v1(Dict 'k 'v, ('v -> bool)) -> Dict 'k 'v
 Dict::isEmpty(Dict dict) -> Bool

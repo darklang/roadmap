@@ -57,7 +57,7 @@ For functions, versioning is a better strategy, as it allows handlers to use fea
 
 ### TODO:
 
-```
+```fsharp
 package manager from the start
 can we implement built-in Dark functions via the package manager
 what is the story with namespacing (types vs modules)
@@ -82,7 +82,7 @@ We want a package manager, so stdlibs need to fit into this. The namespace of st
 
 #### Example
 
-```
+```fsharp
 def range_v0:
   start : Int => The lower end of the range
   end   : Int => The upper end of the range. This is not

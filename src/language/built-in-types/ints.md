@@ -54,7 +54,7 @@ Ints are infinite precision integer values.
 
 ### v2 Language definition
 
-```
+```fsharp
 type Expr =
   | EInt { val = BigInt }
   | ...
@@ -74,7 +74,7 @@ type DType =
 
 ### v2 Standard library: Int
 
-```
+```fsharp
 type Error =
   | DivideByZero
 

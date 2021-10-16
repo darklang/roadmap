@@ -85,7 +85,7 @@ Requests
 
 Middlewares are typed functions that contribute a small, composable part of decoding a web request for the handler to use. Middlewares receive a request, and then based on the request, may choose to call the next middleware or simply return a response instead. As such, middlewares receive as parameters both the request so far, as well as the next middleware to call. They are responsible for calling the next middleware, possibly changing the request first and possible altering the response as well. This leads to middlewares having the following shape:
 
-```
+```fsharp
 let myMiddleware (arg : myMiddlewareArgType) next =
   fun (req : 'req) ->
     let doSomethingToRequest req = { req with someExtraField = someFunction req }
@@ -93,7 +93,7 @@ let myMiddleware (arg : myMiddlewareArgType) next =
     let shortCircuitResponse = { status = 404, body = "", headers = [] }
     if someCondition req
     then shortCircuitResponse
-    else req 
+    else req
          |> doSomethingToRequest
          |> nextMiddleware
          |> doSomethingToResponse
@@ -101,7 +101,7 @@ let myMiddleware (arg : myMiddlewareArgType) next =
 
 A middleware returns a function which takes a request. A middleware takes whatever arguments it needs, as well as the next middleware to call. As such, a middleware stack looks like this:
 
-```
+```fsharp
 let middleware =
   (\ctx -> handler ctx) // shown like this for clarity
   |> addQueryParams url
@@ -129,7 +129,7 @@ As such, the types of the entire middleware have to add up to the type of the ha
 
 How do we write out HTTP handlers in fluid, taking into account middleware?
 
-```
+```fsharp
 // idea: type http::GET, and it fills out the parameters path and response
 http::GET
   path : ___
@@ -141,13 +141,10 @@ http::GET
   path : /hello/:name/:age
   name : String
   age : String
-  response : 
-  
-// these are defined by middleware such as:
-fn get_body(raw_req :: HTTP::Request, user_obj, 
-  
-  
+  response :
 
+// these are defined by middleware such as:
+fn get_body(raw_req :: HTTP::Request, user_obj,
 ```
 
 Problem: we don't have anyway to dynamically create data in a type sensitive way. I want the handler to say "there is this value \_body\_ that you now have available", how can I do that?

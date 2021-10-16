@@ -40,7 +40,7 @@ Remove nulls
 
 ### v2 Standard library
 
-```
+```fsharp
 // remove
 Bool::isNull
 ```

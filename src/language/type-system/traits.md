@@ -23,12 +23,12 @@ Open questions:
 
 ### v2 Language definition
 
-```
+```fsharp
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 ```
 
 ### v2 Editor changes

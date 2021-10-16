@@ -36,7 +36,7 @@ Modules and namespaces are used to separate functions and types so that they can
 
 ### v2 Language definition
 
-```
+```fsharp
 type FQFnName =
   | Stdlib { module = string, name = string, version = int }
   | PackageManager
@@ -50,7 +50,7 @@ type FQFnName =
 
 ### v2 Standard library
 
-```
+```fsharp
 ```
 
 ### v2 Editor changes

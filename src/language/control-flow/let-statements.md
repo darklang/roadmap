@@ -4,8 +4,8 @@
 
 Dark v1 had this defintiion of `let`:
 
-```
-type Expr = 
+```fsharp
+type Expr =
   | Let { lhs : string, rhs : expr, body : expr }
   | ...
 
@@ -31,8 +31,8 @@ Users expect Dark to be a list of statements followed by an expr. The actual sem
 
 ## V2 definition
 
-```
-type Expr = 
+```fsharp
+type Expr =
   | Let { lhs : pattern, rhs : expr, body : expr }
   | ...
 

@@ -10,7 +10,7 @@ Users asked for regex a lot.
 
 I've never seen a regex implementation that was as easy to use as Perl's, so that's what we're aiming for (in terms of simplicity, not necessarily syntax):
 
-```
+```perl
 # does it match?
 if ($str =~ /ul/) { ... }
 
@@ -37,12 +37,12 @@ Description
 
 ### v2 Language definition
 
-```
+```fsharp
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 ```
 
 ### v2 Editor changes

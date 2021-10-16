@@ -58,7 +58,7 @@ TODO
 
 Same as V1, except we represent a float better.
 
-```
+```fsharp
 type Sign =
   | Plus
   | Minus
@@ -98,7 +98,7 @@ type DType =
 
 ### Float stdlib functions
 
-```
+```fsharp
 type Error =
   | FloatOverflowError
 

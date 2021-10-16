@@ -8,7 +8,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** Users currently have to do concatenation like so:
 
-```
+```fsharp
 "I am "
 |> ++ user.name
 |> ++ " and I am "
@@ -18,7 +18,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Solution:** Instead, we'd like to support string interpolation
 
-```
+```fsharp
 "I am ${user.name} and I am ${user.age} years old"
 ```
 
@@ -77,7 +77,7 @@ Specifically, string are immutable UTF-8 encoded sequences of Unicode code point
 
 ### v2 Language definition
 
-```
+```fsharp
 type string = # unicode supporting type, should include length
 
 type stringSegment =
@@ -105,7 +105,7 @@ Escaped characters can be stored as their actual values in the string, and displ
 
 ### v2 Standard library
 
-```
+```fsharp
 type StringError =
   | FloatConversionError
   | IntegerConversionError

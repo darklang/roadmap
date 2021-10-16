@@ -34,7 +34,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 ### v2 Language definition
 
-```
+```fsharp
 type Expr =
   | EList { list : List Expr }
   | ...
@@ -54,7 +54,7 @@ type DType =
 
 ### v2 Standard library
 
-```
+```fsharp
 List::append(List 'a, List 'a) -> List 'a
 List::drop(List 'a, Int) -> List 'a
 List::dropWhile(List 'a, ('a -> bool)) -> List 'a

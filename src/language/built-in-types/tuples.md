@@ -12,33 +12,33 @@ Tuples are useful for situations where you want to group information together bu
 
 ## V2 definition
 
-```
-type Expr = 
+```fsharp
+type Expr =
   | ETuple { exprs : List Expr }
   | ...
 
 type Pattern =
   | PTuple { pats : List Pattern }
   | ...
-  
-type Dval = 
+
+type Dval =
   | DTuple { vals = List Dval }
   | ...
 
-type DType = 
+type DType =
   | TTuple { contents = List DTyple }
   | ...
 ```
 
 ### Interaction model
 
-```
+```fsharp
 let (myString, myInt) = ("str", 6)
 ```
 
 #### Creation:
 
-```
+```fsharp
 'let ' =>
   let |___ = ___
 ( =>
@@ -47,7 +47,7 @@ myString =>
   let (myString|) = ___
 , =>
   let (myString, |___) = ___
-'myInt) = ' => 
+'myInt) = ' =>
   let (myString, myInt) = |___
 ( =>
   let (myString, myInt) = (|)
@@ -59,7 +59,7 @@ myString =>
 
 ### Standard library
 
-```
+```fsharp
 // Access
 Tuple2::first ('a,'b) -> 'a
 Tuple2::second ('a,'b) -> 'b
@@ -68,11 +68,11 @@ Tuple2::second ('a,'b) -> 'b
 Tuple2::pair ('a, 'b) -> ('a,'b)
 
 // Manipulation
-Tuple2::mapFirst (('a,'b), ('a -> 'c)) -> ('c, 'b) 
-Tuple2::mapSecond (('a,'b), ('b -> 'c)) -> ('b, 'c) 
-Tuple2::mapBoth (('a,'b), ('a -> 'c), ('b -> 'd)) -> ('c, 'd) 
+Tuple2::mapFirst (('a,'b), ('a -> 'c)) -> ('c, 'b)
+Tuple2::mapSecond (('a,'b), ('b -> 'c)) -> ('b, 'c)
+Tuple2::mapBoth (('a,'b), ('a -> 'c), ('b -> 'd)) -> ('c, 'd)
 
-Tuple2::swap (('a,'b)) -> ('b, 'a) 
+Tuple2::swap (('a,'b)) -> ('b, 'a)
 
 
 // And all the equivalents for Tuple3
@@ -82,7 +82,7 @@ Tuple2::swap (('a,'b)) -> ('b, 'a)
 
 Changes in existing libraries:
 
-```
+```fsharp
 List.zip_v1(List 'a, List 'b) -> Option (List ('a, 'b))
 List.zipShortest_v1(List 'a, List 'b) -> List ('a, 'b)
 List.unzip_v1(List ('a, 'b) -> (List 'a, List 'b)

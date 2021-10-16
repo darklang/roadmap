@@ -10,7 +10,7 @@ What if we replaced it by something from another language (eg Rust/coffeescript'
 
 In F#:
 
-```
+```fsharp
 let! x = 5 / 6
 let! y = x + 2
 return y + 1
@@ -18,8 +18,8 @@ return y + 1
 
 Desugars into
 
-```
-Bind(5 / 6, fun x -> 
+```fsharp
+Bind(5 / 6, fun x ->
 Bind(x + 2, fun y ->
 (y + 1)
 ```

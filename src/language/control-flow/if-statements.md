@@ -1,16 +1,16 @@
 # If
 
-An if statement in Dark is a conditional, 
+An if statement in Dark is a conditional,
 
 ## Dark v1
 
 
 
-```
-type Expr = 
+```fsharp
+type Expr =
   | If { cond : Expr, thenbody : Expr, elsebody : Expr }
   | ...
-  
+
 // No pattern, dval, or dtype
 ```
 

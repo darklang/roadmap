@@ -22,13 +22,13 @@ Dark supports UUIDs directly.
 
 ### v2 Language definition
 
-```
+```fsharp
 TODO
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 // Removed
 String::toUUID_v1(Str uuid) -> Result
 

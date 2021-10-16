@@ -34,12 +34,12 @@ Non-unicode sequences of bytes are supported as the `Bytes` type.
 
 ### v2 Language definition
 
-```
+```fsharp
 ```
 
 ### v2 Standard library
 
-```
+```fsharp
 ```
 
 ### v2 Editor changes
