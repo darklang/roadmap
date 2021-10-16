@@ -10,7 +10,7 @@ Null is mostly useful for comparing against incoming JSON and results of HttpCli
 
 **Problem:** Nulls shouldn't really exist, but they do because
 
-**Solution: **Add a way to have types in HTTP handlers, and when retrieving data over Http APIs.
+**Solution:** Add a way to have types in HTTP handlers, and when retrieving data over Http APIs.
 
 **Status: TODO**
 
@@ -18,7 +18,7 @@ Null is mostly useful for comparing against incoming JSON and results of HttpCli
 
 **Problem:** It is technically possible to add nulls to the database, though it shouldn't really be allowed.
 
-**Solution: **We need some sort of way to migrate this to a newly typed world. A good way to start would be to determine how common null values are in the database, and to go from there.
+**Solution:** We need some sort of way to migrate this to a newly typed world. A good way to start would be to determine how common null values are in the database, and to go from there.
 
 **Status: TODO**
 
@@ -26,7 +26,7 @@ Null is mostly useful for comparing against incoming JSON and results of HttpCli
 
 **Problem:** When we've identified how to not require null anymore, we still have to do something with existing code that uses Null
 
-**Solution: **Probably make a new version of the dark language without null and deprecate the old one. Another alternative is to convert null into `()` (unit, or empty tuple).
+**Solution:** Probably make a new version of the dark language without null and deprecate the old one. Another alternative is to convert null into `()` (unit, or empty tuple).
 
 **Alternative solution: **convert all uses of null into Json::Null_v0, which would be deprecated
 

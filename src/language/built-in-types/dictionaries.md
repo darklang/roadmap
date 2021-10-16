@@ -81,7 +81,7 @@ This would have a number of other benefits
 
 **Problem:** If you have a dict of ints, you can add a string to it
 
-**Solution: **This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a dict and raise an error if the wrong type is inserted
+**Solution:** This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a dict and raise an error if the wrong type is inserted
 
 **Status**: **TODO**
 

@@ -8,7 +8,7 @@ Dark should support fine-grained permissioning
 
 **Problem:** Users who are added to orgs become owners
 
-**Solution: **Allow different permissions, and create common roles to reflect them
+**Solution:** Allow different permissions, and create common roles to reflect them
 
 **Status: Design needed**
 
@@ -16,7 +16,7 @@ Dark should support fine-grained permissioning
 
 **Problem:** We'd like users to show off their canvases (and may even make this the default)
 
-**Solution: **We need enough permissions that this is safe to do
+**Solution:** We need enough permissions that this is safe to do
 
 * Should be able to disable traces on a canvas
 * Secrets should actually be secret

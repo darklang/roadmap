@@ -16,7 +16,7 @@ Modules and namespaces are used to separate functions and types so that they can
 
 **Problem:** Ok, Error, Just and Nothing are not in any namespace
 
-**Solution: **Ok should be
+**Solution:** Ok should be
 
 **Status: Design needed**
 

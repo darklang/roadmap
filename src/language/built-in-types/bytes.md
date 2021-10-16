@@ -8,7 +8,7 @@ Non-unicode sequences of bytes are supported as the `Bytes` type.
 
 **Problem:** We automatically convert HTTP bodies into strings, even if it's not valid Unicode
 
-**Solution: **Use types to specify how to convert bytes to bodies, such that the logical code is as follows `body |> Bytes::toString |> Json.Deserialize<MyType>`
+**Solution:** Use types to specify how to convert bytes to bodies, such that the logical code is as follows `body |> Bytes::toString |> Json.Deserialize<MyType>`
 
 **Status: TODO**
 
@@ -24,7 +24,7 @@ Non-unicode sequences of bytes are supported as the `Bytes` type.
 
 **Problem:** We'd like to be able to make raw http calls
 
-**Solution: **Add a type, or even middleware, to HTTP calls such that we can use more types
+**Solution:** Add a type, or even middleware, to HTTP calls such that we can use more types
 
 **Status: Spec'ed or not spec'ed**
 

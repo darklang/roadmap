@@ -6,7 +6,7 @@
 
 **Problem:** Dark has two different ways of editing text. The "blankOr" method where something is blank or has a value, and the fluid method of editing code. The fact that there are two is confusing, as they have different interaction models (they also intersect badly).
 
-**Solution: **The Fluid method is far superior, so make it so we can edit databases, handlers, functions, using Fluid editing
+**Solution:** The Fluid method is far superior, so make it so we can edit databases, handlers, functions, using Fluid editing
 
 * note that some places have the ability to do cool shit now (eg, dragging function parameters to a different order); we should super-impose nice editing tooling like this on fluid tokens
 
@@ -24,7 +24,7 @@ List of known problems:
 
 **Problem**: We wrap text in a number of places (strings at 40 characters), function calls at 120 characters. We need to wrap more things.
 
-**Solution: **Write down how wrapping should work for various constructs.
+**Solution:** Write down how wrapping should work for various constructs.
 
 ### Precedence
 
@@ -58,4 +58,4 @@ The major issue that made this challenging is that when you add an expression wh
 
 **Problem**: if you rename a function, it will rename all users of that function. If you then undo a handler with a use in it, it will go back to the old name (which breaks it). If you undo a function name change, none of the uses are updated.
 
-**Solution: **we could store the TLIDs of functions being called and the DBs being referenced, instead of their names. Then renames wouldn't be needed, and wouldn't be part of the undo stack
+**Solution:** we could store the TLIDs of functions being called and the DBs being referenced, instead of their names. Then renames wouldn't be needed, and wouldn't be part of the undo stack

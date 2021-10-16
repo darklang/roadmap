@@ -8,7 +8,7 @@ Description
 
 **Problem:** The result type is `TResult`, and doesn't have parameters for its contents
 
-**Solution: **Replace `TResult` with `TResult(successType, errorType)`
+**Solution:** Replace `TResult` with `TResult(successType, errorType)`
 
 **Status: Not spec'ed**
 

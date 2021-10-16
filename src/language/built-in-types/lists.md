@@ -10,7 +10,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 **Problem:** patterns don't support lists yet
 
-**Solution: **implement
+**Solution:** implement
 
 **Status: Spec'ed or not spec'ed**
 
@@ -18,7 +18,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 **Problem:** errors, errorrails and incompletes can be put in lists, if we're not careful
 
-**Solution: **Though we have mostly been careful, it would be useful to try and fuzz functions, or add logging, or something to ensure that this doesnt happen
+**Solution:** Though we have mostly been careful, it would be useful to try and fuzz functions, or add logging, or something to ensure that this doesnt happen
 
 **Status: **Unspeced
 
@@ -26,7 +26,7 @@ Lists should be used for all “I want a sequence of things” situations, inclu
 
 **Problem:** If you have a list of ints, you can add a string to it
 
-**Solution: **This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a list and raise an error if the wrong type is inserted
+**Solution:** This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a list and raise an error if the wrong type is inserted
 
 **Status**: still unclear on solution
 

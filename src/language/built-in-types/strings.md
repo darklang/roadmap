@@ -16,7 +16,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 |> ++ " years old"
 ```
 
-**Solution: **Instead, we'd like to support string interpolation
+**Solution:** Instead, we'd like to support string interpolation
 
 ```
 "I am ${user.name} and I am ${user.age} years old"
@@ -28,7 +28,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
 
-**Solution: **support using escape characters (`\`) to support them (`\n, \r, \t, \\, \", etc`). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
+**Solution:** support using escape characters (`\`) to support them (`\n, \r, \t, \\, \", etc`). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
 
 **Status: language definition spec'ed, interaction model not spec'ed**
 
@@ -36,7 +36,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** I think the editor does not support proper unicode - I'm not sure.
 
-**Solution: **the editor should support entering all LTR Unicode text (RTL can wait until Dark v3) - if you can type it into the browser, we should support it in the editor.
+**Solution:** the editor should support entering all LTR Unicode text (RTL can wait until Dark v3) - if you can type it into the browser, we should support it in the editor.
 
 **Status: problem not understood, not spec'ed**
 
@@ -44,7 +44,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** String length is determined in `O(n)` time.
 
-**Solution: **String length should be cached as part of the string. Using a better string implementation would help solve this.
+**Solution:** String length should be cached as part of the string. Using a better string implementation would help solve this.
 
 **Status: spec'ed**
 
@@ -65,7 +65,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** the cursor can be in two different places which logically mean the same thing (the end of a line, and the start of the subsequent line). This leads to "cursor affinity" problems.
 
-**Solution: **TODO: this was written down somewhere.
+**Solution:** TODO: this was written down somewhere.
 
 **Status:** Not spec'ed
 

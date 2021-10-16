@@ -8,7 +8,7 @@ Ints are infinite precision integer values.
 
 **Problem:** Dark v1 integers are 63-bit integers, they should be infinite precision.
 
-**Solution: **make them infinite precision instead using a BigNum library
+**Solution:** make them infinite precision instead using a BigNum library
 
 **Status: Spec'ed**
 
@@ -27,7 +27,7 @@ Ints are infinite precision integer values.
 
 **Problem:** The fluid editor does not allow negative numbers.
 
-**Solution: **a UX for negative numbers is described below, it was quite straightforward.
+**Solution:** a UX for negative numbers is described below, it was quite straightforward.
 
 **Status: Spec'ed**
 
@@ -46,7 +46,7 @@ Ints are infinite precision integer values.
 
 **Problem:** it can be useful to have integers of specific sizes, in order to better model specific values or enforce overflow
 
-**Solution: **we should add `int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`, `uint64`
+**Solution:** we should add `int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`, `uint64`
 
 **Status: not spec'ed**
 

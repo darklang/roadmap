@@ -8,7 +8,7 @@ Dark supports both users and organizations, in a similar way that GitHub does
 
 **Problem:** There is no UI for organizations
 
-**Solution: **Add UI, using a Dark canvas
+**Solution:** Add UI, using a Dark canvas
 
 **Status: Spec'ed or not spec'ed**
 

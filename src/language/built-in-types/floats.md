@@ -10,7 +10,7 @@ Floats are 64-bit IEEE-754 arithmetic, with what I hope are improvements. Dark's
 
 **Non-solution: **We speculated that we could use the editor to simply hide the `Float::` part. However, that doesn't allow polymorphism, you can't have a library that takes numbers of any kind and (for example) sums them.
 
-**Solution: **use traits to support reuse of common operators for different types
+**Solution:** use traits to support reuse of common operators for different types
 
 **Status**: Not spec'ed
 
@@ -24,7 +24,7 @@ TODO
 
 **Problem:** In Dark v1, it's possible to accidentally create `Inf` and `NaN`, but it was not really possible to use them.
 
-**Solution: **prevent creating Inf or NaN. Any functions which (internally) create invalid floats will return Results instead.
+**Solution:** prevent creating Inf or NaN. Any functions which (internally) create invalid floats will return Results instead.
 
 **Status**: Spec'ed, not implemented
 
@@ -32,7 +32,7 @@ TODO
 
 **Problem:** it's possible to have negative 0.0. This is a confusing part of floats.
 
-**Solution: **TODO
+**Solution:** TODO
 
 **Status: **problem not understood, solution unknown
 
@@ -40,7 +40,7 @@ TODO
 
 **Problem:** v1 only supports decimalized floats, like `5.6`. It should also support exponent style like `6.02e23`
 
-**Solution: **Also support exponent format
+**Solution:** Also support exponent format
 
 **Status: **Representation is spec'ed. Interaction model not spec'ed.
 
@@ -48,7 +48,7 @@ TODO
 
 **Problem:** same as ints
 
-**Solution: **copy the proposed interaction model from ints
+**Solution:** copy the proposed interaction model from ints
 
 **Status: **not spec'ed
 

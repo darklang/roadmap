@@ -16,7 +16,7 @@ Description
 
 **Problem:** Datastores use this totally custom thing called a "schema". It should obviously be a type instead.
 
-**Solution: **Figure out how to migrate from schemas to types
+**Solution:** Figure out how to migrate from schemas to types
 
 **Status: TODO**
 
