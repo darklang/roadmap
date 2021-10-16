@@ -37,7 +37,7 @@ jobs:
             cp -rp book/* /tmp/book/
             cd /tmp/book
             git add -A
-            git commit "[skip ci] Automated Deploy of $CIRCLE_SHA1 via CircleCI"
+            git commit -m "[skip ci] Automated Deploy of $CIRCLE_SHA1 via CircleCI"
             GIT_USER=none USE_SSH=true git push origin gh-pages
 
 workflows:
