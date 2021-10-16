@@ -8,7 +8,7 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 **Problem:** Users currently have to do concatenation like so:
 
-```text
+```
 "I am "
 |> ++ user.name
 |> ++ " and I am "
@@ -16,9 +16,9 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 |> ++ " years old"
 ```
 
-**Solution:** Instead, we'd like to support string interpolation
+**Solution: **Instead, we'd like to support string interpolation
 
-```text
+```
 "I am ${user.name} and I am ${user.age} years old"
 ```
 
@@ -26,58 +26,58 @@ Strings are unicode encode text. Specifically, string are immutable UTF-8 encode
 
 ### Special characters
 
-**Problem:** To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
+**Problem: **To enter a newline, carriage return, tab, or other special character, you have to paste them directly. You can't type any of them. Related to this, the display of these tokens in the editor is broken.
 
-**Solution:** support using escape characters \(`\`\) to support them \(`\n, \r, \t, \\, \", etc`\). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
+**Solution: **support using escape characters (`\`) to support them (`\n, \r, \t, \\, \", etc`). Describe the complex UX for adding them, deleting, displaying, and editing them, in the spec below.
 
 **Status: language definition spec'ed, interaction model not spec'ed**
 
 ### Emoji
 
-**Problem:** I think the editor does not support proper unicode - I'm not sure.
+**Problem: **I think the editor does not support proper unicode - I'm not sure.
 
-**Solution:** the editor should support entering all LTR Unicode text \(RTL can wait until Dark v3\) - if you can type it into the browser, we should support it in the editor.
+**Solution: **the editor should support entering all LTR Unicode text (RTL can wait until Dark v3) - if you can type it into the browser, we should support it in the editor.
 
 **Status: problem not understood, not spec'ed**
 
 ### String length
 
-**Problem:** String length is determined in `O(n)` time.
+**Problem: **String length is determined in `O(n)` time.
 
-**Solution:** String length should be cached as part of the string. Using a better string implementation would help solve this.
+**Solution: **String length should be cached as part of the string. Using a better string implementation would help solve this.
 
 **Status: spec'ed**
 
 ### Shortened display
 
-**Problem:** We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:
+**Problem: **We wrap strings at 40 characters to make lines not run on forever. This has a number of annoying problems:
 
 * sometimes the string is only 41 character and it looks bad
 * sometimes the line has more room than 40 characters and it looks dumb
 * sometimes the line has builtin line breaks, but it breaks off length instead
 *  We should do a better job of wrapping that takes into account the entire length of the line, and make 40 configurable.
 
-**Solution:**  TODO
+**Solution: ** TODO
 
 **Status: not spec'ed**
 
 ### Cursor affinity
 
-**Problem:** the cursor can be in two different places which logically mean the same thing \(the end of a line, and the start of the subsequent line\). This leads to "cursor affinity" problems.
+**Problem: **the cursor can be in two different places which logically mean the same thing (the end of a line, and the start of the subsequent line). This leads to "cursor affinity" problems.
 
-**Solution:** TODO: this was written down somewhere.
+**Solution: **TODO: this was written down somewhere.
 
 **Status:** Not spec'ed
 
 ## v2 spec
 
-Strings are unicode, and character are unicode “characters” \(if it appears as one character on the screen, that’s a “character” in Dark\).
+Strings are unicode, and character are unicode “characters” (if it appears as one character on the screen, that’s a “character” in Dark).
 
-Specifically, string are immutable UTF-8 encoded sequences of Unicode code points. Chars are “Extended Grapheme Clusters”. \(A codepoint is some bytes that implement unicode characters, a grapheme is some codepoints forming a unicode entity, such as an emoji; an EGC is some graphemes, used to handle things like emojis which combine to form a single emoji\).
+Specifically, string are immutable UTF-8 encoded sequences of Unicode code points. Chars are “Extended Grapheme Clusters”. (A codepoint is some bytes that implement unicode characters, a grapheme is some codepoints forming a unicode entity, such as an emoji; an EGC is some graphemes, used to handle things like emojis which combine to form a single emoji).
 
 ### v2 Language definition
 
-```text
+```
 type string = # unicode supporting type, should include length
 
 type stringSegment = 
@@ -105,7 +105,7 @@ Escaped characters can be stored as their actual values in the string, and displ
 
 ### v2 Standard library
 
-```text
+```
 type StringError = 
   | FloatConversionError
   | IntegerConversionError
@@ -128,7 +128,6 @@ String::length_v1(String: s) -> Int
 String::padEnd(String: string, String: padWith, Int: goalLength) -> String
 String::padStart(String: string, String: padWith, Int: goalLength) -> String
 String::prepend(String: s1, String: s2) -> String
-String::random_v2(Int: length) -> Result
 String::replaceAll(String: s, String: searchFor, String: replaceWith) -> String
 String::reverse(String: string) -> String
 String::slice(String: string, Int: from, Int: to) -> String
@@ -156,6 +155,8 @@ String::toUUID_v1(String: uuid) -> Result (UUID, StringError)
 // Different in v2
 String::foreach_v1(String: s, Block f) -> String
 String::fromList_v1(List l) -> String
+String::random_v2(Int: length) -> String // length < 0 means empty string
+
 
 
 ```
@@ -169,8 +170,6 @@ TODO
 #### Interpolation
 
 TODO
-
-
 
 
 

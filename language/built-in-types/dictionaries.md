@@ -1,6 +1,6 @@
 # Dictionary
 
-Dicts are maps from a certain key type to a certain value type. The key must currently be a string. The value can be any type but all elements of the Dict are the same type \(not currently enforced\).
+Dicts are maps from a certain key type to a certain value type. The key must currently be a string. The value can be any type but all elements of the Dict are the same type (not currently enforced).
 
 Dicts are different than records: dicts can have arbitrary keys.
 
@@ -8,16 +8,51 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 ### Dictionaries are the same as records
 
-**Problem:** Right now, both are entangled and we need to separate them
+**Problem: **Right now, both dictionaries and records are represented by a `DObj` and a `TObj`. We need to separate them.
+
+**Subproblem**: the only way to update a "record" is with `Dict::set`.
+
+**Solution**: add a syntax for updating records. In existing functional languages, they use `{ existingValue with fieldName1 = newValue1; fieldName2 = newValue2 }`
+
+**Status: not speced**
+
+**Subproblem: **The "syntax" to create dicts and records is overloaded. Both use `{ field : value }` (as both are the same thing right now. If we split them, we need a way to disambiguate which one you're creating.
+
+**Solution option 1: **Add a new syntax for records. For example, we might do:
+
+`Person {.`
+
+The big advantage here is that the autocomplete would create a bunch of new fields to fill in the object, like so:
+
+```
+Person {
+  name : ___ // "string" placeholder text)
+  age : ___ // "int" placeholder text
+}
+```
+
+**Solution option 2: **Add a new syntax for dictionaries. For example, we might do:
+
+```
+let myDict = dict{
+    ___ : ___ // would be useful to have a prompt to tell you to use quotes here
+}
+```
+
+This would have a number of other benefits
+
+**Subproblem:** What do we do with existing records and objects? Do they become records or objects or a third legacy `DObj`?
+
+****
 
 **Solutions:**
 
-* Add a syntax for updating records so that we don't have to use Dict::set
+*
 * Add a new dictionary type, that is not compatible with DObj
   * It would need new functions that are type compatible
   * It would allow keys of any single type
   * The values would homogenous
-  * dot syntax would not be supported \(use `Dict::get` instead\)
+  * dot syntax would not be supported (use `Dict::get` instead)
   * record syntax would not be supported
     * could support dot
 * Remove hack where we allow hyphens in record names
@@ -30,7 +65,7 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 ### Dictionaries are **string only**
 
-**Problem:** Right now, you can't have a dictionary of other things
+**Problem: **Right now, you can't have a dictionary of other things
 
 **Solutions:**
 
@@ -42,19 +77,24 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 **Status: TODO**
 
-\*\*\*\*
+### It's possible to have heterogenous dictionaries
+
+**Problem: **If you have a dict of ints, you can add a string to it
+
+**Solution: **This might be solved by having a type checker tell you what you're doing wrong. Or perhaps we actually track the type of a dict and raise an error if the wrong type is inserted
+
+**Status**: **TODO**
 
 ## v2 Spec
 
 ### v2 Language definition
 
-```text
-
+```
 ```
 
 ### v2 Standard library
 
-```text
+```
 Dict::filterMap(Dict 'k 'v, ('v -> Option 'b)) -> Dict 'k 'b
 Dict::filter_v1(Dict 'k 'v, ('v -> bool)) -> Dict 'k 'v
 Dict::isEmpty(Dict dict) -> Bool
@@ -83,5 +123,4 @@ Dict::fromListOverwritingDuplicates(List entries) -> Dict
 
 ### v2 Editor changes
 
-### 
-
+###
