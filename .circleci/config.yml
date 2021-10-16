@@ -11,9 +11,9 @@ jobs:
       - image: cimg/rust:1.55.0
     steps:
       - checkout
-      - cargo install mdbook
-      - mdbook build
-      - mdbook test
+      - run: cargo install mdbook
+      - run: mdbook build
+      - run: mdbook test
 
   deploy-website:
     docker:
@@ -25,9 +25,9 @@ jobs:
             # repo-specific deploy key
             - "01:35:41:49:e3:f1:cd:43:1c:a8:5b:80:e4:62:b8:63"
       - checkout
-      - cargo install mdbook
-      - mdbook build
-      - mdbook test
+      - run: cargo install mdbook
+      - run: mdbook build
+      - run: mdbook test
       - run:
           name: Deploying to GitHub Pages
           command: |
