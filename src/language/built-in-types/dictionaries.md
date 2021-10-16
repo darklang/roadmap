@@ -10,15 +10,15 @@ Dicts are different than records: dicts can have arbitrary keys.
 
 **Problem:** Right now, both dictionaries and records are represented by a `DObj` and a `TObj`. We need to separate them.
 
-**Subproblem**: the only way to update a "record" is with `Dict::set`.
+**Subproblem:** the only way to update a "record" is with `Dict::set`.
 
 **Solution**: add a syntax for updating records. In existing functional languages, they use `{ existingValue with fieldName1 = newValue1; fieldName2 = newValue2 }`
 
 **Status: not speced**
 
-**Subproblem: **The "syntax" to create dicts and records is overloaded. Both use `{ field : value }` (as both are the same thing right now. If we split them, we need a way to disambiguate which one you're creating.
+**Subproblem:** The "syntax" to create dicts and records is overloaded. Both use `{ field : value }` (as both are the same thing right now. If we split them, we need a way to disambiguate which one you're creating.
 
-**Solution option 1: **Add a new syntax for records. For example, we might do:
+**Solution option 1:** Add a new syntax for records. For example, we might do:
 
 `Person {.`
 
@@ -31,7 +31,7 @@ Person {
 }
 ```
 
-**Solution option 2: **Add a new syntax for dictionaries. For example, we might do:
+**Solution option 2:** Add a new syntax for dictionaries. For example, we might do:
 
 ```fsharp
 let myDict = dict{
@@ -42,8 +42,6 @@ let myDict = dict{
 This would have a number of other benefits
 
 **Subproblem:** What do we do with existing records and objects? Do they become records or objects or a third legacy `DObj`?
-
-****
 
 **Solutions:**
 

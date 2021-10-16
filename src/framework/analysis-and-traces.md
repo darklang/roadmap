@@ -26,7 +26,7 @@ So
 
 **Problem:** when you create code in a function for the first time, the function does not have a trace, and the arguments are `Incomplete`. This means everything is red and when you try to call functions, nothing works.
 
-**Why? **The system is built around trace-driven development, but if you don't have a trace, nothing works.
+**Why?** The system is built around trace-driven development, but if you don't have a trace, nothing works.
 
 **Solution:** Add a warning that you're using the default trace and it doesn't have values for the arguments. Fade the Play button and show a warning about this. Or at least give an error when you try to run something with an incomplete in it.
 
