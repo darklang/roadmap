@@ -1,0 +1,55 @@
+aliases:
+  - &filter-only-main
+    branches:
+      only:
+        - main
+
+version: 2
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout
+      - cargo install mdbook
+      - mdbook build
+      - mdbook test
+
+  deploy-website:
+    docker:
+      - image: cimg/node:16.11.1
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            # repo-specific deploy key
+            - "01:35:41:49:e3:f1:cd:43:1c:a8:5b:80:e4:62:b8:63"
+      - checkout
+      - cargo install mdbook
+      - mdbook build
+      - mdbook test
+      - run:
+          name: Deploying to GitHub Pages
+          command: |
+            git config --global user.email "ops@darklang.com"
+            git config --global user.name "Dark Ops"
+            git worktree add /tmp/book gh-pages
+            rm -rf /tmp/book/* # this won't delete the .git directory
+            cp -rp book/* /tmp/book/
+            cd /tmp/book
+            git add -A
+            git commit "[skip ci] Automated Deploy of $CIRCLE_SHA1 via CircleCI"
+            GIT_USER=none USE_SSH=true git push origin gh-pages
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-and-test
+  build_and_deploy:
+    jobs:
+      - deploy-website:
+          # Only run on direct commits to main
+          filters: *filter-only-main
+
+
