@@ -146,9 +146,29 @@
 <p>If the field doesn't exist: <code>DError</code>. But there will be a type checker to ensure the field exists</p>
 <p>Description</p>
 <h2 id="dark-v1-problems-1"><a class="header" href="#dark-v1-problems-1">Dark v1 Problems</a></h2>
-<h3 id="title"><a class="header" href="#title">Title</a></h3>
-<p><strong>Problem:</strong></p>
+<p><strong>Problem:</strong> Records and dicts are the same thing.</p>
+<p>In v1 of Dark, there are only <code>DObj</code>s, and both records and dictionaries use the same value type. This leads to significant confusion:</p>
+<ul>
+<li>It's unclear whether the <code>{}</code> syntax creates a record or a dict</li>
+<li><code>Dict::</code> functions work on Records</li>
+<li>Record access syntax (<code>x.y</code>) works on Dictionaries</li>
+</ul>
 <p><strong>Solution:</strong></p>
+<p>A solution needs to hit the following notes:</p>
+<ul>
+<li>how do we create records and dictionaries</li>
+<li>what do we do with the current records and dictionaries</li>
+</ul>
+<p>One possible solution that was considered was to have a type constructor, like in rust. This had the problem of what happens if you pass a record into something with another type but the same shape, when you have polymorphic traits on it (actually this problem might exist anyway).</p>
+<p>Actual solution:</p>
+<ul>
+<li>existing things become records (<code>DObj becomes DRecord</code>)
+<ul>
+<li>existing <code>Dict::</code> values work on records, and are deprecated and replaced with syntax</li>
+</ul>
+</li>
+<li>new dictionary type (<code>DDict</code>)</li>
+</ul>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
 <h2 id="v2-spec"><a class="header" href="#v2-spec">v2 Spec</a></h2>
 <h3 id="v2-language-definition"><a class="header" href="#v2-language-definition">v2 Language definition</a></h3>

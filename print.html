@@ -990,12 +990,14 @@ Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
 <p><strong>Problem:</strong> Results should be a regular type in the standard library, not one built into the implementation</p>
 <p><strong>Solution:</strong></p>
 <ul>
-<li>remove <code>DResult</code>
+<li>
+<p>remove <code>DResult</code></p>
 <ul>
-<li>replace with <code>DVariant(name : String, args : Dval list</code>)</li>
+<li>replace with <code>DEnum(name : ConstructorName, args : Dval list</code>)</li>
 </ul>
 </li>
-<li>remove <code>TResult</code> from types
+<li>
+<p>remove <code>TResult</code> from types</p>
 <ul>
 <li>add type definitions to standard library</li>
 <li>replace with instance of enum type</li>
@@ -1003,14 +1005,20 @@ Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
 </li>
 </ul>
 <p><strong>Status: Not spec'ed</strong></p>
-<h2 id="-2"><a class="header" href="#-2"></a></h2>
 <h2 id="v2-spec-8"><a class="header" href="#v2-spec-8">v2 Spec</a></h2>
 <h3 id="v2-language-definition-8"><a class="header" href="#v2-language-definition-8">v2 Language definition</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">
+type Dval =
+  DEnum(ConstructorName, args : List&lt;Dval&gt;)
+  ...
+</code></pre>
 <h3 id="v2-standard-library-5"><a class="header" href="#v2-standard-library-5">v2 Standard library</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">let builtinTypes =
+  [
+
+  ]
+</code></pre>
 <h3 id="v2-editor-changes-6"><a class="header" href="#v2-editor-changes-6">v2 Editor changes</a></h3>
-<h3 id="-3"><a class="header" href="#-3"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="set"><a class="header" href="#set">Set</a></h1>
 <p>Description</p>
 <h2 id="dark-v1-problems-10"><a class="header" href="#dark-v1-problems-10">Dark v1 Problems</a></h2>
@@ -1024,7 +1032,7 @@ Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
 <h3 id="v2-standard-library-6"><a class="header" href="#v2-standard-library-6">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-7"><a class="header" href="#v2-editor-changes-7">v2 Editor changes</a></h3>
-<h3 id="-4"><a class="header" href="#-4"></a></h3>
+<h3 id="-2"><a class="header" href="#-2"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ref"><a class="header" href="#ref">Ref</a></h1>
 <p>Description</p>
 <h2 id="dark-v1-problems-11"><a class="header" href="#dark-v1-problems-11">Dark v1 Problems</a></h2>
@@ -1038,7 +1046,7 @@ Dict::fromListOverwritingDuplicates(List entries) -&gt; Dict
 <h3 id="v2-standard-library-7"><a class="header" href="#v2-standard-library-7">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-8"><a class="header" href="#v2-editor-changes-8">v2 Editor changes</a></h3>
-<h3 id="-5"><a class="header" href="#-5"></a></h3>
+<h3 id="-3"><a class="header" href="#-3"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="regex"><a class="header" href="#regex">Regex</a></h1>
 <h2 id="dark-v1-thoughts"><a class="header" href="#dark-v1-thoughts">Dark v1 thoughts</a></h2>
 <p>Dark v1 does not have regex, due to the technical challenge that the OCaml native regex implementation we used (re2) does not compile to JS.</p>
@@ -1066,7 +1074,7 @@ if($line =~ /name:\s+(\w+\s+\w+),\s+period:\s*(\d{4}\-\d{4})/)
 <h3 id="v2-standard-library-8"><a class="header" href="#v2-standard-library-8">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-9"><a class="header" href="#v2-editor-changes-9">v2 Editor changes</a></h3>
-<h3 id="-6"><a class="header" href="#-6"></a></h3>
+<h3 id="-4"><a class="header" href="#-4"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uuid"><a class="header" href="#uuid">UUID</a></h1>
 <p>Dark supports UUIDs directly.</p>
 <h2 id="dark-v1-problems-13"><a class="header" href="#dark-v1-problems-13">Dark v1 Problems</a></h2>
@@ -1091,7 +1099,7 @@ UUID::parse(String) -&gt; Result UUID Unit
 Uuid::generate() -&gt; UUID
 </code></pre>
 <h3 id="v2-editor-changes-10"><a class="header" href="#v2-editor-changes-10">v2 Editor changes</a></h3>
-<h3 id="-7"><a class="header" href="#-7"></a></h3>
+<h3 id="-5"><a class="header" href="#-5"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bytes"><a class="header" href="#bytes">Bytes</a></h1>
 <p>Non-unicode sequences of bytes are supported as the <code>Bytes</code> type.</p>
 <h2 id="dark-v1-problems-14"><a class="header" href="#dark-v1-problems-14">Dark v1 Problems</a></h2>
@@ -1107,14 +1115,14 @@ Uuid::generate() -&gt; UUID
 <p><strong>Problem:</strong> We'd like to be able to make raw http calls</p>
 <p><strong>Solution:</strong> Add a type, or even middleware, to HTTP calls such that we can use more types</p>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
-<h2 id="-8"><a class="header" href="#-8"></a></h2>
+<h2 id="-6"><a class="header" href="#-6"></a></h2>
 <h2 id="v2-spec-13"><a class="header" href="#v2-spec-13">v2 Spec</a></h2>
 <h3 id="v2-language-definition-13"><a class="header" href="#v2-language-definition-13">v2 Language definition</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-standard-library-10"><a class="header" href="#v2-standard-library-10">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-11"><a class="header" href="#v2-editor-changes-11">v2 Editor changes</a></h3>
-<h3 id="-9"><a class="header" href="#-9"></a></h3>
+<h3 id="-7"><a class="header" href="#-7"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="null"><a class="header" href="#null">Null</a></h1>
 <p>As a temporary hack, Dark supports <code>null</code>. This allows us handle JSON while we build out enough type-system support to allow them to be replaced by <code>Option</code>.</p>
 <p>Null is mostly useful for comparing against incoming JSON and results of HttpClient calls. When returning JSON or making HttpClient calls, you can use Options instead and they will be converted properly to <code>null</code> in the JSON output.</p>
@@ -1139,8 +1147,8 @@ Uuid::generate() -&gt; UUID
 <pre><code class="language-fsharp">// remove
 Bool::isNull
 </code></pre>
-<h3 id="-10"><a class="header" href="#-10"></a></h3>
-<h3 id="-11"><a class="header" href="#-11"></a></h3>
+<h3 id="-8"><a class="header" href="#-8"></a></h3>
+<h3 id="-9"><a class="header" href="#-9"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="control-flow"><a class="header" href="#control-flow">Control-flow</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="concurrency--parallelism"><a class="header" href="#concurrency--parallelism">Concurrency / parallelism</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
@@ -1325,14 +1333,14 @@ TODO: optional parameters
 <p><strong>Problem:</strong></p>
 <p><strong>Solution:</strong></p>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
-<h2 id="-12"><a class="header" href="#-12"></a></h2>
+<h2 id="-10"><a class="header" href="#-10"></a></h2>
 <h2 id="v2-spec-15"><a class="header" href="#v2-spec-15">v2 Spec</a></h2>
 <h3 id="v2-language-definition-15"><a class="header" href="#v2-language-definition-15">v2 Language definition</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-standard-library-12"><a class="header" href="#v2-standard-library-12">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-12"><a class="header" href="#v2-editor-changes-12">v2 Editor changes</a></h3>
-<h3 id="-13"><a class="header" href="#-13"></a></h3>
+<h3 id="-11"><a class="header" href="#-11"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="type-checking"><a class="header" href="#type-checking">Type checking</a></h1>
 <h3 id="dark-v1-problems-20"><a class="header" href="#dark-v1-problems-20">Dark v1 problems</a></h3>
 <p>A big issue is that Dark v1 didn't support type checking directly. Instead, the execution engine sometimes produced error which highlighted and propagated type errors.</p>
@@ -1366,9 +1374,29 @@ Bind(x + 2, fun y -&gt;
 <p>If the field doesn't exist: <code>DError</code>. But there will be a type checker to ensure the field exists</p>
 <p>Description</p>
 <h2 id="dark-v1-problems-22"><a class="header" href="#dark-v1-problems-22">Dark v1 Problems</a></h2>
-<h3 id="title-6"><a class="header" href="#title-6">Title</a></h3>
-<p><strong>Problem:</strong></p>
+<p><strong>Problem:</strong> Records and dicts are the same thing.</p>
+<p>In v1 of Dark, there are only <code>DObj</code>s, and both records and dictionaries use the same value type. This leads to significant confusion:</p>
+<ul>
+<li>It's unclear whether the <code>{}</code> syntax creates a record or a dict</li>
+<li><code>Dict::</code> functions work on Records</li>
+<li>Record access syntax (<code>x.y</code>) works on Dictionaries</li>
+</ul>
 <p><strong>Solution:</strong></p>
+<p>A solution needs to hit the following notes:</p>
+<ul>
+<li>how do we create records and dictionaries</li>
+<li>what do we do with the current records and dictionaries</li>
+</ul>
+<p>One possible solution that was considered was to have a type constructor, like in rust. This had the problem of what happens if you pass a record into something with another type but the same shape, when you have polymorphic traits on it (actually this problem might exist anyway).</p>
+<p>Actual solution:</p>
+<ul>
+<li>existing things become records (<code>DObj becomes DRecord</code>)
+<ul>
+<li>existing <code>Dict::</code> values work on records, and are deprecated and replaced with syntax</li>
+</ul>
+</li>
+<li>new dictionary type (<code>DDict</code>)</li>
+</ul>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
 <h2 id="v2-spec-16"><a class="header" href="#v2-spec-16">v2 Spec</a></h2>
 <h3 id="v2-language-definition-16"><a class="header" href="#v2-language-definition-16">v2 Language definition</a></h3>
@@ -1376,34 +1404,129 @@ Bind(x + 2, fun y -&gt;
 <h3 id="v2-standard-library-13"><a class="header" href="#v2-standard-library-13">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-13"><a class="header" href="#v2-editor-changes-13">v2 Editor changes</a></h3>
-<h3 id="-14"><a class="header" href="#-14"></a></h3>
+<h3 id="-12"><a class="header" href="#-12"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enums"><a class="header" href="#enums">Enums</a></h1>
 <p>Description: TODO</p>
 <h2 id="dark-v1-problems-23"><a class="header" href="#dark-v1-problems-23">Dark v1 Problems</a></h2>
 <h3 id="built-in-enums-are-not-real-types"><a class="header" href="#built-in-enums-are-not-real-types">Built-in enums are not real types</a></h3>
 <p><strong>Problem:</strong></p>
+<p>The existing built-in enum types (<code>Result</code> and <code>Option</code>) are partially hardcoded.
+Expressions allow <code>EConstructor</code>, but <code>Dval</code>s use <code>DResult</code> and <code>DOption</code>, while
+<code>DType</code> uses <code>DResult</code> and <code>DOption</code>.</p>
 <p><strong>Solution:</strong></p>
+<ul>
+<li>Allow Enum types in the standard library</li>
+<li>Allow versioning and namespacing for constructors</li>
+<li>Reimplement DResult and DOption using the builtin enum type
+<ul>
+<li>migrate stored programs, stored values in the User DB, stored values in traces</li>
+</ul>
+</li>
+</ul>
 <p><strong>Status: TODO</strong></p>
 <h3 id="users-cannot-create-their-own-enum-types"><a class="header" href="#users-cannot-create-their-own-enum-types">Users cannot create their own enum types</a></h3>
-<p><strong>Problem:</strong></p>
+<p><strong>Problem:</strong>
+Once we have enums created in the standard library, we still need to allow users to create them.</p>
 <p><strong>Solution:</strong></p>
+<ul>
+<li>UI work (piggyback off record work)</li>
+<li>versioning (piggyback off record work)</li>
+<li>namespaces (piggyback off record work)</li>
+<li>storage somewhere (piggyback off record work)</li>
+</ul>
 <p><strong>Status: TODO</strong></p>
 <h3 id="cannot-pipe-to-constructors"><a class="header" href="#cannot-pipe-to-constructors">Cannot pipe to constructors</a></h3>
 <p><strong>Problem:</strong> you can't pipe to a constructor</p>
 <ul>
 <li>account for constructors with multiple</li>
 </ul>
+<p><strong>Status: Not designed</strong></p>
 <h2 id="v2-spec-17"><a class="header" href="#v2-spec-17">v2 Spec</a></h2>
 <h3 id="v2-language-definition-17"><a class="header" href="#v2-language-definition-17">v2 Language definition</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">
+type StdlibTypeName =
+  { module_ : string
+    typeName : string
+    version : int }
+
+type PackageTypeName =
+  { owner : string
+    package : string
+    module_ : string
+    typeName : string
+    version : int }
+
+type UserTypeName = {
+  typeName : string
+  version : int
+}
+
+type TypeName =
+  | StdlibTypeName of StdlibTypeName
+  | PackageTypeName of StdlibTypeName
+  | UserTypeName of UserTypeName
+
+type Parameter =
+  { name : string
+    typ : DType
+    description : string }
+
+module Enum =
+  type Variant = {
+    constructorName : string
+    parameters : Parameter list
+    description : string
+  }
+
+  type T = {
+    name : TypeName
+    variants : List&lt;Variant&gt;
+    description : string
+  }
+
+module Record =
+  type T = {
+    name : TypeName
+    description : string
+    fields : List&lt;Parameter&gt;
+  }
+
+type CompoundType =
+  | RecordType of Record.T
+  | EnumType of Enum.T
+
+// existing type
+type executionState = {
+  ... // existing fields
+  userTypes = Map&lt;UserTypeName, CompoundType&gt;
+  builtinTypes = Map&lt;StdlibTypeName, CompoundType&gt;
+  packageTypes = Map&lt;PackageTypeName, CompoundType&gt;
+}
+
+// existing type
+type DType =
+  ... // existing variants
+  | CompoundType of CompoundType
+
+// existing type
+type Dval =
+  ... // existing variants
+  | DRecord of { typeName: typeName; fields : (string * Dval) list}
+  | DEnum of { typeName: typeName; enumName of string; args of Dval list }
+</code></pre>
 <h3 id="v2-standard-library-14"><a class="header" href="#v2-standard-library-14">v2 Standard library</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">let optionType : CompoundType =
+  EnumType {
+    name = StdlibTypeName { module_ = &quot;Result&quot;, typeName = &quot;Result&quot;, version = 0 }
+    variants =
+  }
+</code></pre>
 <h3 id="v2-editor-changes-14"><a class="header" href="#v2-editor-changes-14">v2 Editor changes</a></h3>
-<h3 id="-15"><a class="header" href="#-15"></a></h3>
+<h3 id="-13"><a class="header" href="#-13"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="type-aliases"><a class="header" href="#type-aliases">Type aliases</a></h1>
 <p>Description</p>
 <h2 id="dark-v1-problems-24"><a class="header" href="#dark-v1-problems-24">Dark v1 Problems</a></h2>
-<h3 id="title-7"><a class="header" href="#title-7">Title</a></h3>
+<h3 id="title-6"><a class="header" href="#title-6">Title</a></h3>
 <p><strong>Problem:</strong></p>
 <p><strong>Solution:</strong></p>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
@@ -1413,7 +1536,7 @@ Bind(x + 2, fun y -&gt;
 <h3 id="v2-standard-library-15"><a class="header" href="#v2-standard-library-15">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-15"><a class="header" href="#v2-editor-changes-15">v2 Editor changes</a></h3>
-<h3 id="-16"><a class="header" href="#-16"></a></h3>
+<h3 id="-14"><a class="header" href="#-14"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
 <p>Traits are one way to provide generics or ad-hoc polymorphism.</p>
 <h2 id="dark-v1-problems-25"><a class="header" href="#dark-v1-problems-25">Dark v1 Problems</a></h2>
@@ -1441,7 +1564,7 @@ Bind(x + 2, fun y -&gt;
 <h3 id="v2-standard-library-16"><a class="header" href="#v2-standard-library-16">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-16"><a class="header" href="#v2-editor-changes-16">v2 Editor changes</a></h3>
-<h3 id="-17"><a class="header" href="#-17"></a></h3>
+<h3 id="-15"><a class="header" href="#-15"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="modules-and-namespacing"><a class="header" href="#modules-and-namespacing">Modules and Namespacing</a></h1>
 <p>Modules and namespaces are used to separate functions and types so that they can have the same names without treading on each other.</p>
 <h2 id="dark-v1-problems-26"><a class="header" href="#dark-v1-problems-26">Dark v1 Problems</a></h2>
@@ -1458,7 +1581,7 @@ Bind(x + 2, fun y -&gt;
 <p><strong>Solution:</strong></p>
 <p><strong>Status: Spec'ed or not spec'ed</strong></p>
 <hr />
-<h2 id="-18"><a class="header" href="#-18"></a></h2>
+<h2 id="-16"><a class="header" href="#-16"></a></h2>
 <h2 id="v2-spec-20"><a class="header" href="#v2-spec-20">v2 Spec</a></h2>
 <h3 id="v2-language-definition-20"><a class="header" href="#v2-language-definition-20">v2 Language definition</a></h3>
 <pre><code class="language-fsharp">type FQFnName =
@@ -1474,7 +1597,7 @@ Bind(x + 2, fun y -&gt;
 <h3 id="v2-standard-library-17"><a class="header" href="#v2-standard-library-17">v2 Standard library</a></h3>
 <pre><code class="language-fsharp"></code></pre>
 <h3 id="v2-editor-changes-17"><a class="header" href="#v2-editor-changes-17">v2 Editor changes</a></h3>
-<h3 id="-19"><a class="header" href="#-19"></a></h3>
+<h3 id="-17"><a class="header" href="#-17"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="json-handling"><a class="header" href="#json-handling">JSON handling</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="language-versioning"><a class="header" href="#language-versioning">Language versioning</a></h1>
 <p>Dark needs to be able to support evolution of the language. We intend to have different versions of the language, removing old language features and adding better ones.</p>
@@ -1738,7 +1861,7 @@ Bind(x + 2, fun y -&gt;
 </ul>
 <p><strong>Status: TODO</strong></p>
 <hr />
-<h3 id="-20"><a class="header" href="#-20"></a></h3>
+<h3 id="-18"><a class="header" href="#-18"></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="framework"><a class="header" href="#framework">Framework</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="error-tracking"><a class="header" href="#error-tracking">Error Tracking</a></h1>
 <p>Developers need to feel safe that Dark works. Right now, it is impossible (or at least extremely challenging) to know if your users are having issues, if all webhooks are being accepted, etc. Requests may hit Dark but hit an error of many kinds, and that error will create a trace that is hard to find.</p>
@@ -1855,6 +1978,30 @@ Bind(x + 2, fun y -&gt;
 <li>converting response to JSON string</li>
 <li>converting response to other type?</li>
 </ul>
+<h3 id="desired-changes-in-dark-v2-http-middleware"><a class="header" href="#desired-changes-in-dark-v2-http-middleware">Desired changes in Dark v2 http middleware:</a></h3>
+<ul>
+<li>no special response for text/ping content types</li>
+<li>all headers should be lowercase in requests</li>
+<li>remove the x-forwarded-for, x-real-ip, x-forwarded-proto and x-forwarded headers
+<ul>
+<li>set the URL correctly</li>
+<li>add an IP address to the uri object</li>
+</ul>
+</li>
+<li>set the server to darklang</li>
+<li>improve the cors middleware to make it seemless and safe
+<ul>
+<li>Add a type to allow users to specify their cors domain/null, etc</li>
+<li>by default, return localhost:ANYTHING if that's provided</li>
+<li>use good default headers</li>
+</ul>
+</li>
+<li>remove the Connection header</li>
+<li>support multipart form data</li>
+<li>requests should support plain text</li>
+<li>request bodies in GET should be allowed</li>
+<li>accept-encoding should be responded too automatically</li>
+</ul>
 <h3 id="how-would-users-create-edit-and-delete-a-middleware"><a class="header" href="#how-would-users-create-edit-and-delete-a-middleware"><strong>How would users create, edit, and delete a middleware?</strong></a></h3>
 <ul>
 <li>middleware is just a function with a specific type signature</li>
@@ -1964,10 +2111,10 @@ fn get_body(raw_req :: HTTP::Request, user_obj,
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="traces--analysis--tests"><a class="header" href="#traces--analysis--tests">Traces / analysis / tests</a></h1>
 <ul>
-<li>Dark feels unsafe to users. We need to add ways</li>
-<li>record and places where the</li>
+<li>Dark feels unsafe to users</li>
 <li>size of traces is out of control</li>
 <li>when moving around the editor, we don't stay in the same trace</li>
+<li>nothing works if you don't have traces</li>
 </ul>
 <h3 id="storage-of-traces"><a class="header" href="#storage-of-traces">Storage of traces</a></h3>
 <p><strong>Problem:</strong> the storage of traces is poor. Each trace is currently stored and then GCed - the performance of the GC is poor, despite multiple incremental fixes, and causes operational issues.</p>
@@ -1978,9 +2125,10 @@ fn get_body(raw_req :: HTTP::Request, user_obj,
 </ul>
 <p>So</p>
 <ul>
-<li>store 404s individually</li>
+<li>store 404s separately</li>
 <li>new handler and function executions get new traces</li>
-<li>store traces so that they can be accessed by</li>
+<li>store trace data in S3/Cloud Storage</li>
+<li>add rate limiting so we only store a subset of traces (make configurable)</li>
 </ul>
 <h3 id="traces-dont-work-well-in-functions"><a class="header" href="#traces-dont-work-well-in-functions">Traces don't work well in functions</a></h3>
 <p><strong>Problem:</strong> when you create code in a function for the first time, the function does not have a trace, and the arguments are <code>Incomplete</code>. This means everything is red and when you try to call functions, nothing works.</p>

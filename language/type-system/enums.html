@@ -139,22 +139,117 @@
 <h2 id="dark-v1-problems"><a class="header" href="#dark-v1-problems">Dark v1 Problems</a></h2>
 <h3 id="built-in-enums-are-not-real-types"><a class="header" href="#built-in-enums-are-not-real-types">Built-in enums are not real types</a></h3>
 <p><strong>Problem:</strong></p>
+<p>The existing built-in enum types (<code>Result</code> and <code>Option</code>) are partially hardcoded.
+Expressions allow <code>EConstructor</code>, but <code>Dval</code>s use <code>DResult</code> and <code>DOption</code>, while
+<code>DType</code> uses <code>DResult</code> and <code>DOption</code>.</p>
 <p><strong>Solution:</strong></p>
+<ul>
+<li>Allow Enum types in the standard library</li>
+<li>Allow versioning and namespacing for constructors</li>
+<li>Reimplement DResult and DOption using the builtin enum type
+<ul>
+<li>migrate stored programs, stored values in the User DB, stored values in traces</li>
+</ul>
+</li>
+</ul>
 <p><strong>Status: TODO</strong></p>
 <h3 id="users-cannot-create-their-own-enum-types"><a class="header" href="#users-cannot-create-their-own-enum-types">Users cannot create their own enum types</a></h3>
-<p><strong>Problem:</strong></p>
+<p><strong>Problem:</strong>
+Once we have enums created in the standard library, we still need to allow users to create them.</p>
 <p><strong>Solution:</strong></p>
+<ul>
+<li>UI work (piggyback off record work)</li>
+<li>versioning (piggyback off record work)</li>
+<li>namespaces (piggyback off record work)</li>
+<li>storage somewhere (piggyback off record work)</li>
+</ul>
 <p><strong>Status: TODO</strong></p>
 <h3 id="cannot-pipe-to-constructors"><a class="header" href="#cannot-pipe-to-constructors">Cannot pipe to constructors</a></h3>
 <p><strong>Problem:</strong> you can't pipe to a constructor</p>
 <ul>
 <li>account for constructors with multiple</li>
 </ul>
+<p><strong>Status: Not designed</strong></p>
 <h2 id="v2-spec"><a class="header" href="#v2-spec">v2 Spec</a></h2>
 <h3 id="v2-language-definition"><a class="header" href="#v2-language-definition">v2 Language definition</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">
+type StdlibTypeName =
+  { module_ : string
+    typeName : string
+    version : int }
+
+type PackageTypeName =
+  { owner : string
+    package : string
+    module_ : string
+    typeName : string
+    version : int }
+
+type UserTypeName = {
+  typeName : string
+  version : int
+}
+
+type TypeName =
+  | StdlibTypeName of StdlibTypeName
+  | PackageTypeName of StdlibTypeName
+  | UserTypeName of UserTypeName
+
+type Parameter =
+  { name : string
+    typ : DType
+    description : string }
+
+module Enum =
+  type Variant = {
+    constructorName : string
+    parameters : Parameter list
+    description : string
+  }
+
+  type T = {
+    name : TypeName
+    variants : List&lt;Variant&gt;
+    description : string
+  }
+
+module Record =
+  type T = {
+    name : TypeName
+    description : string
+    fields : List&lt;Parameter&gt;
+  }
+
+type CompoundType =
+  | RecordType of Record.T
+  | EnumType of Enum.T
+
+// existing type
+type executionState = {
+  ... // existing fields
+  userTypes = Map&lt;UserTypeName, CompoundType&gt;
+  builtinTypes = Map&lt;StdlibTypeName, CompoundType&gt;
+  packageTypes = Map&lt;PackageTypeName, CompoundType&gt;
+}
+
+// existing type
+type DType =
+  ... // existing variants
+  | CompoundType of CompoundType
+
+// existing type
+type Dval =
+  ... // existing variants
+  | DRecord of { typeName: typeName; fields : (string * Dval) list}
+  | DEnum of { typeName: typeName; enumName of string; args of Dval list }
+</code></pre>
 <h3 id="v2-standard-library"><a class="header" href="#v2-standard-library">v2 Standard library</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">let optionType : CompoundType =
+  EnumType {
+    name = StdlibTypeName { module_ = &quot;Result&quot;, typeName = &quot;Result&quot;, version = 0 }
+    variants =
+  }
+</code></pre>
 <h3 id="v2-editor-changes"><a class="header" href="#v2-editor-changes">v2 Editor changes</a></h3>
 <h3 id=""><a class="header" href="#"></a></h3>
 

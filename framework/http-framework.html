@@ -200,6 +200,30 @@
 <li>converting response to JSON string</li>
 <li>converting response to other type?</li>
 </ul>
+<h3 id="desired-changes-in-dark-v2-http-middleware"><a class="header" href="#desired-changes-in-dark-v2-http-middleware">Desired changes in Dark v2 http middleware:</a></h3>
+<ul>
+<li>no special response for text/ping content types</li>
+<li>all headers should be lowercase in requests</li>
+<li>remove the x-forwarded-for, x-real-ip, x-forwarded-proto and x-forwarded headers
+<ul>
+<li>set the URL correctly</li>
+<li>add an IP address to the uri object</li>
+</ul>
+</li>
+<li>set the server to darklang</li>
+<li>improve the cors middleware to make it seemless and safe
+<ul>
+<li>Add a type to allow users to specify their cors domain/null, etc</li>
+<li>by default, return localhost:ANYTHING if that's provided</li>
+<li>use good default headers</li>
+</ul>
+</li>
+<li>remove the Connection header</li>
+<li>support multipart form data</li>
+<li>requests should support plain text</li>
+<li>request bodies in GET should be allowed</li>
+<li>accept-encoding should be responded too automatically</li>
+</ul>
 <h3 id="how-would-users-create-edit-and-delete-a-middleware"><a class="header" href="#how-would-users-create-edit-and-delete-a-middleware"><strong>How would users create, edit, and delete a middleware?</strong></a></h3>
 <ul>
 <li>middleware is just a function with a specific type signature</li>

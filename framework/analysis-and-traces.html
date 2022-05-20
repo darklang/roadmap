@@ -136,10 +136,10 @@
                     <main>
                         <h1 id="traces--analysis--tests"><a class="header" href="#traces--analysis--tests">Traces / analysis / tests</a></h1>
 <ul>
-<li>Dark feels unsafe to users. We need to add ways</li>
-<li>record and places where the</li>
+<li>Dark feels unsafe to users</li>
 <li>size of traces is out of control</li>
 <li>when moving around the editor, we don't stay in the same trace</li>
+<li>nothing works if you don't have traces</li>
 </ul>
 <h3 id="storage-of-traces"><a class="header" href="#storage-of-traces">Storage of traces</a></h3>
 <p><strong>Problem:</strong> the storage of traces is poor. Each trace is currently stored and then GCed - the performance of the GC is poor, despite multiple incremental fixes, and causes operational issues.</p>
@@ -150,9 +150,10 @@
 </ul>
 <p>So</p>
 <ul>
-<li>store 404s individually</li>
+<li>store 404s separately</li>
 <li>new handler and function executions get new traces</li>
-<li>store traces so that they can be accessed by</li>
+<li>store trace data in S3/Cloud Storage</li>
+<li>add rate limiting so we only store a subset of traces (make configurable)</li>
 </ul>
 <h3 id="traces-dont-work-well-in-functions"><a class="header" href="#traces-dont-work-well-in-functions">Traces don't work well in functions</a></h3>
 <p><strong>Problem:</strong> when you create code in a function for the first time, the function does not have a trace, and the arguments are <code>Incomplete</code>. This means everything is red and when you try to call functions, nothing works.</p>

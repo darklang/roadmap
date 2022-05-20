@@ -145,12 +145,14 @@
 <p><strong>Problem:</strong> Results should be a regular type in the standard library, not one built into the implementation</p>
 <p><strong>Solution:</strong></p>
 <ul>
-<li>remove <code>DResult</code>
+<li>
+<p>remove <code>DResult</code></p>
 <ul>
-<li>replace with <code>DVariant(name : String, args : Dval list</code>)</li>
+<li>replace with <code>DEnum(name : ConstructorName, args : Dval list</code>)</li>
 </ul>
 </li>
-<li>remove <code>TResult</code> from types
+<li>
+<p>remove <code>TResult</code> from types</p>
 <ul>
 <li>add type definitions to standard library</li>
 <li>replace with instance of enum type</li>
@@ -158,14 +160,20 @@
 </li>
 </ul>
 <p><strong>Status: Not spec'ed</strong></p>
-<h2 id=""><a class="header" href="#"></a></h2>
 <h2 id="v2-spec"><a class="header" href="#v2-spec">v2 Spec</a></h2>
 <h3 id="v2-language-definition"><a class="header" href="#v2-language-definition">v2 Language definition</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">
+type Dval =
+  DEnum(ConstructorName, args : List&lt;Dval&gt;)
+  ...
+</code></pre>
 <h3 id="v2-standard-library"><a class="header" href="#v2-standard-library">v2 Standard library</a></h3>
-<pre><code class="language-fsharp"></code></pre>
+<pre><code class="language-fsharp">let builtinTypes =
+  [
+
+  ]
+</code></pre>
 <h3 id="v2-editor-changes"><a class="header" href="#v2-editor-changes">v2 Editor changes</a></h3>
-<h3 id="-1"><a class="header" href="#-1"></a></h3>
 
                     </main>
 
