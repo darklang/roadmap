@@ -19,27 +19,33 @@ Description
 **Solution:**
 
 * remove `DResult`
-  * replace with `DVariant(name : String, args : Dval list`)
+  * replace with `DEnum(name : ConstructorName, args : Dval list`)
+
 * remove `TResult` from types
   * add type definitions to standard library
   * replace with instance of enum type
 
 **Status: Not spec'ed**
 
-##
-
 ## v2 Spec
 
 ### v2 Language definition
 
 ```fsharp
+
+type Dval =
+  DEnum(ConstructorName, args : List<Dval>)
+  ...
 ```
 
 ### v2 Standard library
 
 ```fsharp
+let builtinTypes =
+  [
+
+  ]
 ```
 
 ### v2 Editor changes
 
-###

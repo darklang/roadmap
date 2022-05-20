@@ -65,6 +65,24 @@ Requests
 * converting response to JSON string
 * converting response to other type?
 
+### Desired changes in Dark v2 http middleware:
+- no special response for text/ping content types
+- all headers should be lowercase in requests
+- remove the x-forwarded-for, x-real-ip, x-forwarded-proto and x-forwarded headers
+  - set the URL correctly
+  - add an IP address to the uri object
+- set the server to darklang
+- improve the cors middleware to make it seemless and safe
+  - Add a type to allow users to specify their cors domain/null, etc
+  - by default, return localhost:ANYTHING if that's provided
+  - use good default headers
+- remove the Connection header
+- support multipart form data
+- requests should support plain text
+- request bodies in GET should be allowed
+- accept-encoding should be responded too automatically
+
+
 ### **How would users create, edit, and delete a middleware?**
 
 * middleware is just a function with a specific type signature

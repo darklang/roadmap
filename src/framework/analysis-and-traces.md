@@ -1,9 +1,9 @@
 # Traces / analysis / tests
 
-* Dark feels unsafe to users. We need to add ways
-* record and places where the
+* Dark feels unsafe to users
 * size of traces is out of control
 * when moving around the editor, we don't stay in the same trace
+* nothing works if you don't have traces
 
 ### Storage of traces
 
@@ -16,10 +16,10 @@
 
 So
 
-* store 404s individually
+* store 404s separately
 * new handler and function executions get new traces
-* store traces so that they can be accessed by
-
+* store trace data in S3/Cloud Storage
+* add rate limiting so we only store a subset of traces (make configurable)
 
 
 ### Traces don't work well in functions

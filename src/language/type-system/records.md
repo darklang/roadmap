@@ -17,11 +17,26 @@ Description
 
 ## Dark v1 Problems
 
-### Title
+**Problem:** Records and dicts are the same thing.
 
-**Problem:**
+In v1 of Dark, there are only `DObj`s, and both records and dictionaries use the same value type. This leads to significant confusion:
+- It's unclear whether the `{}` syntax creates a record or a dict
+- `Dict::` functions work on Records
+- Record access syntax (`x.y`) works on Dictionaries
+
 
 **Solution:**
+
+A solution needs to hit the following notes:
+- how do we create records and dictionaries
+- what do we do with the current records and dictionaries
+
+One possible solution that was considered was to have a type constructor, like in rust. This had the problem of what happens if you pass a record into something with another type but the same shape, when you have polymorphic traits on it (actually this problem might exist anyway).
+
+Actual solution:
+- existing things become records (`DObj becomes DRecord`)
+  - existing `Dict::` values work on records, and are deprecated and replaced with syntax
+- new dictionary type (`DDict`)
 
 **Status: Spec'ed or not spec'ed**
 
